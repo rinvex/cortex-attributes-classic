@@ -7,7 +7,7 @@ namespace Cortex\Attributable\Models;
 use Rinvex\Attributable\Models\Attribute as BaseAttribute;
 
 /**
- * Rinvex\Attributable\Models\Attribute
+ * Rinvex\Attributable\Models\Attribute.
  *
  * @property int                                 $id
  * @property string                              $slug
