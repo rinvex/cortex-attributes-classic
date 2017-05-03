@@ -1,0 +1,79 @@
+{
+    "name": "cortex/attributable",
+    "type": "cortex-module",
+    "description": "Cortex Attributable is a frontend layer for the robust, intelligent, and integrated Entity-Attribute-Value model (EAV) implementation for Laravel Eloquent, with powerful underlying for managing entity attributes implicitly as relations with ease. It utilizes the power of Laravel Eloquent, with smooth and seamless integration.",
+    "keywords": [
+        "eav",
+        "eloquent",
+        "laravel",
+        "dynamic",
+        "robust",
+        "schema",
+        "model",
+        "value",
+        "entity",
+        "database",
+        "attribute",
+        "integrated",
+        "intelligent",
+        "entity-attribute-value"
+    ],
+    "license": "MIT",
+    "homepage": "https://rinvex.com",
+    "support": {
+        "email": "help@rinvex.com",
+        "issues": "https://github.com/rinvex/cortex-attributable/issues",
+        "source": "https://github.com/rinvex/cortex-attributable",
+        "docs": "https://github.com/rinvex/cortex-attributable/README.md"
+    },
+    "authors": [
+        {
+            "name": "Rinvex LLC",
+            "homepage": "https://rinvex.com",
+            "email": "help@rinvex.com"
+        },
+        {
+            "name": "Abdelrahman Omran",
+            "homepage": "https://omranic.com",
+            "email": "me@omranic.com",
+            "role": "Project Lead"
+        },
+        {
+            "name": "The Generous Laravel Community",
+            "homepage": "https://github.com/rinvex/cortex-attributable/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.0.0",
+        "laravel/framework": "~5.4.0",
+        "rinvex/modulable": "dev-develop",
+        "rinvex/composable": "dev-develop",
+        "rinvex/attributable": "dev-develop"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cortex\\Attributable\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "cortex-module": {
+            "autoinstall": false,
+            "icon": {
+                "color": "#2196f3",
+                "name": "heartbeat",
+                "background-size": "cover",
+                "background-color": "#e3f2fd",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
