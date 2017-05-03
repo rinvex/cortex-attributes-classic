@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Transformers\Backend;
 
-use Cortex\Attributable\Models\Attribute;
 use League\Fractal\TransformerAbstract;
+use Cortex\Attributable\Models\Attribute;
 
 class AttributeTransformer extends TransformerAbstract
 {

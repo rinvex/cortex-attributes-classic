@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Http\Controllers\Backend;
 
-use Cortex\Fort\Models\User;
 use Illuminate\Http\Request;
 use Cortex\Attributable\Models\Attribute;
-use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
+use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
 
 class AttributesController extends AuthorizedController
 {
