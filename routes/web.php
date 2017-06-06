@@ -18,5 +18,4 @@ Route::name('backend.')
         Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs')->where('attribute', '[0-9]+');
         Route::delete('{attribute}')->name('delete')->uses('AttributesController@delete')->where('attribute', '[0-9]+');
     });
-
-});
+     });
