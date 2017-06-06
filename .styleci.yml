@@ -21,4 +21,4 @@ disabled:
 
 finder:
   not-name:
-    - "routes/web.php"
+    - "web.php"
