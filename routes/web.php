@@ -5,7 +5,8 @@ declare(strict_types=1);
 Route::name('backend.')
      ->namespace('Cortex\Attributable\Http\Controllers\Backend')
      ->middleware(['web', 'nohttpcache', 'can:access-dashboard'])
-     ->prefix(config('rinvex.cortex.route.locale_prefix') ? '{locale}/backend' : 'backend')->group(function () {
+     ->prefix(config('rinvex.cortex.route.locale_prefix') ? '{locale}/backend' : 'backend')
+     ->group(['domain' => domain()], function () {
 
     // Attributes Routes
     Route::name('attributes.')->prefix('attributes')->group(function () {
@@ -17,4 +18,5 @@ Route::name('backend.')
         Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs')->where('attribute', '[0-9]+');
         Route::delete('{attribute}')->name('delete')->uses('AttributesController@delete')->where('attribute', '[0-9]+');
     });
-     });
+
+});
