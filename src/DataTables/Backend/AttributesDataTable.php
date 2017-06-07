@@ -32,8 +32,8 @@ class AttributesDataTable extends AbstractDataTable
             'type' => ['title' => trans('cortex/attributable::common.type')],
             'collection' => ['title' => trans('cortex/attributable::common.collection')],
             'default' => ['title' => trans('cortex/attributable::common.default')],
-            'created_at' => ['title' => trans('cortex/attributable::common.created_at'), 'orderable' => false, 'searchable' => false],
-            'updated_at' => ['title' => trans('cortex/attributable::common.updated_at'), 'orderable' => false, 'searchable' => false],
+            'created_at' => ['title' => trans('cortex/attributable::common.created_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
+            'updated_at' => ['title' => trans('cortex/attributable::common.updated_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
         ];
     }
 }
