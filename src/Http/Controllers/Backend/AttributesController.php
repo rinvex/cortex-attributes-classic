@@ -23,7 +23,7 @@ class AttributesController extends AuthorizedController
      */
     public function index()
     {
-        return app(AttributesDataTable::class)->render('cortex/foundation::backend.pages.datatable', ['resource' => 'cortex/attributable::common.attributes']);
+        return app(AttributesDataTable::class)->render('cortex/foundation::backend.partials.datatable', ['resource' => 'cortex/attributable::common.attributes']);
     }
 
     /**
