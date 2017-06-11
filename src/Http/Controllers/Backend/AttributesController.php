@@ -94,10 +94,10 @@ class AttributesController extends AuthorizedController
     protected function process(Request $request, Attribute $attribute)
     {
         // Prepare required input fields
-        $input = $request->all();
+        $data = $request->all();
 
         // Save attribute
-        $attribute->fill($input)->save();
+        $attribute->fill($data)->save();
 
         return intend([
             'url' => route('backend.attributes.index'),

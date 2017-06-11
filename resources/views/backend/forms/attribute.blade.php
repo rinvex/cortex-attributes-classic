@@ -54,9 +54,7 @@
                                         {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.name'), 'required' => 'required', 'autofocus' => 'autofocus']) }}
 
                                         @if ($errors->has('name'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('name') }}</span>
                                         @endif
                                     </div>
 
@@ -70,9 +68,7 @@
                                         {{ Form::text('slug', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.slug'), 'required' => 'required']) }}
 
                                         @if ($errors->has('slug'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('slug') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('slug') }}</span>
                                         @endif
                                     </div>
 
@@ -86,9 +82,7 @@
                                         {{ Form::number('order', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.order')]) }}
 
                                         @if ($errors->has('order'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('order') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('order') }}</span>
                                         @endif
                                     </div>
 
@@ -106,9 +100,7 @@
                                         {{ Form::text('group', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.group'), 'autofocus' => 'autofocus']) }}
 
                                         @if ($errors->has('group'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('group') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('group') }}</span>
                                         @endif
                                     </div>
 
@@ -122,9 +114,7 @@
                                         {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'required' => 'required', 'placeholder' => trans('cortex/attributable::common.select_type')]) }}
 
                                         @if ($errors->has('type'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('type') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('type') }}</span>
                                         @endif
                                     </div>
 
@@ -138,9 +128,7 @@
                                         {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.default'), 'autofocus' => 'autofocus']) }}
 
                                         @if ($errors->has('default'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('default') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('default') }}</span>
                                         @endif
                                     </div>
 
@@ -158,9 +146,7 @@
                                         {{ Form::select('collection', [0 => trans('cortex/attributable::common.no'), 1 => trans('cortex/attributable::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity']) }}
 
                                         @if ($errors->has('collection'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('collection') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('collection') }}</span>
                                         @endif
                                     </div>
 
@@ -174,9 +160,7 @@
                                         {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'multiple' => 'multiple', 'placeholder' => trans('cortex/attributable::common.select_entities')]) }}
 
                                         @if ($errors->has('entities'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('entities') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('entities') }}</span>
                                         @endif
                                     </div>
 
@@ -194,9 +178,7 @@
                                         {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.description'), 'rows' => 3]) }}
 
                                         @if ($errors->has('description'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('description') }}</strong>
-                                            </span>
+                                            <span class="help-block">{{ $errors->first('description') }}</span>
                                         @endif
                                     </div>
 
