@@ -35,14 +35,14 @@
 
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#details" data-toggle="tab">{{ trans('cortex/attributable::common.details') }}</a></li>
+                        <li class="active"><a href="#details-tab" data-toggle="tab">{{ trans('cortex/attributable::common.details') }}</a></li>
                         @if($attribute->exists) <li><a href="{{ route('backend.attributes.logs', ['attribute' => $attribute]) }}">{{ trans('cortex/attributable::common.logs') }}</a></li> @endif
                         @if($attribute->exists && $currentUser->can('delete-attributes', $attribute)) <li class="pull-right"><a href="#" data-toggle="modal" data-target="#delete-confirmation" data-item-href="{{ route('backend.attributes.delete', ['attribute' => $attribute]) }}" data-item-name="{{ $attribute->slug }}"><i class="fa fa-trash text-danger"></i></a></li> @endif
                     </ul>
 
                     <div class="tab-content">
 
-                        <div class="tab-pane active" id="details">
+                        <div class="tab-pane active" id="details-tab">
 
                             <div class="row">
 
