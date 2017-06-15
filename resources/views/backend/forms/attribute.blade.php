@@ -111,7 +111,7 @@
                                     {{-- Type --}}
                                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                                         {{ Form::label('type', trans('cortex/attributable::common.type'), ['class' => 'control-label']) }}
-                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'required' => 'required', 'placeholder' => trans('cortex/attributable::common.select_type')]) }}
+                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributable::common.select_type'), 'required' => 'required', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('type'))
                                             <span class="help-block">{{ $errors->first('type') }}</span>
@@ -143,7 +143,7 @@
                                     {{-- Collection --}}
                                     <div class="form-group{{ $errors->has('collection') ? ' has-error' : '' }}">
                                         {{ Form::label('collection', trans('cortex/attributable::common.collection'), ['class' => 'control-label']) }}
-                                        {{ Form::select('collection', [0 => trans('cortex/attributable::common.no'), 1 => trans('cortex/attributable::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity']) }}
+                                        {{ Form::select('collection', [0 => trans('cortex/attributable::common.no'), 1 => trans('cortex/attributable::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('collection'))
                                             <span class="help-block">{{ $errors->first('collection') }}</span>
@@ -157,7 +157,7 @@
                                     {{-- Entities --}}
                                     <div class="form-group{{ $errors->has('entityList') ? ' has-error' : '' }}">
                                         {{ Form::label('entities[]', trans('cortex/attributable::common.entities'), ['class' => 'control-label']) }}
-                                        {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'multiple' => 'multiple', 'placeholder' => trans('cortex/attributable::common.select_entities')]) }}
+                                        {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributable::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('entities'))
                                             <span class="help-block">{{ $errors->first('entities') }}</span>
