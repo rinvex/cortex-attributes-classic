@@ -7,7 +7,7 @@ namespace Cortex\Attributable\Models;
 use Rinvex\Attributable\Models\Attribute as BaseAttribute;
 
 /**
- * Rinvex\Attributable\Models\Attribute.
+ * Cortex\Attributable\Models\Attribute.
  *
  * @property int                                 $id
  * @property string                              $slug
@@ -22,18 +22,18 @@ use Rinvex\Attributable\Models\Attribute as BaseAttribute;
  * @property \Carbon\Carbon                      $updated_at
  * @property \Illuminate\Support\Collection|null $entities
  *
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute ordered($direction = 'asc')
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereCollection($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereDefault($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereGroup($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereOrder($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereType($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute ordered($direction = 'asc')
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereCollection($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereDefault($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereGroup($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereOrder($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereType($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cortex\Attributable\Models\Attribute whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Attribute extends BaseAttribute

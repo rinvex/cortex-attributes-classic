@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Cortex\Attributable\Models\Attribute;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
+use Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest;
 
 class AttributesController extends AuthorizedController
 {
@@ -29,11 +30,11 @@ class AttributesController extends AuthorizedController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AttributeFormRequest $request)
     {
         return $this->process($request, new Attribute());
     }
@@ -41,12 +42,12 @@ class AttributesController extends AuthorizedController
     /**
      * Update the given resource in storage.
      *
-     * @param \Illuminate\Http\Request              $request
-     * @param \Cortex\Attributable\Models\Attribute $attribute
+     * @param \Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest $request
+     * @param \Cortex\Attributable\Models\Attribute                           $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Attribute $attribute)
+    public function update(AttributeFormRequest $request, Attribute $attribute)
     {
         return $this->process($request, $attribute);
     }

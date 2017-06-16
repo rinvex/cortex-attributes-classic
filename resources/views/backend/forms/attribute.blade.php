@@ -6,6 +6,10 @@
     {{ config('app.name') }} » {{ trans('cortex/foundation::common.backend') }} » {{ trans('cortex/attributable::common.attributes') }} » {{ $attribute->exists ? $attribute->slug : trans('cortex/attributable::common.create_attribute') }}
 @stop
 
+@push('scripts')
+    {!! JsValidator::formRequest(Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest::class)->selector('#backend-attributes-save') !!}
+@endpush
+
 {{-- Main Content --}}
 @section('content')
 
@@ -28,9 +32,9 @@
         <section class="content">
 
             @if ($attribute->exists)
-                {{ Form::model($attribute, ['url' => route('backend.attributes.update', ['attribute' => $attribute]), 'method' => 'put']) }}
+                {{ Form::model($attribute, ['url' => route('backend.attributes.update', ['attribute' => $attribute]), 'method' => 'put', 'id' => 'backend-attributes-save']) }}
             @else
-                {{ Form::model($attribute, ['url' => route('backend.attributes.store')]) }}
+                {{ Form::model($attribute, ['url' => route('backend.attributes.store'), 'id' => 'backend-attributes-save']) }}
             @endif
 
                 <div class="nav-tabs-custom">
