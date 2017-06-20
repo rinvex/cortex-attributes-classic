@@ -159,7 +159,7 @@
                                 <div class="col-md-8">
 
                                     {{-- Entities --}}
-                                    <div class="form-group{{ $errors->has('entityList') ? ' has-error' : '' }}">
+                                    <div class="form-group{{ $errors->has('entities') ? ' has-error' : '' }}">
                                         {{ Form::label('entities[]', trans('cortex/attributable::common.entities'), ['class' => 'control-label']) }}
                                         {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributable::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
 
