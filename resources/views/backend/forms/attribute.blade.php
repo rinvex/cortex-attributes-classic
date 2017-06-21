@@ -31,22 +31,22 @@
         <!-- Main content -->
         <section class="content">
 
-            @if ($attribute->exists)
-                {{ Form::model($attribute, ['url' => route('backend.attributes.update', ['attribute' => $attribute]), 'method' => 'put', 'id' => 'backend-attributes-save']) }}
-            @else
-                {{ Form::model($attribute, ['url' => route('backend.attributes.store'), 'id' => 'backend-attributes-save']) }}
-            @endif
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#details-tab" data-toggle="tab">{{ trans('cortex/attributable::common.details') }}</a></li>
+                    @if($attribute->exists) <li><a href="{{ route('backend.attributes.logs', ['attribute' => $attribute]) }}">{{ trans('cortex/attributable::common.logs') }}</a></li> @endif
+                    @if($attribute->exists && $currentUser->can('delete-attributes', $attribute)) <li class="pull-right"><a href="#" data-toggle="modal" data-target="#delete-confirmation" data-item-href="{{ route('backend.attributes.delete', ['attribute' => $attribute]) }}" data-item-name="{{ $attribute->slug }}"><i class="fa fa-trash text-danger"></i></a></li> @endif
+                </ul>
 
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#details-tab" data-toggle="tab">{{ trans('cortex/attributable::common.details') }}</a></li>
-                        @if($attribute->exists) <li><a href="{{ route('backend.attributes.logs', ['attribute' => $attribute]) }}">{{ trans('cortex/attributable::common.logs') }}</a></li> @endif
-                        @if($attribute->exists && $currentUser->can('delete-attributes', $attribute)) <li class="pull-right"><a href="#" data-toggle="modal" data-target="#delete-confirmation" data-item-href="{{ route('backend.attributes.delete', ['attribute' => $attribute]) }}" data-item-name="{{ $attribute->slug }}"><i class="fa fa-trash text-danger"></i></a></li> @endif
-                    </ul>
+                <div class="tab-content">
 
-                    <div class="tab-content">
+                    <div class="tab-pane active" id="details-tab">
 
-                        <div class="tab-pane active" id="details-tab">
+                        @if ($attribute->exists)
+                            {{ Form::model($attribute, ['url' => route('backend.attributes.update', ['attribute' => $attribute]), 'method' => 'put', 'id' => 'backend-attributes-save']) }}
+                        @else
+                            {{ Form::model($attribute, ['url' => route('backend.attributes.store'), 'id' => 'backend-attributes-save']) }}
+                        @endif
 
                             <div class="row">
 
@@ -190,27 +190,27 @@
 
                             </div>
 
-                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
 
-                        <div class="row">
-                            <div class="col-md-12">
+                                    <div class="pull-right">
+                                        {{ Form::button(trans('cortex/attributable::common.reset'), ['class' => 'btn btn-default btn-flat', 'type' => 'reset']) }}
+                                        {{ Form::button(trans('cortex/attributable::common.submit'), ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) }}
+                                    </div>
 
-                                <div class="pull-right">
-                                    {{ Form::button(trans('cortex/attributable::common.reset'), ['class' => 'btn btn-default btn-flat', 'type' => 'reset']) }}
-                                    {{ Form::button(trans('cortex/attributable::common.submit'), ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) }}
+                                    @include('cortex/foundation::backend.partials.timestamps', ['model' => $attribute])
+
                                 </div>
-
-                                @include('cortex/foundation::backend.partials.timestamps', ['model' => $attribute])
 
                             </div>
 
-                        </div>
+                        {{ Form::close() }}
 
                     </div>
 
                 </div>
 
-            {{ Form::close() }}
+            </div>
 
         </section>
 
