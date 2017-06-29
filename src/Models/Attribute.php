@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Models;
 
+use Spatie\Activitylog\Traits\LogsActivity;
 use Rinvex\Attributable\Models\Attribute as BaseAttribute;
 
 /**
@@ -40,5 +41,41 @@ use Rinvex\Attributable\Models\Attribute as BaseAttribute;
  */
 class Attribute extends BaseAttribute
 {
-    //
+    use LogsActivity;
+
+    /**
+     * Indicates whether to log only dirty attributes or all.
+     *
+     * @var bool
+     */
+    protected static $logOnlyDirty = true;
+
+    /**
+     * The attributes that are logged on change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
+        'name',
+        'slug',
+        'description',
+        'sort_order',
+        'group',
+        'type',
+        'entities',
+        'is_required',
+        'is_collection',
+        'default',
+    ];
+
+    /**
+     * The attributes that are ignored on change.
+     *
+     * @var array
+     */
+    protected static $ignoreChangedAttributes = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 }
