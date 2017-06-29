@@ -10,19 +10,20 @@ use Rinvex\Attributable\Models\Attribute as BaseAttribute;
 /**
  * Cortex\Attributable\Models\Attribute.
  *
- * @property int                                 $id
- * @property string                              $slug
- * @property array                               $name
- * @property array                               $description
- * @property int                                 $sort_order
- * @property string|null                         $group
- * @property string                              $type
- * @property int                                 $is_required
- * @property int                                 $is_collection
- * @property string|null                         $default
- * @property \Carbon\Carbon|null                 $created_at
- * @property \Carbon\Carbon|null                 $updated_at
- * @property \Illuminate\Support\Collection|null $entities
+ * @property int                                                                                 $id
+ * @property string                                                                              $slug
+ * @property array                                                                               $name
+ * @property array                                                                               $description
+ * @property int                                                                                 $sort_order
+ * @property string|null                                                                         $group
+ * @property string                                                                              $type
+ * @property int                                                                                 $is_required
+ * @property int                                                                                 $is_collection
+ * @property string|null                                                                         $default
+ * @property \Carbon\Carbon|null                                                                 $created_at
+ * @property \Carbon\Carbon|null                                                                 $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activity
+ * @property \Illuminate\Support\Collection|null                                                 $entities
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Attributable\Models\Attribute ordered($direction = 'asc')
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereCreatedAt($value)
