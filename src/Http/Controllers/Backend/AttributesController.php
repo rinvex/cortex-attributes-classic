@@ -6,6 +6,7 @@ namespace Cortex\Attributable\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use Cortex\Attributable\Models\Attribute;
+use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
 use Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest;
@@ -25,6 +26,21 @@ class AttributesController extends AuthorizedController
     public function index()
     {
         return app(AttributesDataTable::class)->render('cortex/foundation::backend.partials.datatable', ['id' => 'cortex-attributable-attributes', 'phrase' => trans('cortex/attributable::common.attributes')]);
+    }
+
+    /**
+     * Display a listing of the resource logs.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logs(Attribute $attribute)
+    {
+        return app(LogsDataTable::class)->with([
+            'type' => 'attributes',
+            'resource' => $attribute,
+            'id' => 'cortex-attributable-attributes-logs',
+            'phrase' => trans('cortex/attributable::common.attributes')
+        ])->render('cortex/foundation::backend.partials.datatable-logs');
     }
 
     /**
