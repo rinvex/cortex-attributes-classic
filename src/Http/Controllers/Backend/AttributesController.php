@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Cortex\Attributable\Models\Attribute;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
@@ -99,8 +100,9 @@ class AttributesController extends AuthorizedController
     {
         $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
         $entities = array_combine(app('rinvex.attributable.entities')->toArray(), app('rinvex.attributable.entities')->toArray());
+        $groups = DB::table(config('rinvex.attributable.tables.attributes'))->distinct()->select(['group'])->get()->pluck('group', 'group')->toArray();
 
-        return view('cortex/attributable::backend.forms.attribute', compact('attribute', 'types', 'entities'));
+        return view('cortex/attributable::backend.forms.attribute', compact('attribute', 'types', 'entities', 'groups'));
     }
 
     /**

@@ -101,7 +101,7 @@
                                     {{-- Group --}}
                                     <div class="form-group{{ $errors->has('group') ? ' has-error' : '' }}">
                                         {{ Form::label('group', trans('cortex/attributable::common.group'), ['class' => 'control-label']) }}
-                                        {{ Form::text('group', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.group'), 'autofocus' => 'autofocus']) }}
+                                        {{ Form::select('group', $groups, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributable::common.select_group'), 'data-tags' => 'true', 'data-allow-clear' => 'true', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('group'))
                                             <span class="help-block">{{ $errors->first('group') }}</span>

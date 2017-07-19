@@ -11,6 +11,7 @@ return [
     'details' => 'Details',
     'logs' => 'Logs',
     'group' => 'Group',
+    'select_group' => 'Select Group',
     'slug' => 'Slug',
     'order' => 'Order',
     'description' => 'Description',
