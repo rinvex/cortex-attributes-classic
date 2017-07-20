@@ -98,11 +98,11 @@ class AttributesController extends AuthorizedController
      */
     public function form(Attribute $attribute)
     {
+        $groups = Attribute::distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
         $entities = array_combine(app('rinvex.attributable.entities')->toArray(), app('rinvex.attributable.entities')->toArray());
-        $groups = DB::table(config('rinvex.attributable.tables.attributes'))->distinct()->select(['group'])->get()->pluck('group', 'group')->toArray();
 
-        return view('cortex/attributable::backend.forms.attribute', compact('attribute', 'types', 'entities', 'groups'));
+        return view('cortex/attributable::backend.forms.attribute', compact('attribute', 'groups', 'types', 'entities'));
     }
 
     /**
