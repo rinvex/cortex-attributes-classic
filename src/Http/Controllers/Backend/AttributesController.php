@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Cortex\Attributable\Models\Attribute;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
