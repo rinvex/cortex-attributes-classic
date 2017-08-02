@@ -12,8 +12,8 @@ use Rinvex\Attributable\Models\Attribute as BaseAttribute;
  *
  * @property int                                                                                 $id
  * @property string                                                                              $slug
- * @property array                                                                               $name
- * @property array                                                                               $description
+ * @property string                                                                              $name
+ * @property string                                                                              $description
  * @property int                                                                                 $sort_order
  * @property string|null                                                                         $group
  * @property string                                                                              $type
