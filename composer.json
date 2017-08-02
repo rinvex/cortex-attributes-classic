@@ -46,6 +46,7 @@
     "require": {
         "php": "^7.0.0",
         "laravel/framework": "~5.5.0",
+        "cortex/foundation": "dev-develop",
         "rinvex/composable": "dev-develop",
         "rinvex/attributable": "dev-develop"
     },
