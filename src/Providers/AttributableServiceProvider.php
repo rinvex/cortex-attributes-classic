@@ -14,21 +14,15 @@ class AttributableServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        // Load routes
-        $this->loadRoutes($router);
-
-        if ($this->app->runningInConsole()) {
-            // Publish Resources
-            $this->publishResources();
-        }
-
-        // Register a view file namespace
+        // Load resources
+        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributable');
-
-        // Load language phrases
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributable');
+
+        // Publish Resources
+        ! $this->app->runningInConsole() || $this->publishResources();
 
         // Register sidebar menus
         $this->app->singleton('menus.sidebar.management', function ($app) {
@@ -58,45 +52,13 @@ class AttributableServiceProvider extends ServiceProvider
     }
 
     /**
-     * Load the module routes.
-     *
-     * @param \Illuminate\Routing\Router $router
-     *
-     * @return void
-     */
-    public function loadRoutes(Router $router)
-    {
-        // Load routes
-        if ($this->app->routesAreCached()) {
-            $this->app->booted(function () {
-                require $this->app->getCachedRoutesPath();
-            });
-        } else {
-            // Load Routes
-            require __DIR__.'/../../routes/web.php';
-
-            $this->app->booted(function () use ($router) {
-                $router->getRoutes()->refreshNameLookups();
-                $router->getRoutes()->refreshActionLookups();
-            });
-        }
-    }
-
-    /**
      * Publish resources.
      *
      * @return void
      */
     protected function publishResources()
     {
-        // Publish views
-        $this->publishes([
-            realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributable'),
-        ], 'views');
-
-        // Publish language phrases
-        $this->publishes([
-            realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributable'),
-        ], 'lang');
+        $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributable')], 'lang');
+        $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributable')], 'views');
     }
 }
