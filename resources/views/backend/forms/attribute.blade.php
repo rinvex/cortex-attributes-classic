@@ -18,14 +18,10 @@
     @endif
 
     <div class="content-wrapper">
-        <!-- Breadcrumbs -->
         <section class="content-header">
             <h1>{{ $attribute->exists ? $attribute->slug : trans('cortex/attributable::common.create_attribute') }}</h1>
-            <ol class="breadcrumb">
-                <li><a href="{{ route('backend.home') }}"><i class="fa fa-dashboard"></i> {{ trans('cortex/foundation::common.backend') }}</a></li>
-                <li><a href="{{ route('backend.attributes.index') }}">{{ trans('cortex/attributable::common.attributes') }}</a></li>
-                <li class="active">{{ $attribute->exists ? $attribute->slug : trans('cortex/attributable::common.create_attribute') }}</li>
-            </ol>
+            <!-- Breadcrumbs -->
+            {{ Breadcrumbs::render() }}
         </section>
 
         <!-- Main content -->
