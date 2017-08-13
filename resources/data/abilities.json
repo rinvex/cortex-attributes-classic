@@ -1,0 +1,26 @@
+[
+    {
+        "action": "list",
+        "resource": "attributes",
+        "policy": "Cortex\\Attributable\\Policies\\AttributePolicy@list",
+        "name": "Can List Existing Attributes"
+    },
+    {
+        "action": "create",
+        "resource": "attributes",
+        "policy": "Cortex\\Attributable\\Policies\\AttributePolicy@create",
+        "name": "Can Create New Attributes"
+    },
+    {
+        "action": "update",
+        "resource": "attributes",
+        "policy": "Cortex\\Attributable\\Policies\\AttributePolicy@update",
+        "name": "Can Update Existing Attributes"
+    },
+    {
+        "action": "delete",
+        "resource": "attributes",
+        "policy": "Cortex\\Attributable\\Policies\\AttributePolicy@delete",
+        "name": "Can Delete Existing Attributes"
+    }
+]
