@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Providers;
 
-use Cortex\Attributable\Models\Attribute;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\Compilers\BladeCompiler;
 
 class AttributableServiceProvider extends ServiceProvider
 {
