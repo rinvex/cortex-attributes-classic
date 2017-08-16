@@ -43,8 +43,9 @@ class AttributesDataTable extends AbstractDataTable
     {
         return [
             'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'backend.attributes.edit\', {attribute: full.id})+"\">"+data+"</a>"', 'responsivePriority' => 0],
+            'slug' => ['title' => trans('cortex/attributable::common.slug')],
             'type' => ['title' => trans('cortex/attributable::common.type')],
-            'collection' => ['title' => trans('cortex/attributable::common.collection')],
+            'is_collection' => ['title' => trans('cortex/attributable::common.collection')],
             'default' => ['title' => trans('cortex/attributable::common.default')],
             'created_at' => ['title' => trans('cortex/attributable::common.created_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
             'updated_at' => ['title' => trans('cortex/attributable::common.updated_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
