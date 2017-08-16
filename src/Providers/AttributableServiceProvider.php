@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Cortex\Attributable\Console\Commands\SeedCommand;
+use Cortex\Attributable\Console\Commands\MigrateCommand;
 
 class AttributableServiceProvider extends ServiceProvider
 {
@@ -34,6 +36,7 @@ class AttributableServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributable');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributable');
+        $this->commands([SeedCommand::class, MigrateCommand::class]);
         $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus.php';
         });
