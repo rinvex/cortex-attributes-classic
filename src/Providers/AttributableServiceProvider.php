@@ -34,6 +34,9 @@ class AttributableServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributable');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributable');
+        $this->app->afterResolving('blade.compiler', function () {
+            require __DIR__.'/../../routes/menus.php';
+        });
 
         // Publish Resources
         ! $this->app->runningInConsole() || $this->publishResources();
