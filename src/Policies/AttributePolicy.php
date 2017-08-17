@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Policies;
 
-use Cortex\Fort\Models\User;
+use Rinvex\Fort\Models\User;
 use Cortex\Attributable\Models\Attribute;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -16,7 +16,7 @@ class AttributePolicy
      * Determine whether the user can list attributes.
      *
      * @param string                   $ability
-     * @param \Cortex\Fort\Models\User $user
+     * @param \Rinvex\Fort\Models\User $user
      *
      * @return bool
      */
@@ -29,7 +29,7 @@ class AttributePolicy
      * Determine whether the user can create attributes.
      *
      * @param string                   $ability
-     * @param \Cortex\Fort\Models\User $user
+     * @param \Rinvex\Fort\Models\User $user
      *
      * @return bool
      */
@@ -42,7 +42,7 @@ class AttributePolicy
      * Determine whether the user can update the attribute.
      *
      * @param string                                $ability
-     * @param \Cortex\Fort\Models\User              $user
+     * @param \Rinvex\Fort\Models\User              $user
      * @param \Cortex\Attributable\Models\Attribute $resource
      *
      * @return bool
@@ -56,7 +56,7 @@ class AttributePolicy
      * Determine whether the user can delete the attribute.
      *
      * @param string                                $ability
-     * @param \Cortex\Fort\Models\User              $user
+     * @param \Rinvex\Fort\Models\User              $user
      * @param \Cortex\Attributable\Models\Attribute $resource
      *
      * @return bool
