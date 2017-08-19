@@ -19,6 +19,7 @@ class AttributeTransformer extends TransformerAbstract
             'name' => (string) $attribute->name,
             'type' => (string) $attribute->type,
             'slug' => (string) $attribute->slug,
+            'group' => (string) $attribute->group,
             'is_collection' => (bool) $attribute->is_collection,
             'default' => (string) $attribute->default,
             'created_at' => (string) $attribute->created_at,
