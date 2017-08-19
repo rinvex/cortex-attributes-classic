@@ -55,7 +55,7 @@ class AttributesController extends AuthorizedController
      */
     public function store(AttributeFormRequest $request)
     {
-        return $this->process($request, new Attribute());
+        return $this->process($request, app('rinvex.attributable.attribute'));
     }
 
     /**
@@ -97,7 +97,7 @@ class AttributesController extends AuthorizedController
      */
     public function form(Attribute $attribute)
     {
-        $groups = Attribute::distinct()->get(['group'])->pluck('group', 'group')->toArray();
+        $groups = app('rinvex.attributable.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
         $entities = array_combine(app('rinvex.attributable.entities')->toArray(), app('rinvex.attributable.entities')->toArray());
 

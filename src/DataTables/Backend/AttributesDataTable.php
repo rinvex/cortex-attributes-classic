@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\DataTables\Backend;
 
-use Cortex\Attributable\Models\Attribute;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\Attributable\Transformers\Backend\AttributeTransformer;
 
@@ -13,7 +12,7 @@ class AttributesDataTable extends AbstractDataTable
     /**
      * {@inheritdoc}
      */
-    protected $model = Attribute::class;
+    protected $model = 'rinvex.attributable.attribute';
 
     /**
      * {@inheritdoc}
