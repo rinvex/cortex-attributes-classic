@@ -3,7 +3,7 @@
 
 {{-- Page Title --}}
 @section('title')
-    {{ config('app.name') }} » {{ trans('cortex/foundation::common.backend') }} » {{ trans('cortex/attributable::common.attributes') }} » {{ $attribute->exists ? $attribute->slug : trans('cortex/attributable::common.create_attribute') }}
+    {{ config('app.name') }} » {{ trans('cortex/foundation::common.backend') }} » {{ trans('cortex/attributable::common.attributes') }} » {{ $attribute->exists ? $attribute->name : trans('cortex/attributable::common.create_attribute') }}
 @stop
 
 @push('scripts')
@@ -19,7 +19,7 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>{{ $attribute->exists ? $attribute->slug : trans('cortex/attributable::common.create_attribute') }}</h1>
+            <h1>{{ $attribute->exists ? $attribute->name : trans('cortex/attributable::common.create_attribute') }}</h1>
             <!-- Breadcrumbs -->
             {{ Breadcrumbs::render() }}
         </section>
