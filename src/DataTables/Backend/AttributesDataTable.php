@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\DataTables\Backend;
 
+use Cortex\Attributable\Models\Attribute;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\Attributable\Transformers\Backend\AttributeTransformer;
 
@@ -12,7 +13,7 @@ class AttributesDataTable extends AbstractDataTable
     /**
      * {@inheritdoc}
      */
-    protected $model = 'rinvex.attributable.attribute';
+    protected $model = Attribute::class;
 
     /**
      * {@inheritdoc}
@@ -72,9 +73,11 @@ class AttributesDataTable extends AbstractDataTable
      */
     public function ajax()
     {
+        $transformer = app($this->transformer);
+
         return $this->datatables
             ->eloquent($this->query())
-            ->setTransformer(new $this->transformer())
+            ->setTransformer($transformer)
             ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
             ->make(true);
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Cortex\Attributable\Models\Attribute;
 use Cortex\Attributable\Console\Commands\SeedCommand;
 use Cortex\Attributable\Console\Commands\MigrateCommand;
 
@@ -31,6 +32,9 @@ class AttributableServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Bind eloquent models to IoC container
+        $this->app->alias('rinvex.attributable.attribute', Attribute::class);
+
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
             $this->app->singleton($value, function ($app) use ($key) {
