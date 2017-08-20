@@ -125,7 +125,7 @@
                                     {{-- Default --}}
                                     <div class="form-group{{ $errors->has('default') ? ' has-error' : '' }}">
                                         {{ Form::label('default', trans('cortex/attributable::common.default'), ['class' => 'control-label']) }}
-                                        {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.default'), 'autofocus' => 'autofocus']) }}
+                                        {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributable::common.default')]) }}
 
                                         @if ($errors->has('default'))
                                             <span class="help-block">{{ $errors->first('default') }}</span>
