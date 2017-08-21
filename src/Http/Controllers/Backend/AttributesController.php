@@ -28,7 +28,7 @@ class AttributesController extends AuthorizedController
         return app(AttributesDataTable::class)->with([
             'id' => 'cortex-attributable',
             'phrase' => trans('cortex/attributable::common.attributes'),
-        ])->render('cortex/foundation::backend.partials.datatable');
+        ])->render('cortex/foundation::backend.pages.datatable');
     }
 
     /**
@@ -43,7 +43,7 @@ class AttributesController extends AuthorizedController
             'resource' => $attribute,
             'id' => 'cortex-attributable-logs',
             'phrase' => trans('cortex/attributable::common.attributes'),
-        ])->render('cortex/foundation::backend.partials.datatable-logs');
+        ])->render('cortex/foundation::backend.pages.datatable-logs');
     }
 
     /**
