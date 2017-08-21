@@ -8,8 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use Cortex\Attributable\Models\Attribute;
 use Cortex\Attributable\Console\Commands\SeedCommand;
 use Cortex\Attributable\Console\Commands\InstallCommand;
-use Cortex\Attributable\Console\Commands\PublishCommand;
 use Cortex\Attributable\Console\Commands\MigrateCommand;
+use Cortex\Attributable\Console\Commands\PublishCommand;
 
 class AttributableServiceProvider extends ServiceProvider
 {
