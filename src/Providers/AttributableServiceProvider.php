@@ -7,6 +7,8 @@ namespace Cortex\Attributable\Providers;
 use Illuminate\Support\ServiceProvider;
 use Cortex\Attributable\Models\Attribute;
 use Cortex\Attributable\Console\Commands\SeedCommand;
+use Cortex\Attributable\Console\Commands\InstallCommand;
+use Cortex\Attributable\Console\Commands\PublishCommand;
 use Cortex\Attributable\Console\Commands\MigrateCommand;
 
 class AttributableServiceProvider extends ServiceProvider
@@ -18,6 +20,8 @@ class AttributableServiceProvider extends ServiceProvider
      */
     protected $commands = [
         MigrateCommand::class => 'command.cortex.attributable.migrate',
+        PublishCommand::class => 'command.cortex.attributable.publish',
+        InstallCommand::class => 'command.cortex.attributable.install',
         SeedCommand::class => 'command.cortex.attributable.seed',
     ];
 
