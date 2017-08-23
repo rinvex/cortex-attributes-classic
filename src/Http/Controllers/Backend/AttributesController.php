@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Foundation\DataTables\LogsDataTable;
+use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
 use Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest;
@@ -62,7 +62,7 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest $request
-     * @param \Rinvex\Attributable\Contracts\AttributeContract                           $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContract                $attribute
      *
      * @return \Illuminate\Http\Response
      */
@@ -107,7 +107,7 @@ class AttributesController extends AuthorizedController
     /**
      * Process the form for store/update of the given resource.
      *
-     * @param \Illuminate\Http\Request              $request
+     * @param \Illuminate\Http\Request                                 $request
      * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
      *
      * @return \Illuminate\Http\Response

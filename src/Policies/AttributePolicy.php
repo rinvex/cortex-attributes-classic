@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Policies;
 
 use Rinvex\Fort\Contracts\UserContract;
-use Rinvex\Attributable\Contracts\AttributeContract;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Rinvex\Attributable\Contracts\AttributeContract;
 
 class AttributePolicy
 {
@@ -15,7 +15,7 @@ class AttributePolicy
     /**
      * Determine whether the user can list attributes.
      *
-     * @param string                   $ability
+     * @param string                              $ability
      * @param \Rinvex\Fort\Contracts\UserContract $user
      *
      * @return bool
@@ -28,7 +28,7 @@ class AttributePolicy
     /**
      * Determine whether the user can create attributes.
      *
-     * @param string                   $ability
+     * @param string                              $ability
      * @param \Rinvex\Fort\Contracts\UserContract $user
      *
      * @return bool
@@ -41,7 +41,7 @@ class AttributePolicy
     /**
      * Determine whether the user can update the attribute.
      *
-     * @param string                                $ability
+     * @param string                                           $ability
      * @param \Rinvex\Fort\Contracts\UserContract              $user
      * @param \Rinvex\Attributable\Contracts\AttributeContract $resource
      *
@@ -55,7 +55,7 @@ class AttributePolicy
     /**
      * Determine whether the user can delete the attribute.
      *
-     * @param string                                $ability
+     * @param string                                           $ability
      * @param \Rinvex\Fort\Contracts\UserContract              $user
      * @param \Rinvex\Attributable\Contracts\AttributeContract $resource
      *
