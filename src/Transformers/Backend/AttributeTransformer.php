@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Transformers\Backend;
 
 use League\Fractal\TransformerAbstract;
-use Cortex\Attributable\Models\Attribute;
+use Rinvex\Attributable\Contracts\AttributeContract;
 
 class AttributeTransformer extends TransformerAbstract
 {
     /**
      * @return array
      */
-    public function transform(Attribute $attribute)
+    public function transform(AttributeContract $attribute)
     {
         return [
             'id' => (int) $attribute->id,

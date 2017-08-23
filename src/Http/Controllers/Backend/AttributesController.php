@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use Cortex\Attributable\Models\Attribute;
+use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributable\DataTables\Backend\AttributesDataTable;
@@ -36,7 +36,7 @@ class AttributesController extends AuthorizedController
      *
      * @return \Illuminate\Http\Response
      */
-    public function logs(Attribute $attribute)
+    public function logs(AttributeContract $attribute)
     {
         return app(LogsDataTable::class)->with([
             'type' => 'attributes',
@@ -62,11 +62,11 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributable\Http\Requests\Backend\AttributeFormRequest $request
-     * @param \Cortex\Attributable\Models\Attribute                           $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContract                           $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(AttributeFormRequest $request, Attribute $attribute)
+    public function update(AttributeFormRequest $request, AttributeContract $attribute)
     {
         return $this->process($request, $attribute);
     }
@@ -74,11 +74,11 @@ class AttributesController extends AuthorizedController
     /**
      * Delete the given resource from storage.
      *
-     * @param \Cortex\Attributable\Models\Attribute $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    public function delete(Attribute $attribute)
+    public function delete(AttributeContract $attribute)
     {
         $attribute->delete();
 
@@ -91,11 +91,11 @@ class AttributesController extends AuthorizedController
     /**
      * Show the form for create/update of the given resource.
      *
-     * @param \Cortex\Attributable\Models\Attribute $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    public function form(Attribute $attribute)
+    public function form(AttributeContract $attribute)
     {
         $groups = app('rinvex.attributable.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
@@ -108,11 +108,11 @@ class AttributesController extends AuthorizedController
      * Process the form for store/update of the given resource.
      *
      * @param \Illuminate\Http\Request              $request
-     * @param \Cortex\Attributable\Models\Attribute $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    protected function process(Request $request, Attribute $attribute)
+    protected function process(Request $request, AttributeContract $attribute)
     {
         // Prepare required input fields
         $data = $request->all();

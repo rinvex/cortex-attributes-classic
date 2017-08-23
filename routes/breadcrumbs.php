@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Cortex\Attributable\Models\Attribute;
+use Rinvex\Attributable\Contracts\AttributeContract;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
 
 Breadcrumbs::register('backend.attributes.index', function (BreadcrumbsGenerator $breadcrumbs) {
@@ -15,12 +15,12 @@ Breadcrumbs::register('backend.attributes.create', function (BreadcrumbsGenerato
     $breadcrumbs->push(trans('cortex/attributable::common.create_attribute'), route('backend.attributes.create'));
 });
 
-Breadcrumbs::register('backend.attributes.edit', function (BreadcrumbsGenerator $breadcrumbs, Attribute $attribute) {
+Breadcrumbs::register('backend.attributes.edit', function (BreadcrumbsGenerator $breadcrumbs, AttributeContract $attribute) {
     $breadcrumbs->parent('backend.attributes.index');
     $breadcrumbs->push($attribute->name, route('backend.attributes.edit', ['attribute' => $attribute]));
 });
 
-Breadcrumbs::register('backend.attributes.logs', function (BreadcrumbsGenerator $breadcrumbs, Attribute $attribute) {
+Breadcrumbs::register('backend.attributes.logs', function (BreadcrumbsGenerator $breadcrumbs, AttributeContract $attribute) {
     $breadcrumbs->parent('backend.attributes.index');
     $breadcrumbs->push($attribute->name, route('backend.attributes.edit', ['attribute' => $attribute]));
     $breadcrumbs->push(trans('cortex/attributable::common.logs'), route('backend.attributes.logs', ['attribute' => $attribute]));
