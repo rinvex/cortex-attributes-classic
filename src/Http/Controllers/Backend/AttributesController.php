@@ -74,7 +74,7 @@ class AttributesController extends AuthorizedController
     /**
      * Delete the given resource from storage.
      *
-     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
@@ -91,7 +91,7 @@ class AttributesController extends AuthorizedController
     /**
      * Show the form for create/update of the given resource.
      *
-     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
@@ -107,8 +107,8 @@ class AttributesController extends AuthorizedController
     /**
      * Process the form for store/update of the given resource.
      *
-     * @param \Illuminate\Http\Request                                 $request
-     * @param \Rinvex\Attributable\Contracts\AttributeContractContract $attribute
+     * @param \Illuminate\Http\Request                         $request
+     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
