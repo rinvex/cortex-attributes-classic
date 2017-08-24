@@ -101,6 +101,10 @@ class AttributesController extends AuthorizedController
         $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
         $entities = array_combine(app('rinvex.attributable.entities')->toArray(), app('rinvex.attributable.entities')->toArray());
 
+        ksort($types);
+        ksort($groups);
+        ksort($entities);
+
         return view('cortex/attributable::backend.forms.attribute', compact('attribute', 'groups', 'types', 'entities'));
     }
 
