@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Cortex\Attributable\Providers;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Attributable\Console\Commands\SeedCommand;
 use Cortex\Attributable\Console\Commands\InstallCommand;
 use Cortex\Attributable\Console\Commands\MigrateCommand;
@@ -44,8 +46,11 @@ class AttributableServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
+        // Bind models explicitly
+        $router->model('attribute', AttributeContract::class);
+
         // Load resources
         require __DIR__.'/../../routes/breadcrumbs.php';
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');

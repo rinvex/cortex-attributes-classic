@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-use Rinvex\Attributable\Contracts\AttributeContract;
-
-Route::model('attribute', AttributeContract::class);
-
 Route::group(['domain' => domain()], function () {
 
     Route::name('backend.')
