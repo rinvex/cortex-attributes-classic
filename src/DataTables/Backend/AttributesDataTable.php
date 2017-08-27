@@ -90,7 +90,7 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns()
     {
         return [
-            'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'backend.attributes.edit\', {attribute: full.id})+"\">"+data+"</a>"', 'responsivePriority' => 0],
+            'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'backend.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
             'slug' => ['title' => trans('cortex/attributable::common.slug')],
             'type' => ['title' => trans('cortex/attributable::common.type')],
             'group' => ['title' => trans('cortex/attributable::common.group'), 'visible' => false],
