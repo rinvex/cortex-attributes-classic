@@ -48,7 +48,8 @@ class AttributableServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        // Bind models explicitly
+        // Bind route models and constrains
+        $router->pattern('attribute', '[a-z0-9-]+');
         $router->model('attribute', AttributeContract::class);
 
         // Load resources

@@ -14,10 +14,10 @@ Route::group(['domain' => domain()], function () {
             Route::get('/')->name('index')->uses('AttributesController@index');
             Route::get('create')->name('create')->uses('AttributesController@form');
             Route::post('create')->name('store')->uses('AttributesController@store');
-            Route::get('{attribute}')->name('edit')->uses('AttributesController@form')->where('attribute', '[a-z0-9-]+');
-            Route::put('{attribute}')->name('update')->uses('AttributesController@update')->where('attribute', '[a-z0-9-]+');
-            Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs')->where('attribute', '[a-z0-9-]+');
-            Route::delete('{attribute}')->name('delete')->uses('AttributesController@delete')->where('attribute', '[a-z0-9-]+');
+            Route::get('{attribute}')->name('edit')->uses('AttributesController@form');
+            Route::put('{attribute}')->name('update')->uses('AttributesController@update');
+            Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs');
+            Route::delete('{attribute}')->name('delete')->uses('AttributesController@delete');
         });
 
     });
