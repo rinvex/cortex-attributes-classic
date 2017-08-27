@@ -84,7 +84,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('backend.attributes.index'),
-            'with' => ['warning' => trans('cortex/attributable::messages.attribute.deleted', ['attributeId' => $attribute->id])],
+            'with' => ['warning' => trans('cortex/attributable::messages.attribute.deleted', ['slug' => $attribute->slug])],
         ]);
     }
 
@@ -126,7 +126,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('backend.attributes.index'),
-            'with' => ['success' => trans('cortex/attributable::messages.attribute.saved', ['attributeId' => $attribute->id])],
+            'with' => ['success' => trans('cortex/attributable::messages.attribute.saved', ['slug' => $attribute->slug])],
         ]);
     }
 }
