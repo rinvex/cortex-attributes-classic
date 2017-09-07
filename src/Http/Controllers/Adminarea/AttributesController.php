@@ -62,7 +62,7 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest $request
-     * @param \Rinvex\Attributable\Contracts\AttributeContract                $attribute
+     * @param \Rinvex\Attributable\Contracts\AttributeContract                  $attribute
      *
      * @return \Illuminate\Http\Response
      */
