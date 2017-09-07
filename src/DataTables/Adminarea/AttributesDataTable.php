@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\DataTables\Backend;
+namespace Cortex\Attributable\DataTables\Adminarea;
 
 use Cortex\Foundation\DataTables\AbstractDataTable;
 use Rinvex\Attributable\Contracts\AttributeContract;
-use Cortex\Attributable\Transformers\Backend\AttributeTransformer;
+use Cortex\Attributable\Transformers\Adminarea\AttributeTransformer;
 
 class AttributesDataTable extends AbstractDataTable
 {
@@ -89,7 +89,7 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns()
     {
         return [
-            'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'backend.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
+            'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
             'slug' => ['title' => trans('cortex/attributable::common.slug')],
             'type' => ['title' => trans('cortex/attributable::common.type')],
             'group' => ['title' => trans('cortex/attributable::common.group'), 'visible' => false],

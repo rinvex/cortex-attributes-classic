@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Transformers\Backend;
+namespace Cortex\Attributable\Transformers\Adminarea;
 
 use League\Fractal\TransformerAbstract;
 use Rinvex\Attributable\Contracts\AttributeContract;
