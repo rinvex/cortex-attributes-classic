@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Console\Commands;
+namespace Cortex\Attributes\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'cortex:publish:attributable';
+    protected $signature = 'cortex:publish:attributes';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish Cortex Attributable Resources.';
+    protected $description = 'Publish Cortex Attributes Resources.';
 
     /**
      * Execute the console command.
@@ -29,9 +29,9 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        $this->warn('Publish cortex/attributable:');
-        $this->call('vendor:publish', ['--tag' => 'rinvex-attributable-config']);
-        $this->call('vendor:publish', ['--tag' => 'cortex-attributable-views']);
-        $this->call('vendor:publish', ['--tag' => 'cortex-attributable-lang']);
+        $this->warn('Publish cortex/attributes:');
+        $this->call('vendor:publish', ['--tag' => 'rinvex-attributes-config']);
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-views']);
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-lang']);
     }
 }

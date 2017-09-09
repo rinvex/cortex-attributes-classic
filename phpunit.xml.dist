@@ -13,7 +13,7 @@
          beStrictAboutChangesToGlobalState="true"
          beStrictAboutCoversAnnotation="true">
     <testsuites>
-        <testsuite name="Cortex Attributable Unit Test Suite">
+        <testsuite name="Cortex Attributes Unit Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

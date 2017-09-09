@@ -1,4 +1,4 @@
-# Cortex Attributable Change Log
+# Cortex Attributes Change Log
 
 All notable changes to this project will be documented in this file.
 

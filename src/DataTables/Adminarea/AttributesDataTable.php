@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\DataTables\Adminarea;
+namespace Cortex\Attributes\DataTables\Adminarea;
 
 use Cortex\Foundation\DataTables\AbstractDataTable;
-use Cortex\Attributable\Transformers\Adminarea\AttributeTransformer;
 use Rinvex\Attributes\Contracts\AttributeContract;
+use Cortex\Attributes\Transformers\Adminarea\AttributeTransformer;
 
 class AttributesDataTable extends AbstractDataTable
 {
@@ -89,14 +89,14 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns()
     {
         return [
-            'name' => ['title' => trans('cortex/attributable::common.name'), 'render' => '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
-            'slug' => ['title' => trans('cortex/attributable::common.slug')],
-            'type' => ['title' => trans('cortex/attributable::common.type')],
-            'group' => ['title' => trans('cortex/attributable::common.group'), 'visible' => false],
-            'is_collection' => ['title' => trans('cortex/attributable::common.collection')],
-            'default' => ['title' => trans('cortex/attributable::common.default')],
-            'created_at' => ['title' => trans('cortex/attributable::common.created_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
-            'updated_at' => ['title' => trans('cortex/attributable::common.updated_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
+            'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
+            'slug' => ['title' => trans('cortex/attributes::common.slug')],
+            'type' => ['title' => trans('cortex/attributes::common.type')],
+            'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
+            'is_collection' => ['title' => trans('cortex/attributes::common.collection')],
+            'default' => ['title' => trans('cortex/attributes::common.default')],
+            'created_at' => ['title' => trans('cortex/attributes::common.created_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
+            'updated_at' => ['title' => trans('cortex/attributes::common.updated_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
         ];
     }
 }

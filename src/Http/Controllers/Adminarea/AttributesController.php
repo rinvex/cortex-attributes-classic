@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Http\Controllers\Adminarea;
+namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
 use Illuminate\Http\Request;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
-use Cortex\Attributable\DataTables\Adminarea\AttributesDataTable;
-use Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest;
+use Cortex\Attributes\DataTables\Adminarea\AttributesDataTable;
+use Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest;
 
 class AttributesController extends AuthorizedController
 {
@@ -26,8 +26,8 @@ class AttributesController extends AuthorizedController
     public function index()
     {
         return app(AttributesDataTable::class)->with([
-            'id' => 'cortex-attributable',
-            'phrase' => trans('cortex/attributable::common.attributes'),
+            'id' => 'cortex-attributes',
+            'phrase' => trans('cortex/attributes::common.attributes'),
         ])->render('cortex/foundation::adminarea.pages.datatable');
     }
 
@@ -41,27 +41,27 @@ class AttributesController extends AuthorizedController
         return app(LogsDataTable::class)->with([
             'type' => 'attributes',
             'resource' => $attribute,
-            'id' => 'cortex-attributable-logs',
-            'phrase' => trans('cortex/attributable::common.attributes'),
+            'id' => 'cortex-attributes-logs',
+            'phrase' => trans('cortex/attributes::common.attributes'),
         ])->render('cortex/foundation::adminarea.pages.datatable-logs');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest $request
+     * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
      *
      * @return \Illuminate\Http\Response
      */
     public function store(AttributeFormRequest $request)
     {
-        return $this->process($request, app('rinvex.attributable.attribute'));
+        return $this->process($request, app('rinvex.attributes.attribute'));
     }
 
     /**
      * Update the given resource in storage.
      *
-     * @param \Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest $request
+     * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
      * @param \Rinvex\Attributes\Contracts\AttributeContract                  $attribute
      *
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['warning' => trans('cortex/attributable::messages.attribute.deleted', ['slug' => $attribute->slug])],
+            'with' => ['warning' => trans('cortex/attributes::messages.attribute.deleted', ['slug' => $attribute->slug])],
         ]);
     }
 
@@ -105,7 +105,7 @@ class AttributesController extends AuthorizedController
         ksort($groups);
         ksort($entities);
 
-        return view('cortex/attributable::adminarea.forms.attribute', compact('attribute', 'groups', 'types', 'entities'));
+        return view('cortex/attributes::adminarea.forms.attribute', compact('attribute', 'groups', 'types', 'entities'));
     }
 
     /**
@@ -126,7 +126,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['success' => trans('cortex/attributable::messages.attribute.saved', ['slug' => $attribute->slug])],
+            'with' => ['success' => trans('cortex/attributes::messages.attribute.saved', ['slug' => $attribute->slug])],
         ]);
     }
 }

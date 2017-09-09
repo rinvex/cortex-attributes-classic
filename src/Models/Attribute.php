@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Models;
+namespace Cortex\Attributes\Models;
 
 use Spatie\Activitylog\Traits\LogsActivity;
-use Rinvex\Attributable\Models\Attribute as BaseAttribute;
+use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 
 /**
- * Cortex\Attributable\Models\Attribute.
+ * Cortex\Attributes\Models\Attribute.
  *
  * @property int                                                                           $id
  * @property string                                                                        $slug
@@ -26,19 +26,19 @@ use Rinvex\Attributable\Models\Attribute as BaseAttribute;
  * @property array                                                                         $entities
  * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Fort\Models\User[]      $values
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Attributable\Models\Attribute ordered($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereDefault($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereGroup($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereIsCollection($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereIsRequired($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereSortOrder($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributable\Models\Attribute whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute ordered($direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereDefault($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsCollection($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsRequired($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Attribute extends BaseAttribute

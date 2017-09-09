@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Http\Requests\Adminarea;
+namespace Cortex\Attributes\Http\Requests\Adminarea;
 
 use Rinvex\Support\Http\Requests\FormRequest;
 
@@ -25,7 +25,7 @@ class AttributeFormRequest extends FormRequest
      */
     public function rules()
     {
-        $attribute = $this->route('attribute') ?? app('rinvex.attributable.attribute');
+        $attribute = $this->route('attribute') ?? app('rinvex.attributes.attribute');
         $attribute->updateRulesUniques();
 
         return $attribute->getRules();

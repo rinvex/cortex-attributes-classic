@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Providers;
+namespace Cortex\Attributes\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Cortex\Attributable\Console\Commands\SeedCommand;
-use Cortex\Attributable\Console\Commands\InstallCommand;
-use Cortex\Attributable\Console\Commands\MigrateCommand;
-use Cortex\Attributable\Console\Commands\PublishCommand;
 use Rinvex\Attributes\Contracts\AttributeContract;
+use Cortex\Attributes\Console\Commands\SeedCommand;
+use Cortex\Attributes\Console\Commands\InstallCommand;
+use Cortex\Attributes\Console\Commands\MigrateCommand;
+use Cortex\Attributes\Console\Commands\PublishCommand;
 
-class AttributableServiceProvider extends ServiceProvider
+class AttributesServiceProvider extends ServiceProvider
 {
     /**
      * The commands to be registered.
@@ -20,10 +20,10 @@ class AttributableServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        MigrateCommand::class => 'command.cortex.attributable.migrate',
-        PublishCommand::class => 'command.cortex.attributable.publish',
-        InstallCommand::class => 'command.cortex.attributable.install',
-        SeedCommand::class => 'command.cortex.attributable.seed',
+        MigrateCommand::class => 'command.cortex.attributes.migrate',
+        PublishCommand::class => 'command.cortex.attributes.publish',
+        InstallCommand::class => 'command.cortex.attributes.install',
+        SeedCommand::class => 'command.cortex.attributes.seed',
     ];
 
     /**
@@ -55,8 +55,8 @@ class AttributableServiceProvider extends ServiceProvider
         // Load resources
         require __DIR__.'/../../routes/breadcrumbs.php';
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributable');
-        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributable');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
         $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus.php';
         });
@@ -72,8 +72,8 @@ class AttributableServiceProvider extends ServiceProvider
      */
     protected function publishResources()
     {
-        $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributable')], 'cortex-attributable-lang');
-        $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributable')], 'cortex-attributable-views');
+        $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributes')], 'cortex-attributes-lang');
+        $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributes')], 'cortex-attributes-views');
     }
 
     /**

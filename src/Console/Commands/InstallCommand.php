@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Console\Commands;
+namespace Cortex\Attributes\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'cortex:install:attributable';
+    protected $signature = 'cortex:install:attributes';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install Cortex Attributable Module.';
+    protected $description = 'Install Cortex Attributes Module.';
 
     /**
      * Execute the console command.
@@ -29,9 +29,9 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->warn('Install cortex/attributable:');
-        $this->call('cortex:migrate:attributable');
-        $this->call('cortex:seed:attributable');
-        $this->call('cortex:publish:attributable');
+        $this->warn('Install cortex/attributes:');
+        $this->call('cortex:migrate:attributes');
+        $this->call('cortex:seed:attributes');
+        $this->call('cortex:publish:attributes');
     }
 }

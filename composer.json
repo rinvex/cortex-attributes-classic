@@ -1,7 +1,7 @@
 {
-    "name": "cortex/attributable",
+    "name": "cortex/attributes",
     "type": "cortex-module",
-    "description": "Cortex Attributable is a frontend layer for the robust, intelligent, and integrated Entity-Attribute-Value model (EAV) implementation for Laravel Eloquent, with powerful underlying for managing entity attributes implicitly as relations with ease. It utilizes the power of Laravel Eloquent, with smooth and seamless integration.",
+    "description": "Cortex Attributes is a frontend layer for the robust, intelligent, and integrated Entity-Attribute-Value model (EAV) implementation for Laravel Eloquent, with powerful underlying for managing entity attributes implicitly as relations with ease. It utilizes the power of Laravel Eloquent, with smooth and seamless integration.",
     "keywords": [
         "eav",
         "eloquent",
@@ -22,9 +22,9 @@
     "homepage": "https://rinvex.com",
     "support": {
         "email": "help@rinvex.com",
-        "issues": "https://github.com/rinvex/cortex-attributable/issues",
-        "source": "https://github.com/rinvex/cortex-attributable",
-        "docs": "https://github.com/rinvex/cortex-attributable/README.md"
+        "issues": "https://github.com/rinvex/cortex-attributes/issues",
+        "source": "https://github.com/rinvex/cortex-attributes",
+        "docs": "https://github.com/rinvex/cortex-attributes/README.md"
     },
     "authors": [
         {
@@ -40,7 +40,7 @@
         },
         {
             "name": "The Generous Laravel Community",
-            "homepage": "https://github.com/rinvex/cortex-attributable/contributors"
+            "homepage": "https://github.com/rinvex/cortex-attributes/contributors"
         }
     ],
     "require": {
@@ -69,7 +69,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cortex\\Attributable\\": "src/"
+            "Cortex\\Attributes\\": "src/"
         }
     },
     "config": {
@@ -83,7 +83,7 @@
         },
         "laravel": {
             "providers": [
-                "Cortex\\Attributable\\Providers\\AttributableServiceProvider"
+                "Cortex\\Attributes\\Providers\\AttributesServiceProvider"
             ]
         },
         "cortex-module": {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Console\Commands;
+namespace Cortex\Attributes\Console\Commands;
 
 use Rinvex\Attributes\Console\Commands\MigrateCommand as BaseMigrateCommand;
 
@@ -13,12 +13,12 @@ class MigrateCommand extends BaseMigrateCommand
      *
      * @var string
      */
-    protected $signature = 'cortex:migrate:attributable';
+    protected $signature = 'cortex:migrate:attributes';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Migrate Cortex Attributable Tables.';
+    protected $description = 'Migrate Cortex Attributes Tables.';
 }
