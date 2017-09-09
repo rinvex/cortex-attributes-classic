@@ -41,8 +41,8 @@ class AttributePolicy
     /**
      * Determine whether the user can update the attribute.
      *
-     * @param string                                           $ability
-     * @param \Rinvex\Fort\Contracts\UserContract              $user
+     * @param string                                         $ability
+     * @param \Rinvex\Fort\Contracts\UserContract            $user
      * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
      *
      * @return bool
@@ -55,8 +55,8 @@ class AttributePolicy
     /**
      * Determine whether the user can delete the attribute.
      *
-     * @param string                                           $ability
-     * @param \Rinvex\Fort\Contracts\UserContract              $user
+     * @param string                                         $ability
+     * @param \Rinvex\Fort\Contracts\UserContract            $user
      * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
      *
      * @return bool
