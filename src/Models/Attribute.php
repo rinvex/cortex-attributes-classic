@@ -2,41 +2,92 @@
 
 declare(strict_types=1);
 
-namespace Cortex\Attributable\Models;
+namespace Cortex\Attributes\Models;
 
-use Rinvex\Attributable\Models\Attribute as BaseAttribute;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 
 /**
- * Rinvex\Attributable\Models\Attribute
+ * Cortex\Attributes\Models\Attribute.
  *
- * @property int                                 $id
- * @property string                              $slug
- * @property array                               $name
- * @property array                               $description
- * @property int                                 $order
- * @property string                              $group
- * @property string                              $type
- * @property bool                                $collection
- * @property string                              $default
- * @property \Carbon\Carbon                      $created_at
- * @property \Carbon\Carbon                      $updated_at
- * @property \Illuminate\Support\Collection|null $entities
+ * @property int                                                                           $id
+ * @property string                                                                        $slug
+ * @property array                                                                         $name
+ * @property array                                                                         $description
+ * @property int                                                                           $sort_order
+ * @property string                                                                        $group
+ * @property string                                                                        $type
+ * @property bool                                                                          $is_required
+ * @property bool                                                                          $is_collection
+ * @property string                                                                        $default
+ * @property \Carbon\Carbon                                                                $created_at
+ * @property \Carbon\Carbon                                                                $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cortex\Foundation\Models\Log[] $activity
+ * @property array                                                                         $entities
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Fort\Models\User[]      $values
  *
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute ordered($direction = 'asc')
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereCollection($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereDefault($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereGroup($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereOrder($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereType($value)
- * @method static \Illuminate\Database\Query\Builder|\Rinvex\Attributable\Models\Attribute whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute ordered($direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereDefault($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsCollection($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsRequired($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Attribute extends BaseAttribute
 {
-    //
+    use LogsActivity;
+
+    /**
+     * Indicates whether to log only dirty attributes or all.
+     *
+     * @var bool
+     */
+    protected static $logOnlyDirty = true;
+
+    /**
+     * The attributes that are logged on change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
+        'name',
+        'slug',
+        'description',
+        'sort_order',
+        'group',
+        'type',
+        'entities',
+        'is_required',
+        'is_collection',
+        'default',
+    ];
+
+    /**
+     * The attributes that are ignored on change.
+     *
+     * @var array
+     */
+    protected static $ignoreChangedAttributes = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

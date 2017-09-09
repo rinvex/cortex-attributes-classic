@@ -11,6 +11,7 @@ return [
     'details' => 'Details',
     'logs' => 'Logs',
     'group' => 'Group',
+    'select_group' => 'Select Group',
     'slug' => 'Slug',
     'order' => 'Order',
     'description' => 'Description',
@@ -22,7 +23,6 @@ return [
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'submit' => 'Submit',
-    'reset' => 'Reset',
 
     'attributes' => 'Attributes',
     'create_attribute' => 'Create New Attribute',
