@@ -111,7 +111,7 @@ class AttributesController extends AuthorizedController
     /**
      * Process the form for store/update of the given resource.
      *
-     * @param \Illuminate\Http\Request                         $request
+     * @param \Illuminate\Http\Request                       $request
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
