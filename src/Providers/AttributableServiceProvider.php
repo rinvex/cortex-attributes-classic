@@ -6,11 +6,11 @@ namespace Cortex\Attributable\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Attributable\Console\Commands\SeedCommand;
 use Cortex\Attributable\Console\Commands\InstallCommand;
 use Cortex\Attributable\Console\Commands\MigrateCommand;
 use Cortex\Attributable\Console\Commands\PublishCommand;
+use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributableServiceProvider extends ServiceProvider
 {

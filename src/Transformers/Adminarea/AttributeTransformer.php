@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributable\Transformers\Adminarea;
 
 use League\Fractal\TransformerAbstract;
-use Rinvex\Attributable\Contracts\AttributeContract;
+use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributeTransformer extends TransformerAbstract
 {

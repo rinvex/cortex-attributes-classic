@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Cortex\Attributable\DataTables\Adminarea;
 
 use Cortex\Foundation\DataTables\AbstractDataTable;
-use Rinvex\Attributable\Contracts\AttributeContract;
 use Cortex\Attributable\Transformers\Adminarea\AttributeTransformer;
+use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributesDataTable extends AbstractDataTable
 {

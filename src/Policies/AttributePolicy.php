@@ -6,7 +6,7 @@ namespace Cortex\Attributable\Policies;
 
 use Rinvex\Fort\Contracts\UserContract;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Rinvex\Attributable\Contracts\AttributeContract;
+use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributePolicy
 {
@@ -43,7 +43,7 @@ class AttributePolicy
      *
      * @param string                                           $ability
      * @param \Rinvex\Fort\Contracts\UserContract              $user
-     * @param \Rinvex\Attributable\Contracts\AttributeContract $resource
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
      *
      * @return bool
      */
@@ -57,7 +57,7 @@ class AttributePolicy
      *
      * @param string                                           $ability
      * @param \Rinvex\Fort\Contracts\UserContract              $user
-     * @param \Rinvex\Attributable\Contracts\AttributeContract $resource
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
      *
      * @return bool
      */

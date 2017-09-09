@@ -6,7 +6,7 @@ namespace Cortex\Attributable\Http\Controllers\Adminarea;
 
 use Illuminate\Http\Request;
 use Cortex\Foundation\DataTables\LogsDataTable;
-use Rinvex\Attributable\Contracts\AttributeContract;
+use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributable\DataTables\Adminarea\AttributesDataTable;
 use Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest;
@@ -62,7 +62,7 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributable\Http\Requests\Adminarea\AttributeFormRequest $request
-     * @param \Rinvex\Attributable\Contracts\AttributeContract                  $attribute
+     * @param \Rinvex\Attributes\Contracts\AttributeContract                  $attribute
      *
      * @return \Illuminate\Http\Response
      */
@@ -74,7 +74,7 @@ class AttributesController extends AuthorizedController
     /**
      * Delete the given resource from storage.
      *
-     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
@@ -91,15 +91,15 @@ class AttributesController extends AuthorizedController
     /**
      * Show the form for create/update of the given resource.
      *
-     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
     public function form(AttributeContract $attribute)
     {
-        $groups = app('rinvex.attributable.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
-        $types = array_combine(app('rinvex.attributable.types')->toArray(), app('rinvex.attributable.types')->toArray());
-        $entities = array_combine(app('rinvex.attributable.entities')->toArray(), app('rinvex.attributable.entities')->toArray());
+        $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
+        $types = array_combine(app('rinvex.attributes.types')->toArray(), app('rinvex.attributes.types')->toArray());
+        $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
 
         ksort($types);
         ksort($groups);
@@ -112,7 +112,7 @@ class AttributesController extends AuthorizedController
      * Process the form for store/update of the given resource.
      *
      * @param \Illuminate\Http\Request                         $request
-     * @param \Rinvex\Attributable\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
