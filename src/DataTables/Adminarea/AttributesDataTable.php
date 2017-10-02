@@ -88,8 +88,12 @@ class AttributesDataTable extends AbstractDataTable
      */
     protected function getColumns()
     {
+        $link = config('cortex.foundation.route.locale_prefix')
+            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
+            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"';
+
         return [
-            'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"', 'responsivePriority' => 0],
+            'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => $link, 'responsivePriority' => 0],
             'slug' => ['title' => trans('cortex/attributes::common.slug')],
             'type' => ['title' => trans('cortex/attributes::common.type')],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
