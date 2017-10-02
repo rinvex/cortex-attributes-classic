@@ -158,6 +158,7 @@
                                     {{-- Entities --}}
                                     <div class="form-group{{ $errors->has('entities') ? ' has-error' : '' }}">
                                         {{ Form::label('entities[]', trans('cortex/attributes::common.entities'), ['class' => 'control-label']) }}
+                                        {{ Form::hidden('entities', '') }}
                                         {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('entities'))
