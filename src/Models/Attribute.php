@@ -90,4 +90,14 @@ class Attribute extends BaseAttribute
     {
         return 'slug';
     }
+
+    /**
+     * Get the class name for polymorphic relations.
+     *
+     * @return string
+     */
+    public function getMorphClass()
+    {
+        return 'attribute';
+    }
 }
