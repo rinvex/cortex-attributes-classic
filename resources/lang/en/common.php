@@ -18,7 +18,7 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'select_type' => 'Select Type',
-    'select_entities' => 'Select Entites',
+    'select_entities' => 'Select Entities',
     'entities' => 'Entities',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
