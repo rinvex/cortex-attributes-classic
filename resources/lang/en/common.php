@@ -13,7 +13,7 @@ return [
     'group' => 'Group',
     'select_group' => 'Select Group',
     'slug' => 'Slug',
-    'order' => 'Order',
+    'sort_order' => 'Sort Order',
     'description' => 'Description',
     'yes' => 'Yes',
     'no' => 'No',

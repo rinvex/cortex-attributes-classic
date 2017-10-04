@@ -76,13 +76,13 @@
 
                                 <div class="col-md-4">
 
-                                    {{-- Order --}}
-                                    <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
-                                        {{ Form::label('order', trans('cortex/attributes::common.order'), ['class' => 'control-label']) }}
-                                        {{ Form::number('order', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.order')]) }}
+                                    {{-- Sort Order --}}
+                                    <div class="form-group{{ $errors->has('sort_order') ? ' has-error' : '' }}">
+                                        {{ Form::label('sort_order', trans('cortex/attributes::common.sort_order'), ['class' => 'control-label']) }}
+                                        {{ Form::number('sort_order', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.sort_order')]) }}
 
-                                        @if ($errors->has('order'))
-                                            <span class="help-block">{{ $errors->first('order') }}</span>
+                                        @if ($errors->has('sort_order'))
+                                            <span class="help-block">{{ $errors->first('sort_order') }}</span>
                                         @endif
                                     </div>
 
