@@ -8,6 +8,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Attributes\Console\Commands\SeedCommand;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Cortex\Attributes\Console\Commands\InstallCommand;
 use Cortex\Attributes\Console\Commands\MigrateCommand;
 use Cortex\Attributes\Console\Commands\PublishCommand;
@@ -51,6 +52,11 @@ class AttributesServiceProvider extends ServiceProvider
         // Bind route models and constrains
         $router->pattern('attribute', '[a-z0-9-]+');
         $router->model('attribute', AttributeContract::class);
+
+        // Map relations
+        Relation::morphMap([
+            'attribute' => config('rinvex.attributes.models.attribute'),
+        ]);
 
         // Load resources
         require __DIR__.'/../../routes/breadcrumbs.php';
