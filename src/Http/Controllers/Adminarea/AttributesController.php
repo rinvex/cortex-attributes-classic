@@ -39,6 +39,7 @@ class AttributesController extends AuthorizedController
     public function logs(AttributeContract $attribute)
     {
         return app(LogsDataTable::class)->with([
+            'tab' => 'logs',
             'type' => 'attributes',
             'resource' => $attribute,
             'id' => 'cortex-attributes-logs',
