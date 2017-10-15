@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Console\Commands;
 
-use Illuminate\Console\Command;
+use Rinvex\Attributes\Console\Commands\PublishCommand as BasePublishCommand;
 
-class PublishCommand extends Command
+class PublishCommand extends BasePublishCommand
 {
     /**
      * The name and signature of the console command.
@@ -29,8 +29,8 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        $this->warn('Publish cortex/attributes:');
-        $this->call('vendor:publish', ['--tag' => 'rinvex-attributes-config', '--force' => $this->option('force')]);
+        parent::handle();
+
         $this->call('vendor:publish', ['--tag' => 'cortex-attributes-views', '--force' => $this->option('force')]);
         $this->call('vendor:publish', ['--tag' => 'cortex-attributes-lang', '--force' => $this->option('force')]);
     }
