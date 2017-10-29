@@ -3,7 +3,6 @@
 **Cortex Attributes** is a frontend layer for the robust, intelligent, and integrated Entity-Attribute-Value model (EAV) implementation for Laravel Eloquent, with powerful underlying for managing entity attributes implicitly as relations with ease. It utilizes the power of Laravel Eloquent, with smooth and seamless integration.
 
 [![Packagist](https://img.shields.io/packagist/v/cortex/attributes.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/cortex/attributes)
-[![VersionEye Dependencies](https://img.shields.io/versioneye/d/php/cortex:attributes.svg?label=Dependencies&style=flat-square)](https://www.versioneye.com/php/cortex:attributes/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/cortex/attributes.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/cortex/attributes/)
 [![Code Climate](https://img.shields.io/codeclimate/github/cortex/attributes.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/cortex/attributes)
 [![Travis](https://img.shields.io/travis/cortex/attributes.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/cortex/attributes)
