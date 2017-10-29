@@ -29,7 +29,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->warn('Install cortex/attributes:');
+        $this->warn($this->description);
         $this->call('cortex:migrate:attributes');
         $this->call('cortex:seed:attributes');
         $this->call('cortex:publish:attributes');
