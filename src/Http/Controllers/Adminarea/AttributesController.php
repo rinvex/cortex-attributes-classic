@@ -21,11 +21,13 @@ class AttributesController extends AuthorizedController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param \Cortex\Attributes\DataTables\Adminarea\AttributesDataTable $attributesDataTable
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function index()
+    public function index(AttributesDataTable $attributesDataTable)
     {
-        return app(AttributesDataTable::class)->with([
+        return $attributesDataTable->with([
             'id' => 'cortex-attributes',
             'phrase' => trans('cortex/attributes::common.attributes'),
         ])->render('cortex/foundation::adminarea.pages.datatable');
@@ -34,11 +36,14 @@ class AttributesController extends AuthorizedController
     /**
      * Display a listing of the resource logs.
      *
-     * @return \Illuminate\Http\Response
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     * @param \Cortex\Foundation\DataTables\LogsDataTable    $logsDataTable
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function logs(AttributeContract $attribute)
+    public function logs(AttributeContract $attribute, LogsDataTable $logsDataTable)
     {
-        return app(LogsDataTable::class)->with([
+        return $logsDataTable->with([
             'tab' => 'logs',
             'type' => 'attributes',
             'resource' => $attribute,
