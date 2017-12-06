@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Http\Requests\Adminarea;
 
-use Rinvex\Support\Http\Requests\FormRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
 class AttributeFormRequest extends FormRequest
 {
