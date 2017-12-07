@@ -111,7 +111,7 @@ class AttributesController extends AuthorizedController
         ksort($groups);
         ksort($entities);
 
-        return view('cortex/attributes::adminarea.forms.attribute', compact('attribute', 'groups', 'types', 'entities'));
+        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'types', 'entities'));
     }
 
     /**
