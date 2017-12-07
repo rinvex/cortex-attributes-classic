@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Cortex\Attributes\Console\Commands\InstallCommand;
 use Cortex\Attributes\Console\Commands\MigrateCommand;
 use Cortex\Attributes\Console\Commands\PublishCommand;
+use Cortex\Attributes\Console\Commands\RollbackCommand;
 
 class AttributesServiceProvider extends ServiceProvider
 {
@@ -21,10 +22,11 @@ class AttributesServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
+        SeedCommand::class => 'command.cortex.attributes.seed',
+        InstallCommand::class => 'command.cortex.attributes.install',
         MigrateCommand::class => 'command.cortex.attributes.migrate',
         PublishCommand::class => 'command.cortex.attributes.publish',
-        InstallCommand::class => 'command.cortex.attributes.install',
-        SeedCommand::class => 'command.cortex.attributes.seed',
+        RollbackCommand::class => 'command.cortex.attributes.rollback',
     ];
 
     /**
