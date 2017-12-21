@@ -47,6 +47,7 @@ class AttributesController extends AuthorizedController
             'tab' => 'logs',
             'type' => 'attributes',
             'resource' => $attribute,
+            'title' => $attribute->name,
             'id' => 'cortex-attributes-logs',
             'phrase' => trans('cortex/attributes::common.attributes'),
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
