@@ -39,7 +39,6 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute withGroup($group)
  * @mixin \Eloquent
  */
 class Attribute extends BaseAttribute
