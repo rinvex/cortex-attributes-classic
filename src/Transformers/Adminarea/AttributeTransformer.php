@@ -17,7 +17,7 @@ class AttributeTransformer extends TransformerAbstract
         return [
             'id' => (int) $attribute->id,
             'name' => (string) $attribute->name,
-            'type' => (string) $attribute->type,
+            'type' => (string) trans('cortex/attributes::common.'.$attribute->type),
             'slug' => (string) $attribute->slug,
             'group' => (string) $attribute->group,
             'is_collection' => (bool) $attribute->is_collection,

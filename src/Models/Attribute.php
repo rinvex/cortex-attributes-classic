@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 
@@ -89,5 +90,18 @@ class Attribute extends BaseAttribute
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @param \Illuminate\Database\Eloquent\Model $entity
+     * @param string                              $accessArea
+     *
+     * @return string
+     */
+    public function render(Model $entity, string $accessArea)
+    {
+        return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity])->render();
     }
 }

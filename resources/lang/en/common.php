@@ -23,6 +23,11 @@ return [
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'submit' => 'Submit',
+    'boolean' => 'Boolean',
+    'varchar' => 'Varchar',
+    'datetime' => 'Datetime',
+    'integer' => 'Integer',
+    'text' => 'Text',
 
     'attributes' => 'Attributes',
     'create_attribute' => 'Create New Attribute',

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
 use Illuminate\Http\Request;
+use Rinvex\Attributes\Models\Attribute;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
@@ -105,8 +106,10 @@ class AttributesController extends AuthorizedController
     public function form(AttributeContract $attribute)
     {
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
-        $types = array_combine(app('rinvex.attributes.types')->toArray(), app('rinvex.attributes.types')->toArray());
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
+        $types = array_combine($typeKeys = array_keys(Attribute::typeMap()), array_map(function ($item) {
+            return trans('cortex/attributes::common.'.$item);
+        }, $typeKeys));
 
         ksort($types);
         ksort($groups);
