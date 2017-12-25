@@ -6,6 +6,7 @@ namespace Cortex\Attributes\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -69,6 +70,9 @@ class AttributesServiceProvider extends ServiceProvider
             require __DIR__.'/../../routes/menus.php';
         });
 
+        // Register blade extensions
+        $this->registerBladeExtensions();
+
         // Publish Resources
         ! $this->app->runningInConsole() || $this->publishResources();
     }
@@ -99,5 +103,20 @@ class AttributesServiceProvider extends ServiceProvider
         }
 
         $this->commands(array_values($this->commands));
+    }
+
+    /**
+     * Register the blade extensions.
+     *
+     * @return void
+     */
+    protected function registerBladeExtensions()
+    {
+        $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
+            // @attributes($entity)
+            $bladeCompiler->directive('attributes', function ($expression) {
+                return "<?php echo {$expression}->getEntityAttributes()->map->render({$expression}, request('accessarea'))->implode(''); ?>";
+            });
+        });
     }
 }
