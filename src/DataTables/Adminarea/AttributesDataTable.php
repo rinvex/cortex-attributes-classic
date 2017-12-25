@@ -27,7 +27,8 @@ class AttributesDataTable extends AbstractDataTable
      */
     public function query()
     {
-        $query = app($this->model)->query()->orderBy('group', 'ASC');
+        $locale = app()->getLocale();
+        $query = app($this->model)->query()->orderBy('group', 'ASC')->orderBy('sort_order', 'ASC')->orderBy("name->\${$locale}", 'ASC');
 
         return $this->applyScopes($query);
     }
