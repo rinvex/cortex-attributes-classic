@@ -35,23 +35,17 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Display a listing of the resource logs.
+     * Get a listing of the resource logs.
      *
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
-     * @param \Cortex\Foundation\DataTables\LogsDataTable    $logsDataTable
      *
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
-    public function logs(AttributeContract $attribute, LogsDataTable $logsDataTable)
+    public function logs(AttributeContract $attribute)
     {
-        return $logsDataTable->with([
-            'tab' => 'logs',
-            'type' => 'attributes',
-            'resource' => $attribute,
-            'title' => $attribute->name,
-            'id' => 'cortex-attributes-logs',
-            'phrase' => trans('cortex/attributes::common.attributes'),
-        ])->render('cortex/foundation::adminarea.pages.datatable-tab');
+        return request()->ajax() && request()->wantsJson()
+            ? app(LogsDataTable::class)->with(['resource' => $attribute])->ajax()
+            : intend(['url' => route('adminarea.attributes.edit', ['attribute' => $attribute]).'#logs-tab']);
     }
 
     /**
@@ -115,7 +109,9 @@ class AttributesController extends AuthorizedController
         ksort($groups);
         ksort($entities);
 
-        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'types', 'entities'));
+        $logs = app(LogsDataTable::class)->with(['id' => 'logs-table'])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
+
+        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types', 'logs'));
     }
 
     /**
