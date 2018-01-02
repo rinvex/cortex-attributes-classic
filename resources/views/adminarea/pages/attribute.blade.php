@@ -19,9 +19,7 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>{{ $attribute->exists ? $attribute->name : trans('cortex/attributes::common.create_attribute') }}</h1>
-            <!-- Breadcrumbs -->
-            {{ Breadcrumbs::render() }}
+            <h1>{{ Breadcrumbs::render() }}</h1>
         </section>
 
         <!-- Main content -->
