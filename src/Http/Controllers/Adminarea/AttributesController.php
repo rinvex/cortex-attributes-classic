@@ -108,7 +108,7 @@ class AttributesController extends AuthorizedController
     protected function process(Request $request, AttributeContract $attribute)
     {
         // Prepare required input fields
-        $data = $request->all();
+        $data = $request->validated();
 
         // Save attribute
         $attribute->fill($data)->save();
