@@ -49,6 +49,30 @@ class AttributesController extends AuthorizedController
     }
 
     /**
+     * Show the form for create/update of the given resource.
+     *
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function form(AttributeContract $attribute)
+    {
+        $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
+        $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
+        $types = array_combine($typeKeys = array_keys(Attribute::typeMap()), array_map(function ($item) {
+            return trans('cortex/attributes::common.'.$item);
+        }, $typeKeys));
+
+        ksort($types);
+        ksort($groups);
+        ksort($entities);
+
+        $logs = app(LogsDataTable::class)->with(['id' => 'logs-table'])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
+
+        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types', 'logs'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
@@ -74,47 +98,6 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Delete the given resource from storage.
-     *
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function delete(AttributeContract $attribute)
-    {
-        $attribute->delete();
-
-        return intend([
-            'url' => route('adminarea.attributes.index'),
-            'with' => ['warning' => trans('cortex/attributes::messages.attribute.deleted', ['slug' => $attribute->slug])],
-        ]);
-    }
-
-    /**
-     * Show the form for create/update of the given resource.
-     *
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function form(AttributeContract $attribute)
-    {
-        $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
-        $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
-        $types = array_combine($typeKeys = array_keys(Attribute::typeMap()), array_map(function ($item) {
-            return trans('cortex/attributes::common.'.$item);
-        }, $typeKeys));
-
-        ksort($types);
-        ksort($groups);
-        ksort($entities);
-
-        $logs = app(LogsDataTable::class)->with(['id' => 'logs-table'])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
-
-        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types', 'logs'));
-    }
-
-    /**
      * Process the form for store/update of the given resource.
      *
      * @param \Illuminate\Http\Request                       $request
@@ -133,6 +116,23 @@ class AttributesController extends AuthorizedController
         return intend([
             'url' => route('adminarea.attributes.index'),
             'with' => ['success' => trans('cortex/attributes::messages.attribute.saved', ['slug' => $attribute->slug])],
+        ]);
+    }
+
+    /**
+     * Delete the given resource from storage.
+     *
+     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(AttributeContract $attribute)
+    {
+        $attribute->delete();
+
+        return intend([
+            'url' => route('adminarea.attributes.index'),
+            'with' => ['warning' => trans('cortex/attributes::messages.attribute.deleted', ['slug' => $attribute->slug])],
         ]);
     }
 }
