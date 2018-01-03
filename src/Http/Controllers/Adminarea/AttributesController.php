@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
-use Illuminate\Http\Request;
 use Rinvex\Attributes\Models\Attribute;
+use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
@@ -100,12 +100,12 @@ class AttributesController extends AuthorizedController
     /**
      * Process the form for store/update of the given resource.
      *
-     * @param \Illuminate\Http\Request                       $request
+     * @param \Illuminate\Foundation\Http\FormRequest        $request
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
      * @return \Illuminate\Http\Response
      */
-    protected function process(Request $request, AttributeContract $attribute)
+    protected function process(FormRequest $request, AttributeContract $attribute)
     {
         // Prepare required input fields
         $data = $request->validated();
