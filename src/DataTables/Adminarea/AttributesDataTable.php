@@ -34,11 +34,11 @@ class AttributesDataTable extends AbstractDataTable
     }
 
     /**
-     * Get parameters.
+     * Get default builder parameters.
      *
      * @return array
      */
-    protected function getParameters()
+    protected function getBuilderParameters()
     {
         return [
             'keys' => true,
