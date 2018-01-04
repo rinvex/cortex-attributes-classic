@@ -27,7 +27,9 @@ class AttributeFormRequest extends FormRequest
     {
         $attribute = $this->route('attribute') ?? app('rinvex.attributes.attribute');
         $attribute->updateRulesUniques();
+        $rules = $attribute->getRules();
+        $rules['entities'] = 'nullable|array';
 
-        return $attribute->getRules();
+        return $rules;
     }
 }
