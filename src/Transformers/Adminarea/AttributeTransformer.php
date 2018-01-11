@@ -15,7 +15,7 @@ class AttributeTransformer extends TransformerAbstract
     public function transform(AttributeContract $attribute)
     {
         return [
-            'id' => (int) $attribute->id,
+            'id' => (int) $attribute->getKey(),
             'name' => (string) $attribute->name,
             'type' => (string) trans('cortex/attributes::common.'.$attribute->type),
             'slug' => (string) $attribute->slug,
