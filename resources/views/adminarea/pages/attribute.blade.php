@@ -6,7 +6,7 @@
     {{ config('app.name') }} » {{ trans('cortex/foundation::common.adminarea') }} » {{ trans('cortex/attributes::common.attributes') }} » {{ $attribute->exists ? $attribute->name : trans('cortex/attributes::common.create_attribute') }}
 @stop
 
-@push('scripts')
+@push('inline-scripts')
     {!! JsValidator::formRequest(Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest::class)->selector("#adminarea-attributes-create-form, #adminarea-attributes-{$attribute->getKey()}-update-form") !!}
 @endpush
 
@@ -227,11 +227,11 @@
         <link href="{{ mix('css/datatables.css', 'assets') }}" rel="stylesheet">
     @endpush
 
-    @push('scripts-vendor')
+    @push('vendor-scripts')
         <script src="{{ mix('js/datatables.js', 'assets') }}" type="text/javascript"></script>
     @endpush
 
-    @push('scripts')
+    @push('inline-scripts')
         {!! $logs->scripts() !!}
     @endpush
 
