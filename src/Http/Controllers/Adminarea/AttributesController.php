@@ -29,7 +29,7 @@ class AttributesController extends AuthorizedController
     public function index(AttributesDataTable $attributesDataTable)
     {
         return $attributesDataTable->with([
-            'id' => 'cortex-attributes',
+            'id' => 'adminarea-attributes-index-table',
             'phrase' => trans('cortex/attributes::common.attributes'),
         ])->render('cortex/foundation::adminarea.pages.datatable');
     }
@@ -67,7 +67,7 @@ class AttributesController extends AuthorizedController
         ksort($groups);
         ksort($entities);
 
-        $logs = app(LogsDataTable::class)->with(['id' => 'logs-table'])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
+        $logs = app(LogsDataTable::class)->with(['id' => "adminarea-attributes-{$attribute->getKey()}-logs-table"])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
 
         return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types', 'logs'));
     }
