@@ -14,7 +14,7 @@
 @section('content')
 
     @if($attribute->exists)
-        @include('cortex/foundation::common.partials.confirm-deletion', ['type' => 'attribute'])
+        @include('cortex/foundation::common.partials.confirm-deletion')
     @endif
 
     <div class="content-wrapper">
@@ -29,7 +29,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#details-tab" data-toggle="tab">{{ trans('cortex/attributes::common.details') }}</a></li>
                     @if($attribute->exists) <li><a href="#logs-tab" data-toggle="tab">{{ trans('cortex/attributes::common.logs') }}</a></li> @endif
-                    @if($attribute->exists && $currentUser->can('delete-attributes', $attribute)) <li class="pull-right"><a href="#" data-toggle="modal" data-target="#delete-confirmation" data-item-href="{{ route('adminarea.attributes.delete', ['attribute' => $attribute]) }}" data-item-name="{{ $attribute->slug }}"><i class="fa fa-trash text-danger"></i></a></li> @endif
+                    @if($attribute->exists && $currentUser->can('delete-attributes', $attribute)) <li class="pull-right"><a href="#" data-toggle="modal" data-target="#delete-confirmation" data-modal-action="{{ route('adminarea.attributes.delete', ['attribute' => $attribute]) }}" data-modal-title="{!! trans('cortex/foundation::messages.delete_confirmation_title') !!}" data-modal-body="{!! trans('cortex/foundation::messages.delete_confirmation_body', ['type' => 'attribute', 'name' => $attribute->slug]) !!}" title="{{ trans('cortex/foundation::common.delete') }}"><i class="fa fa-trash text-danger"></i></a></li> @endif
                 </ul>
 
                 <div class="tab-content">
