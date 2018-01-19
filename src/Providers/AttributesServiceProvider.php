@@ -39,7 +39,7 @@ class AttributesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         // Register console commands
         ! $this->app->runningInConsole() || $this->registerCommands();
@@ -50,7 +50,7 @@ class AttributesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot(Router $router): void
     {
         // Bind route models and constrains
         $router->pattern('attribute', '[a-z0-9-]+');
@@ -88,7 +88,7 @@ class AttributesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function publishResources()
+    protected function publishResources(): void
     {
         $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributes')], 'cortex-attributes-lang');
         $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributes')], 'cortex-attributes-views');
@@ -99,7 +99,7 @@ class AttributesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerCommands()
+    protected function registerCommands(): void
     {
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
@@ -116,7 +116,7 @@ class AttributesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerBladeExtensions()
+    protected function registerBladeExtensions(): void
     {
         $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
             // @attributes($entity)
