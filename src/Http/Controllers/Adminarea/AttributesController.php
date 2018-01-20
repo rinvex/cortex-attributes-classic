@@ -39,7 +39,7 @@ class AttributesController extends AuthorizedController
      *
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function logs(AttributeContract $attribute)
     {
@@ -53,7 +53,7 @@ class AttributesController extends AuthorizedController
      *
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function form(AttributeContract $attribute)
     {
@@ -77,7 +77,7 @@ class AttributesController extends AuthorizedController
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function store(AttributeFormRequest $request)
     {
@@ -90,7 +90,7 @@ class AttributesController extends AuthorizedController
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
      * @param \Rinvex\Attributes\Contracts\AttributeContract                  $attribute
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function update(AttributeFormRequest $request, AttributeContract $attribute)
     {
@@ -103,7 +103,7 @@ class AttributesController extends AuthorizedController
      * @param \Illuminate\Foundation\Http\FormRequest        $request
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     protected function process(FormRequest $request, AttributeContract $attribute)
     {
@@ -124,7 +124,7 @@ class AttributesController extends AuthorizedController
      *
      * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function delete(AttributeContract $attribute)
     {

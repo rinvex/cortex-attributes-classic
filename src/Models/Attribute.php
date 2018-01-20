@@ -100,7 +100,7 @@ class Attribute extends BaseAttribute
      * @param \Illuminate\Database\Eloquent\Model $entity
      * @param string                              $accessArea
      *
-     * @return string
+     * @return \Illuminate\View\View
      */
     public function render(Model $entity, string $accessArea): string
     {
