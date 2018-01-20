@@ -12,7 +12,7 @@ class AttributeTransformer extends TransformerAbstract
     /**
      * @return array
      */
-    public function transform(AttributeContract $attribute)
+    public function transform(AttributeContract $attribute): array
     {
         return [
             'id' => (int) $attribute->getKey(),

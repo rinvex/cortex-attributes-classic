@@ -89,7 +89,7 @@ class Attribute extends BaseAttribute
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
@@ -102,7 +102,7 @@ class Attribute extends BaseAttribute
      *
      * @return string
      */
-    public function render(Model $entity, string $accessArea)
+    public function render(Model $entity, string $accessArea): string
     {
         return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity])->render();
     }

@@ -38,7 +38,7 @@ class AttributesDataTable extends AbstractDataTable
      *
      * @return array
      */
-    protected function getBuilderParameters()
+    protected function getBuilderParameters(): array
     {
         return [
             'keys' => true,
@@ -89,7 +89,7 @@ class AttributesDataTable extends AbstractDataTable
      *
      * @return array
      */
-    protected function getColumns()
+    protected function getColumns(): array
     {
         $link = config('cortex.foundation.route.locale_prefix')
             ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'

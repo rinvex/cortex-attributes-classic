@@ -13,7 +13,7 @@ class AttributeFormRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,7 +23,7 @@ class AttributeFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         $attribute = $this->route('attribute') ?? app('rinvex.attributes.attribute');
         $attribute->updateRulesUniques();
