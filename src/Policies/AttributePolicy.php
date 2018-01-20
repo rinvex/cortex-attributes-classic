@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Policies;
 
-use Rinvex\Fort\Contracts\UserContract;
+use Rinvex\Fort\Models\User;
+use Rinvex\Attributes\Models\Attribute;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributePolicy
 {
@@ -16,11 +16,11 @@ class AttributePolicy
      * Determine whether the user can list attributes.
      *
      * @param string                              $ability
-     * @param \Rinvex\Fort\Contracts\UserContract $user
+     * @param \Rinvex\Fort\Models\User $user
      *
      * @return bool
      */
-    public function list($ability, UserContract $user): bool
+    public function list($ability, User $user): bool
     {
         return $user->allAbilities->pluck('slug')->contains($ability);
     }
@@ -29,11 +29,11 @@ class AttributePolicy
      * Determine whether the user can create attributes.
      *
      * @param string                              $ability
-     * @param \Rinvex\Fort\Contracts\UserContract $user
+     * @param \Rinvex\Fort\Models\User $user
      *
      * @return bool
      */
-    public function create($ability, UserContract $user): bool
+    public function create($ability, User $user): bool
     {
         return $user->allAbilities->pluck('slug')->contains($ability);
     }
@@ -42,12 +42,12 @@ class AttributePolicy
      * Determine whether the user can update the attribute.
      *
      * @param string                                         $ability
-     * @param \Rinvex\Fort\Contracts\UserContract            $user
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
+     * @param \Rinvex\Fort\Models\User            $user
+     * @param \Rinvex\Attributes\Models\Attribute $resource
      *
      * @return bool
      */
-    public function update($ability, UserContract $user, AttributeContract $resource): bool
+    public function update($ability, User $user, Attribute $resource): bool
     {
         return $user->allAbilities->pluck('slug')->contains($ability);   // User can update attributes
     }
@@ -56,12 +56,12 @@ class AttributePolicy
      * Determine whether the user can delete the attribute.
      *
      * @param string                                         $ability
-     * @param \Rinvex\Fort\Contracts\UserContract            $user
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $resource
+     * @param \Rinvex\Fort\Models\User            $user
+     * @param \Rinvex\Attributes\Models\Attribute $resource
      *
      * @return bool
      */
-    public function delete($ability, UserContract $user, AttributeContract $resource): bool
+    public function delete($ability, User $user, Attribute $resource): bool
     {
         return $user->allAbilities->pluck('slug')->contains($ability)   // User can delete attributes
                && ! $resource->entities()->count();                     // RESOURCE attribute has no entities attached

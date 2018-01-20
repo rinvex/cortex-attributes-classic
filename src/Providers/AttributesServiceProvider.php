@@ -7,7 +7,7 @@ namespace Cortex\Attributes\Providers;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Rinvex\Attributes\Contracts\AttributeContract;
+use Rinvex\Attributes\Models\Attribute;
 use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Cortex\Attributes\Console\Commands\InstallCommand;
@@ -54,7 +54,7 @@ class AttributesServiceProvider extends ServiceProvider
     {
         // Bind route models and constrains
         $router->pattern('attribute', '[a-z0-9-]+');
-        $router->model('attribute', AttributeContract::class);
+        $router->model('attribute', Attribute::class);
 
         // Map relations
         Relation::morphMap([

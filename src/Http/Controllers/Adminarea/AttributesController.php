@@ -7,7 +7,6 @@ namespace Cortex\Attributes\Http\Controllers\Adminarea;
 use Rinvex\Attributes\Models\Attribute;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
-use Rinvex\Attributes\Contracts\AttributeContract;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributes\DataTables\Adminarea\AttributesDataTable;
 use Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest;
@@ -37,11 +36,11 @@ class AttributesController extends AuthorizedController
     /**
      * Get a listing of the resource logs.
      *
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function logs(AttributeContract $attribute)
+    public function logs(Attribute $attribute)
     {
         return request()->ajax() && request()->wantsJson()
             ? app(LogsDataTable::class)->with(['resource' => $attribute])->ajax()
@@ -51,11 +50,11 @@ class AttributesController extends AuthorizedController
     /**
      * Show the form for create/update of the given resource.
      *
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\View\View
      */
-    public function form(AttributeContract $attribute)
+    public function form(Attribute $attribute)
     {
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
@@ -88,11 +87,11 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
-     * @param \Rinvex\Attributes\Contracts\AttributeContract                  $attribute
+     * @param \Rinvex\Attributes\Models\Attribute                  $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function update(AttributeFormRequest $request, AttributeContract $attribute)
+    public function update(AttributeFormRequest $request, Attribute $attribute)
     {
         return $this->process($request, $attribute);
     }
@@ -101,11 +100,11 @@ class AttributesController extends AuthorizedController
      * Process the form for store/update of the given resource.
      *
      * @param \Illuminate\Foundation\Http\FormRequest        $request
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    protected function process(FormRequest $request, AttributeContract $attribute)
+    protected function process(FormRequest $request, Attribute $attribute)
     {
         // Prepare required input fields
         $data = $request->validated();
@@ -122,11 +121,11 @@ class AttributesController extends AuthorizedController
     /**
      * Delete the given resource from storage.
      *
-     * @param \Rinvex\Attributes\Contracts\AttributeContract $attribute
+     * @param \Rinvex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function delete(AttributeContract $attribute)
+    public function delete(Attribute $attribute)
     {
         $attribute->delete();
 
