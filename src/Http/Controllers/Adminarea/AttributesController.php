@@ -87,7 +87,7 @@ class AttributesController extends AuthorizedController
      * Update the given resource in storage.
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
-     * @param \Rinvex\Attributes\Models\Attribute                  $attribute
+     * @param \Rinvex\Attributes\Models\Attribute                             $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -99,8 +99,8 @@ class AttributesController extends AuthorizedController
     /**
      * Process the form for store/update of the given resource.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest        $request
-     * @param \Rinvex\Attributes\Models\Attribute $attribute
+     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @param \Rinvex\Attributes\Models\Attribute     $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
