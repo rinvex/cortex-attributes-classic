@@ -6,7 +6,6 @@ namespace Cortex\Attributes\DataTables\Adminarea;
 
 use Rinvex\Attributes\Models\Attribute;
 use Cortex\Foundation\DataTables\AbstractDataTable;
-use Cortex\Attributes\Transformers\Adminarea\AttributeTransformer;
 
 class AttributesDataTable extends AbstractDataTable
 {
@@ -14,11 +13,6 @@ class AttributesDataTable extends AbstractDataTable
      * {@inheritdoc}
      */
     protected $model = Attribute::class;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $transformer = AttributeTransformer::class;
 
     /**
      * Get the query object to be processed by dataTables.
@@ -76,10 +70,7 @@ class AttributesDataTable extends AbstractDataTable
      */
     public function ajax()
     {
-        $transformer = app($this->transformer);
-
         return datatables($this->query())
-            ->setTransformer($transformer)
             ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
             ->make(true);
     }
@@ -98,7 +89,7 @@ class AttributesDataTable extends AbstractDataTable
         return [
             'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => $link, 'responsivePriority' => 0],
             'slug' => ['title' => trans('cortex/attributes::common.slug')],
-            'type' => ['title' => trans('cortex/attributes::common.type')],
+            'type' => ['title' => trans('cortex/attributes::common.type'), 'render' => 'Lang.trans(\'cortex/attributes::common.\'+data)'],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.collection')],
             'default' => ['title' => trans('cortex/attributes::common.default')],
