@@ -6,6 +6,7 @@ return [
 
     'name' => 'Name',
     'type' => 'Type',
+    'required' => 'Required',
     'collection' => 'Collection',
     'default' => 'Default',
     'details' => 'Details',
