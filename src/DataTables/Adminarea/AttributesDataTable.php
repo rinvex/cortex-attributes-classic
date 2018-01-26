@@ -78,10 +78,10 @@ class AttributesDataTable extends AbstractDataTable
     {
         $transformer = app($this->transformer);
 
-        return datatables()->eloquent($this->query())
-                           ->setTransformer($transformer)
-                           ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
-                           ->make(true);
+        return datatables($this->query())
+            ->setTransformer($transformer)
+            ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
+            ->make(true);
     }
 
     /**
