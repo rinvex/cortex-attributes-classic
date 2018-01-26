@@ -44,7 +44,7 @@
 
             <div class="form-group{{ $errors->has($attribute->slug) ? ' has-error' : '' }}">
                 {{ Form::label($attribute->slug, $attribute->name, ['class' => 'control-label']) }}
-                {{ Form::textarea($attribute->slug, ! $entity->exists ? $attribute->default : $value, ['class' => 'form-control', 'placeholder' => $attribute->name, 'rows' => 3, 'required' => $attribute->is_required ? 'required' : false]) }}
+                {{ Form::textarea($attribute->slug, ! $entity->exists ? $attribute->default : $entity->{$attribute->slug}, ['class' => 'form-control', 'placeholder' => $attribute->name, 'rows' => 3, 'required' => $attribute->is_required ? 'required' : false]) }}
 
                 @if ($errors->has($attribute->slug))
                     <span class="help-block">{{ $errors->first($attribute->slug) }}</span>
