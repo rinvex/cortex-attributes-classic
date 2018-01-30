@@ -118,13 +118,14 @@
 
                                 <div class="col-md-4">
 
-                                    {{-- Default --}}
-                                    <div class="form-group{{ $errors->has('default') ? ' has-error' : '' }}">
-                                        {{ Form::label('default', trans('cortex/attributes::common.default'), ['class' => 'control-label']) }}
-                                        {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.default')]) }}
+                                    {{-- Entities --}}
+                                    <div class="form-group{{ $errors->has('entities') ? ' has-error' : '' }}">
+                                        {{ Form::label('entities[]', trans('cortex/attributes::common.entities'), ['class' => 'control-label']) }}
+                                        {{ Form::hidden('entities', '') }}
+                                        {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
 
-                                        @if ($errors->has('default'))
-                                            <span class="help-block">{{ $errors->first('default') }}</span>
+                                        @if ($errors->has('entities'))
+                                            <span class="help-block">{{ $errors->first('entities') }}</span>
                                         @endif
                                     </div>
 
@@ -148,16 +149,29 @@
 
                                 </div>
 
-                                <div class="col-md-8">
+                                <div class="col-md-4">
 
-                                    {{-- Entities --}}
-                                    <div class="form-group{{ $errors->has('entities') ? ' has-error' : '' }}">
-                                        {{ Form::label('entities[]', trans('cortex/attributes::common.entities'), ['class' => 'control-label']) }}
-                                        {{ Form::hidden('entities', '') }}
-                                        {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
+                                    {{-- Required --}}
+                                    <div class="form-group{{ $errors->has('is_required') ? ' has-error' : '' }}">
+                                        {{ Form::label('is_required', trans('cortex/attributes::common.required'), ['class' => 'control-label']) }}
+                                        {{ Form::select('is_required', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
 
-                                        @if ($errors->has('entities'))
-                                            <span class="help-block">{{ $errors->first('entities') }}</span>
+                                        @if ($errors->has('is_required'))
+                                            <span class="help-block">{{ $errors->first('is_required') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    {{-- Default --}}
+                                    <div class="form-group{{ $errors->has('default') ? ' has-error' : '' }}">
+                                        {{ Form::label('default', trans('cortex/attributes::common.default'), ['class' => 'control-label']) }}
+                                        {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.default')]) }}
+
+                                        @if ($errors->has('default'))
+                                            <span class="help-block">{{ $errors->first('default') }}</span>
                                         @endif
                                     </div>
 
