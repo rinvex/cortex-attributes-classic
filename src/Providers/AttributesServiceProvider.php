@@ -68,12 +68,6 @@ class AttributesServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
         $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus.php';
-
-            // Register user tabs
-            ! $this->app->bound('cortex.fort.user.tabs') || $this->app['cortex.fort.user.tabs']->put('attributes', [
-                'header' => 'cortex/attributes::{accessarea}.partials.tab-header-user',
-                'panel' => 'cortex/attributes::{accessarea}.partials.tab-panel-user',
-            ]);
         });
 
         // Register blade extensions

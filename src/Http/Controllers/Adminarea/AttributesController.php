@@ -40,11 +40,14 @@ class AttributesController extends AuthorizedController
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function logs(Attribute $attribute)
+    public function logs(Attribute $attribute, LogsDataTable $logsDataTable)
     {
-        return request()->ajax() && request()->wantsJson()
-            ? app(LogsDataTable::class)->with(['resource' => $attribute])->ajax()
-            : intend(['url' => route('adminarea.attributes.edit', ['attribute' => $attribute]).'#logs-tab']);
+        return $logsDataTable->with([
+            'resource' => $attribute,
+            'tabs' => 'adminarea.attributes.tabs',
+            'phrase' => trans('cortex/attributes::common.attributes'),
+            'id' => "adminarea-attributes-{$attribute->getKey()}-logs-table",
+        ])->render('cortex/foundation::adminarea.pages.datatable-logs');
     }
 
     /**
@@ -66,9 +69,7 @@ class AttributesController extends AuthorizedController
         ksort($groups);
         ksort($entities);
 
-        $logs = app(LogsDataTable::class)->with(['id' => "adminarea-attributes-{$attribute->getKey()}-logs-table"])->html()->minifiedAjax(route('adminarea.attributes.logs', ['attribute' => $attribute]));
-
-        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types', 'logs'));
+        return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types'));
     }
 
     /**
