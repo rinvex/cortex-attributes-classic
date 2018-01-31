@@ -66,6 +66,7 @@ class AttributesServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
+        ! $this->app->runningInConsole() || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus.php';
         });
@@ -84,6 +85,7 @@ class AttributesServiceProvider extends ServiceProvider
      */
     protected function publishResources(): void
     {
+        $this->publishes([realpath(__DIR__.'/../../database/migrations') => database_path('migrations')], 'cortex-attributes-migrations');
         $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributes')], 'cortex-attributes-lang');
         $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributes')], 'cortex-attributes-views');
     }

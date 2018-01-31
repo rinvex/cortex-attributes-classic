@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Models;
 
 use Rinvex\Tenants\Traits\Tenantable;
+use Cortex\Foundation\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Rinvex\Attributes\Models\Attribute as BaseAttribute;
@@ -45,6 +46,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  */
 class Attribute extends BaseAttribute
 {
+    use Auditable;
     use Tenantable;
     use LogsActivity;
 

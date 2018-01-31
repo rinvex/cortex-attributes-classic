@@ -33,5 +33,6 @@ class PublishCommand extends BasePublishCommand
 
         $this->call('vendor:publish', ['--tag' => 'cortex-attributes-lang', '--force' => $this->option('force')]);
         $this->call('vendor:publish', ['--tag' => 'cortex-attributes-views', '--force' => $this->option('force')]);
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-migrations', '--force' => $this->option('force')]);
     }
 }
