@@ -16,7 +16,7 @@ class AlterAttributesTableAddAuditableColumns extends Migration
     public function up()
     {
         Schema::table(config('rinvex.attributes.tables.attributes'), function (Blueprint $table) {
-            $table->auditable();
+            $table->auditable(true);
         });
     }
 
