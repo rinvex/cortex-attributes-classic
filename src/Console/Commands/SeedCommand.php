@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Console\Commands;
 
 use Illuminate\Console\Command;
-use Rinvex\Support\Traits\SeederHelper;
 
 class SeedCommand extends Command
 {
-    use SeederHelper;
-
     /**
      * The name and signature of the console command.
      *
@@ -34,8 +31,6 @@ class SeedCommand extends Command
     {
         $this->warn($this->description);
 
-        if ($this->ensureExistingDatabaseTables('rinvex/fort')) {
-            $this->seedResources(app('rinvex.fort.ability'), realpath(__DIR__.'/../../../resources/data/abilities.json'), ['name', 'description', 'policy']);
-        }
+        $this->call('db:seed', ['--class' => 'CortexAttributesSeeder']);
     }
 }
