@@ -115,7 +115,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['success' => trans('cortex/attributes::messages.attribute.saved', ['slug' => $attribute->slug])],
+            'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => 'attribute', 'id' => $attribute->slug])],
         ]);
     }
 
@@ -132,7 +132,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['warning' => trans('cortex/attributes::messages.attribute.deleted', ['slug' => $attribute->slug])],
+            'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => 'attribute', 'id' => $attribute->slug])],
         ]);
     }
 }
