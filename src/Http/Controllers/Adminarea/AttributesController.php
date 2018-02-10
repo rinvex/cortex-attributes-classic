@@ -126,7 +126,7 @@ class AttributesController extends AuthorizedController
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function delete(Attribute $attribute)
+    public function destroy(Attribute $attribute)
     {
         $attribute->delete();
 

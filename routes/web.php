@@ -17,7 +17,7 @@ Route::domain(domain())->group(function () {
             Route::get('{attribute}')->name('edit')->uses('AttributesController@form');
             Route::put('{attribute}')->name('update')->uses('AttributesController@update');
             Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs');
-            Route::delete('{attribute}')->name('delete')->uses('AttributesController@delete');
+            Route::delete('{attribute}')->name('destroy')->uses('AttributesController@destroy');
         });
 
     });
