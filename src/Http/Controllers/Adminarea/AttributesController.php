@@ -19,7 +19,7 @@ class AttributesController extends AuthorizedController
     protected $resource = 'attribute';
 
     /**
-     * Display a listing of the resource.
+     * List all attributes.
      *
      * @param \Cortex\Attributes\DataTables\Adminarea\AttributesDataTable $attributesDataTable
      *
@@ -34,9 +34,10 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Get a listing of the resource logs.
+     * List attribute logs.
      *
-     * @param \Rinvex\Attributes\Models\Attribute $attribute
+     * @param \Cortex\Attributes\Models\Attribute         $attribute
+     * @param \Cortex\Foundation\DataTables\LogsDataTable $logsDataTable
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -51,9 +52,9 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Show the form for create/update of the given resource.
+     * Create new attribute.
      *
-     * @param \Rinvex\Attributes\Models\Attribute $attribute
+     * @param \Cortex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\View\View
      */
@@ -97,22 +98,23 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store new attribute.
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
+     * @param \Cortex\Attributes\Models\Attribute                             $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function store(AttributeFormRequest $request)
+    public function store(AttributeFormRequest $request, Attribute $attribute)
     {
-        return $this->process($request, app('rinvex.attributes.attribute'));
+        return $this->process($request, $attribute);
     }
 
     /**
-     * Update the given resource in storage.
+     * Update given attribute.
      *
      * @param \Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest $request
-     * @param \Rinvex\Attributes\Models\Attribute                             $attribute
+     * @param \Cortex\Attributes\Models\Attribute                             $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -122,10 +124,10 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Process the form for store/update of the given resource.
+     * Process stored/updated attribute.
      *
      * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Rinvex\Attributes\Models\Attribute     $attribute
+     * @param \Cortex\Attributes\Models\Attribute     $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -144,9 +146,9 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Delete the given resource from storage.
+     * Destroy given attribute.
      *
-     * @param \Rinvex\Attributes\Models\Attribute $attribute
+     * @param \Cortex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */

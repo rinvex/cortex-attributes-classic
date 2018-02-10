@@ -27,7 +27,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * @property \Carbon\Carbon|null                                                               $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cortex\Foundation\Models\Log[]     $activity
  * @property array                                                                             $entities
- * @property-read \Rinvex\Attributes\Support\ValueCollection|\Rinvex\Attributes\Models\Value[] $values
+ * @property-read \Cortex\Attributes\Support\ValueCollection|\Rinvex\Attributes\Models\Value[] $values
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute ordered($direction = 'asc')
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereCreatedAt($value)
