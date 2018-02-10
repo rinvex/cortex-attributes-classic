@@ -57,7 +57,31 @@ class AttributesController extends AuthorizedController
      *
      * @return \Illuminate\View\View
      */
-    public function form(Attribute $attribute)
+    public function create(Attribute $attribute)
+    {
+        return $this->form($attribute);
+    }
+
+    /**
+     * Edit given attribute.
+     *
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit(Attribute $attribute)
+    {
+        return $this->form($attribute);
+    }
+
+    /**
+     * Show attribute create/edit form.
+     *
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    protected function form(Attribute $attribute)
     {
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
