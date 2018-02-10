@@ -62,18 +62,7 @@ class Attribute extends BaseAttribute
      *
      * @var array
      */
-    protected static $logAttributes = [
-        'name',
-        'slug',
-        'description',
-        'sort_order',
-        'group',
-        'type',
-        'entities',
-        'is_required',
-        'is_collection',
-        'default',
-    ];
+    protected static $logFillable = true;
 
     /**
      * The attributes that are ignored on change.
