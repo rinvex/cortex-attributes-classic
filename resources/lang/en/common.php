@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
 
-    'name' => 'Name',
+    'title' => 'Title',
     'type' => 'Type',
     'required' => 'Required',
     'collection' => 'Collection',
