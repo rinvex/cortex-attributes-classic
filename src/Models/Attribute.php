@@ -14,7 +14,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * Cortex\Attributes\Models\Attribute.
  *
  * @property int                                                                               $id
- * @property string                                                                            $slug
+ * @property string                                                                            $name
  * @property array                                                                             $name
  * @property array                                                                             $description
  * @property int                                                                               $sort_order
@@ -27,7 +27,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * @property \Carbon\Carbon|null                                                               $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cortex\Foundation\Models\Log[]     $activity
  * @property array                                                                             $entities
- * @property-read \Cortex\Attributes\Support\ValueCollection|\Rinvex\Attributes\Models\Value[] $values
+ * @property-read \Rinvex\Attributes\Support\ValueCollection|\Rinvex\Attributes\Models\Value[] $values
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute ordered($direction = 'asc')
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereCreatedAt($value)
@@ -38,7 +38,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsCollection($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsRequired($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereUpdatedAt($value)
@@ -82,7 +82,7 @@ class Attribute extends BaseAttribute
      */
     public function getRouteKeyName(): string
     {
-        return 'slug';
+        return 'name';
     }
 
     /**

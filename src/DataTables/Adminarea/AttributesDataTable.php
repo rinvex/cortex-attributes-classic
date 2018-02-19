@@ -69,12 +69,12 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns(): array
     {
         $link = config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
-            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.slug})+"\">"+data+"</a>"';
+            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.name, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
+            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.name})+"\">"+data+"</a>"';
 
         return [
             'title' => ['title' => trans('cortex/attributes::common.title'), 'render' => $link, 'responsivePriority' => 0],
-            'slug' => ['title' => trans('cortex/attributes::common.slug')],
+            'name' => ['title' => trans('cortex/attributes::common.name')],
             'type' => ['title' => trans('cortex/attributes::common.type'), 'render' => 'Lang.trans(\'cortex/attributes::common.\'+data)'],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.collection')],
