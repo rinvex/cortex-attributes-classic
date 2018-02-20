@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rinvex\Attributes\Models\Attribute;
+use Cortex\Attributes\Models\Attribute;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
 
 Breadcrumbs::register('adminarea.attributes.index', function (BreadcrumbsGenerator $breadcrumbs) {

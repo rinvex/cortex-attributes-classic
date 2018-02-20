@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\DataTables\Adminarea;
 
-use Rinvex\Attributes\Models\Attribute;
+use Cortex\Attributes\Models\Attribute;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class AttributesDataTable extends AbstractDataTable
