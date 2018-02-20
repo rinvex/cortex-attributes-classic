@@ -16,7 +16,7 @@ class AttributesController extends AuthorizedController
     /**
      * {@inheritdoc}
      */
-    protected $resource = 'attribute';
+    protected $resource = Attribute::class;
 
     /**
      * List all attributes.
