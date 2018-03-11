@@ -18,21 +18,8 @@ class AttributesDataTable extends AbstractDataTable
      * {@inheritdoc}
      */
     protected $builderParameters = [
-        'drawCallback' => 'function (settings) {
-            var lastGroup = null;
-            var api = this.api();
-            var colspan = api.columns(\':visible\').count();
-            var rows = api.rows({page:\'current\'}).nodes();
-
-            api.column(\'group:title\', {page:\'current\'} ).data().each(function (rowGroup, rowIndex) {
-                if (lastGroup !== rowGroup) {
-                    $(rows).eq(rowIndex).before(
-                        \'<tr class="attribute-group"><td colspan="\'+colspan+\'"><strong>\'+(rowGroup ? rowGroup : "No Group")+\'</strong></td></tr>\'
-                    );
- 
-                    lastGroup = rowGroup;
-                }
-            });
+        'rowGroup' => '{
+            dataSrc: \'group\'
         }',
     ];
 
