@@ -102,9 +102,9 @@ class Attribute extends BaseAttribute
             case 'select':
 
                 $default = collect(array_map('trans', array_map('trim', explode("\n", $this->default))))->map(function ($item) use (&$selected) {
-                    if (strpos($item, '=')) {
-                        $key = strstr($item, '=', true);
-                        $value = str_replace_first('=', '', strstr($item, '='));
+                    if (mb_strpos($item, '=')) {
+                        $key = mb_strstr($item, '=', true);
+                        $value = str_replace_first('=', '', mb_strstr($item, '='));
 
                         // Check for SELECTED itmes (marked by asterisk)
                         ! str_contains($value, '*') || $selected = $key;
