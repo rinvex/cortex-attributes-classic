@@ -7,7 +7,7 @@ return [
     'title' => 'Title',
     'type' => 'Type',
     'required' => 'Required',
-    'collection' => 'Collection',
+    'is_collection' => 'Is Collection',
     'default' => 'Default',
     'details' => 'Details',
     'logs' => 'Logs',
