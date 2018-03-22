@@ -95,6 +95,33 @@ class Attribute extends BaseAttribute
      */
     public function render(Model $entity, string $accessArea): string
     {
-        return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity])->render();
+        $default = '';
+        $selected = '';
+
+        switch ($this->type) {
+            case 'select':
+
+                $default = collect(array_map('trans', array_map('trim', explode("\n", $this->default))))->map(function ($item) use (&$selected) {
+                    if (strpos($item, '=')) {
+                        $key = strstr($item, '=', true);
+                        $value = str_replace_first('=', '', strstr($item, '='));
+
+                        // Check for SELECTED itmes (marked by asterisk)
+                        ! str_contains($value, '*') || $selected = $key;
+                        ! str_contains($value, '*') || $value = str_replace_first('*', '', $value);
+                    } else {
+                        $key = $value = $item;
+
+                        // Check for SELECTED itmes (marked by asterisk)
+                        ! str_contains($value, '*') || $key = $value = $selected = str_replace_first('*', '', $value);
+                    }
+
+                    return [$key => $value];
+                })->collapse();
+
+                break;
+        }
+
+        return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
     }
 }

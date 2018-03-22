@@ -13,7 +13,7 @@
                 <div class="entry form-group{{ $errors->has($attribute->name.'.'.$loop->index) ? ' has-error' : '' }}">
 
                     <div class="input-group">
-                        {{ Form::textarea($attribute->name.'[]', ! $entity->exists ? $attribute->default : $value, ['class' => 'form-control', 'placeholder' => $attribute->title, 'rows' => 3, 'required' => $attribute->is_required ? 'required' : false]) }}
+                        {{ Form::text($attribute->name.'[]', ! $entity->exists ? $attribute->default : $value, ['class' => 'form-control', 'placeholder' => $attribute->title, 'required' => $attribute->is_required ? 'required' : false]) }}
                         <span class="input-group-btn">
                             @if($loop->last)
                                 <button class="btn btn-success btn-add" type="button">
@@ -44,7 +44,7 @@
 
             <div class="form-group{{ $errors->has($attribute->name) ? ' has-error' : '' }}">
                 {{ Form::label($attribute->name, $attribute->title, ['class' => 'control-label']) }}
-                {{ Form::textarea($attribute->name, ! $entity->exists ? $attribute->default : $entity->{$attribute->name}, ['class' => 'form-control', 'placeholder' => $attribute->title, 'rows' => 3, 'required' => $attribute->is_required ? 'required' : false]) }}
+                {{ Form::text($attribute->name, ! $entity->exists ? $attribute->default : $entity->{$attribute->name}, ['class' => 'form-control', 'placeholder' => $attribute->title, 'required' => $attribute->is_required ? 'required' : false]) }}
 
                 @if ($errors->has($attribute->name))
                     <span class="help-block">{{ $errors->first($attribute->name) }}</span>

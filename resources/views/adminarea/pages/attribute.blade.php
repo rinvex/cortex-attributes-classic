@@ -41,7 +41,7 @@
 
                             <div class="row">
 
-                                <div class="col-md-4">
+                                <div class="col-md-8">
 
                                     {{-- Title --}}
                                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -69,6 +69,10 @@
 
                                 </div>
 
+                            </div>
+
+                            <div class="row">
+
                                 <div class="col-md-4">
 
                                     {{-- Sort Order --}}
@@ -83,10 +87,6 @@
 
                                 </div>
 
-                            </div>
-
-                            <div class="row">
-
                                 <div class="col-md-4">
 
                                     {{-- Group --}}
@@ -97,20 +97,6 @@
 
                                         @if ($errors->has('group'))
                                             <span class="help-block">{{ $errors->first('group') }}</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-4">
-
-                                    {{-- Type --}}
-                                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                                        {{ Form::label('type', trans('cortex/attributes::common.type'), ['class' => 'control-label']) }}
-                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_type'), 'required' => 'required', 'data-width' => '100%']) }}
-
-                                        @if ($errors->has('type'))
-                                            <span class="help-block">{{ $errors->first('type') }}</span>
                                         @endif
                                     </div>
 
@@ -137,13 +123,27 @@
 
                                 <div class="col-md-4">
 
-                                    {{-- Collection --}}
-                                    <div class="form-group{{ $errors->has('collection') ? ' has-error' : '' }}">
-                                        {{ Form::label('collection', trans('cortex/attributes::common.collection'), ['class' => 'control-label']) }}
-                                        {{ Form::select('collection', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
+                                    {{-- Type --}}
+                                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                        {{ Form::label('type', trans('cortex/attributes::common.type'), ['class' => 'control-label']) }}
+                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_type'), 'required' => 'required', 'data-width' => '100%']) }}
 
-                                        @if ($errors->has('collection'))
-                                            <span class="help-block">{{ $errors->first('collection') }}</span>
+                                        @if ($errors->has('type'))
+                                            <span class="help-block">{{ $errors->first('type') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    {{-- Is Collection --}}
+                                    <div class="form-group{{ $errors->has('is_collection') ? ' has-error' : '' }}">
+                                        {{ Form::label('is_collection', trans('cortex/attributes::common.is_collection'), ['class' => 'control-label']) }}
+                                        {{ Form::select('is_collection', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
+
+                                        @if ($errors->has('is_collection'))
+                                            <span class="help-block">{{ $errors->first('is_collection') }}</span>
                                         @endif
                                     </div>
 
@@ -163,25 +163,11 @@
 
                                 </div>
 
-                                <div class="col-md-4">
-
-                                    {{-- Default --}}
-                                    <div class="form-group{{ $errors->has('default') ? ' has-error' : '' }}">
-                                        {{ Form::label('default', trans('cortex/attributes::common.default'), ['class' => 'control-label']) }}
-                                        {{ Form::text('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.default')]) }}
-
-                                        @if ($errors->has('default'))
-                                            <span class="help-block">{{ $errors->first('default') }}</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
                             </div>
 
                             <div class="row">
 
-                                <div class="col-md-12">
+                                <div class="col-md-8">
 
                                     {{-- Description --}}
                                     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
@@ -190,6 +176,20 @@
 
                                         @if ($errors->has('description'))
                                             <span class="help-block">{{ $errors->first('description') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    {{-- Default --}}
+                                    <div class="form-group{{ $errors->has('default') ? ' has-error' : '' }}">
+                                        {{ Form::label('default', trans('cortex/attributes::common.default'), ['class' => 'control-label']) }}
+                                        {{ Form::textarea('default', null, ['class' => 'form-control', 'placeholder' => trans('cortex/attributes::common.default'), 'rows' => 3]) }}
+
+                                        @if ($errors->has('default'))
+                                            <span class="help-block">{{ $errors->first('default') }}</span>
                                         @endif
                                     </div>
 

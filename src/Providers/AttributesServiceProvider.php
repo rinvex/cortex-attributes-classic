@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Providers;
 
 use Illuminate\Routing\Router;
+use Cortex\Attributes\Models\Attribute;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Cortex\Attributes\Console\Commands\SeedCommand;
@@ -69,6 +70,17 @@ class AttributesServiceProvider extends ServiceProvider
         $this->app->runningInConsole() || $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus.php';
         });
+
+        // Add default attributes types
+        Attribute::typeMap([
+            'integer' => \Rinvex\Attributes\Models\Type\Integer::class,
+            'boolean' => \Rinvex\Attributes\Models\Type\Boolean::class,
+            'select' => \Rinvex\Attributes\Models\Type\Varchar::class,
+            'textarea' => \Rinvex\Attributes\Models\Type\Text::class,
+            'radio' => \Rinvex\Attributes\Models\Type\Varchar::class,
+            'check' => \Rinvex\Attributes\Models\Type\Varchar::class,
+            'text' => \Rinvex\Attributes\Models\Type\Varchar::class,
+        ]);
 
         // Register blade extensions
         $this->registerBladeExtensions();
