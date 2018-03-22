@@ -90,9 +90,9 @@ class AttributesController extends AuthorizedController
             return trans('cortex/attributes::common.'.$item);
         }, $typeKeys));
 
-        ksort($types);
-        ksort($groups);
-        ksort($entities);
+        asort($types);
+        asort($groups);
+        asort($entities);
 
         return view('cortex/attributes::adminarea.pages.attribute', compact('attribute', 'groups', 'entities', 'types'));
     }
