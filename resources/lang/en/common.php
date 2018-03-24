@@ -31,6 +31,8 @@ return [
     'integer' => 'Integer Input',
     'check' => 'Checkbox',
     'text' => 'Text Input',
+    'file' => 'File',
+    'import' => 'Import',
 
     'attributes' => 'Attributes',
     'create_attribute' => 'Create New Attribute',

@@ -7,6 +7,9 @@ namespace Cortex\Attributes\Http\Controllers\Adminarea;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
+use Cortex\Foundation\Importers\DefaultImporter;
+use Cortex\Foundation\DataTables\ImportLogsDataTable;
+use Cortex\Foundation\Http\Requests\ImportFormRequest;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\Attributes\DataTables\Adminarea\AttributesDataTable;
 use Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest;
@@ -49,6 +52,53 @@ class AttributesController extends AuthorizedController
             'phrase' => trans('cortex/attributes::common.attributes'),
             'id' => "adminarea-attributes-{$attribute->getKey()}-logs-table",
         ])->render('cortex/foundation::adminarea.pages.datatable-logs');
+    }
+
+    /**
+     * Import attributes.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function import()
+    {
+        return view('cortex/foundation::adminarea.pages.import', [
+            'id' => 'adminarea-attributes-import',
+            'tabs' => 'adminarea.attributes.tabs',
+            'url' => route('adminarea.attributes.hoard'),
+            'phrase' => trans('cortex/attributes::common.attributes'),
+        ]);
+    }
+
+    /**
+     * Hoard attributes.
+     *
+     * @param \Cortex\Foundation\Http\Requests\ImportFormRequest $request
+     * @param \Cortex\Foundation\Importers\DefaultImporter       $importer
+     *
+     * @return void
+     */
+    public function hoard(ImportFormRequest $request, DefaultImporter $importer)
+    {
+        // Handle the import
+        $importer->config['resource'] = $this->resource;
+        $importer->handleImport();
+    }
+
+    /**
+     * List attribute import logs.
+     *
+     * @param \Cortex\Foundation\DataTables\ImportLogsDataTable $importLogsDatatable
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function importLogs(ImportLogsDataTable $importLogsDatatable)
+    {
+        return $importLogsDatatable->with([
+            'resource' => 'attribute',
+            'tabs' => 'adminarea.attributes.tabs',
+            'id' => 'adminarea-attributes-import-logs-table',
+            'phrase' => trans('cortex/attributes::common.attributes'),
+        ])->render('cortex/foundation::adminarea.pages.datatable-import-logs');
     }
 
     /**
