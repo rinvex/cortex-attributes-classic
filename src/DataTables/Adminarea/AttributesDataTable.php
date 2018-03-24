@@ -65,7 +65,7 @@ class AttributesDataTable extends AbstractDataTable
             'type' => ['title' => trans('cortex/attributes::common.type'), 'render' => 'Lang.trans(\'cortex/attributes::common.\'+data)'],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.is_collection')],
-            'is_required' => ['title' => trans('cortex/attributes::common.required')],
+            'is_required' => ['title' => trans('cortex/attributes::common.is_required')],
             'created_at' => ['title' => trans('cortex/attributes::common.created_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
             'updated_at' => ['title' => trans('cortex/attributes::common.updated_at'), 'render' => "moment(data).format('MMM Do, YYYY')"],
         ];
