@@ -13,7 +13,7 @@ Menu::register('adminarea.sidebar', function (MenuGenerator $menu, Attribute $at
 });
 
 Menu::register('adminarea.attributes.tabs', function (MenuGenerator $menu, Attribute $attribute) {
-    $menu->route(['adminarea.attributes.create'], trans('cortex/attributes::common.details'))->ifCan('create', $attribute)->if(! $attribute->exists);
+    $menu->route(['adminarea.attributes.create'], trans('cortex/attributes::common.details'))->ifCan('create', $attribute)->if(Route::is('adminarea.attributes.create'));
     $menu->route(['adminarea.attributes.edit', ['attribute' => $attribute]], trans('cortex/attributes::common.details'))->ifCan('update', $attribute)->if($attribute->exists);
     $menu->route(['adminarea.attributes.logs', ['attribute' => $attribute]], trans('cortex/attributes::common.logs'))->ifCan('audit', $attribute)->if($attribute->exists);
 });
