@@ -2,6 +2,7 @@
     <div class="row">
 
         <div class="col-md-12">
+
             {{ Form::label($attribute->name, $attribute->title, ['class' => 'control-label']) }}
 
             @php
@@ -30,6 +31,7 @@
                     @if ($errors->has($attribute->name.'.'.$loop->index))
                         <span class="help-block">{{ $errors->first($attribute->name.'.'.$loop->index) }}</span>
                     @endif
+
                 </div>
 
             @endforeach

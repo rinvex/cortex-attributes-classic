@@ -30,6 +30,7 @@
                     @if ($errors->has($attribute->name.'.'.$loop->index))
                         <span class="help-block">{{ $errors->first($attribute->name.'.'.$loop->index) }}</span>
                     @endif
+
                 </div>
 
             @endforeach

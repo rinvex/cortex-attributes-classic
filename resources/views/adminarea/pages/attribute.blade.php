@@ -75,6 +75,52 @@
 
                                 <div class="col-md-4">
 
+                                    {{-- Type --}}
+                                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                        {{ Form::label('type', trans('cortex/attributes::common.type'), ['class' => 'control-label']) }}
+                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_type'), 'required' => 'required', 'data-width' => '100%']) }}
+
+                                        @if ($errors->has('type'))
+                                            <span class="help-block">{{ $errors->first('type') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    {{-- Is Collection --}}
+                                    <div class="form-group{{ $errors->has('is_collection') ? ' has-error' : '' }}">
+                                        {{ Form::label('is_collection', trans('cortex/attributes::common.is_collection'), ['class' => 'control-label']) }}
+                                        {{ Form::select('is_collection', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%', 'required' => 'required']) }}
+
+                                        @if ($errors->has('is_collection'))
+                                            <span class="help-block">{{ $errors->first('is_collection') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    {{-- Required --}}
+                                    <div class="form-group{{ $errors->has('is_required') ? ' has-error' : '' }}">
+                                        {{ Form::label('is_required', trans('cortex/attributes::common.is_required'), ['class' => 'control-label']) }}
+                                        {{ Form::select('is_required', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%', 'required' => 'required']) }}
+
+                                        @if ($errors->has('is_required'))
+                                            <span class="help-block">{{ $errors->first('is_required') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+
                                     {{-- Sort Order --}}
                                     <div class="form-group{{ $errors->has('sort_order') ? ' has-error' : '' }}">
                                         {{ Form::label('sort_order', trans('cortex/attributes::common.sort_order'), ['class' => 'control-label']) }}
@@ -112,52 +158,6 @@
 
                                         @if ($errors->has('entities'))
                                             <span class="help-block">{{ $errors->first('entities') }}</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-md-4">
-
-                                    {{-- Type --}}
-                                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                                        {{ Form::label('type', trans('cortex/attributes::common.type'), ['class' => 'control-label']) }}
-                                        {{ Form::select('type', $types, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_type'), 'required' => 'required', 'data-width' => '100%']) }}
-
-                                        @if ($errors->has('type'))
-                                            <span class="help-block">{{ $errors->first('type') }}</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-4">
-
-                                    {{-- Is Collection --}}
-                                    <div class="form-group{{ $errors->has('is_collection') ? ' has-error' : '' }}">
-                                        {{ Form::label('is_collection', trans('cortex/attributes::common.is_collection'), ['class' => 'control-label']) }}
-                                        {{ Form::select('is_collection', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
-
-                                        @if ($errors->has('is_collection'))
-                                            <span class="help-block">{{ $errors->first('is_collection') }}</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-4">
-
-                                    {{-- Required --}}
-                                    <div class="form-group{{ $errors->has('is_required') ? ' has-error' : '' }}">
-                                        {{ Form::label('is_required', trans('cortex/attributes::common.required'), ['class' => 'control-label']) }}
-                                        {{ Form::select('is_required', [0 => trans('cortex/attributes::common.no'), 1 => trans('cortex/attributes::common.yes')], null, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%']) }}
-
-                                        @if ($errors->has('is_required'))
-                                            <span class="help-block">{{ $errors->first('is_required') }}</span>
                                         @endif
                                     </div>
 
