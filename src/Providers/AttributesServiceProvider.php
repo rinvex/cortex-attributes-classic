@@ -41,6 +41,10 @@ class AttributesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Bind eloquent models to IoC container
+        $this->app['config']['rinvex.attributes.models.attribute'] === Attribute::class
+        || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
+
         // Register console commands
         ! $this->app->runningInConsole() || $this->registerCommands();
     }
