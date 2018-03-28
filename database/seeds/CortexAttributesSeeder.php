@@ -14,6 +14,7 @@ class CortexAttributesSeeder extends Seeder
     public function run()
     {
         Bouncer::allow('admin')->to('list', config('rinvex.attributes.models.attribute'));
+        Bouncer::allow('admin')->to('import', config('rinvex.attributes.models.attribute'));
         Bouncer::allow('admin')->to('create', config('rinvex.attributes.models.attribute'));
         Bouncer::allow('admin')->to('update', config('rinvex.attributes.models.attribute'));
         Bouncer::allow('admin')->to('delete', config('rinvex.attributes.models.attribute'));
