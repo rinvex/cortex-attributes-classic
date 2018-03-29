@@ -13,7 +13,7 @@ return [
     'logs' => 'Logs',
     'group' => 'Group',
     'select_group' => 'Select Group',
-    'name' => 'name',
+    'slug' => 'Slug',
     'sort_order' => 'Sort Order',
     'description' => 'Description',
     'yes' => 'Yes',

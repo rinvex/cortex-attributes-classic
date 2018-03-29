@@ -2,13 +2,13 @@
 
     <div class="col-md-12">
 
-        <div class="form-group{{ $errors->has($attribute->name) ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has($attribute->slug) ? ' has-error' : '' }}">
 
-            {{ Form::label($attribute->name, $attribute->title, ['class' => 'control-label']) }}
-            {{ Form::select($attribute->name, $default, ! $entity->exists ? $selected : $entity->{$attribute->name}, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%', 'multiple' => $attribute->is_collection]) }}
+            {{ Form::label($attribute->slug, $attribute->title, ['class' => 'control-label']) }}
+            {{ Form::select($attribute->slug, $default, ! $entity->exists ? $selected : $entity->{$attribute->slug}, ['class' => 'form-control select2', 'data-minimum-results-for-search' => 'Infinity', 'data-width' => '100%', 'multiple' => $attribute->is_collection]) }}
 
-            @if ($errors->has($attribute->name))
-                <span class="help-block">{{ $errors->first($attribute->name) }}</span>
+            @if ($errors->has($attribute->slug))
+                <span class="help-block">{{ $errors->first($attribute->slug) }}</span>
             @endif
 
         </div>

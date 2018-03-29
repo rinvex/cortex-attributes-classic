@@ -61,7 +61,6 @@ class AttributesDataTable extends AbstractDataTable
 
         return [
             'title' => ['title' => trans('cortex/attributes::common.title'), 'render' => $link, 'responsivePriority' => 0],
-            'name' => ['title' => trans('cortex/attributes::common.name')],
             'type' => ['title' => trans('cortex/attributes::common.type'), 'render' => 'Lang.trans(\'cortex/attributes::common.\'+data)'],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.is_collection')],
