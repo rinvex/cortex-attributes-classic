@@ -50,7 +50,7 @@ class AttributesController extends AuthorizedController
             'resource' => $attribute,
             'tabs' => 'adminarea.attributes.tabs',
             'phrase' => trans('cortex/attributes::common.attributes'),
-            'id' => "adminarea-attributes-{$attribute->getKey()}-logs-table",
+            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs-table",
         ])->render('cortex/foundation::adminarea.pages.datatable-logs');
     }
 

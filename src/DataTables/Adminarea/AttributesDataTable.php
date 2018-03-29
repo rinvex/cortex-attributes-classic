@@ -56,8 +56,8 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns(): array
     {
         $link = config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.name, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
-            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.name})+"\">"+data+"</a>"';
+            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: hashids.encode(full.id), locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
+            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: hashids.encode(full.id)})+"\">"+data+"</a>"';
 
         return [
             'title' => ['title' => trans('cortex/attributes::common.title'), 'render' => $link, 'responsivePriority' => 0],
