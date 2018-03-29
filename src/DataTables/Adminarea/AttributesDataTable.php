@@ -31,7 +31,7 @@ class AttributesDataTable extends AbstractDataTable
     public function query()
     {
         $locale = app()->getLocale();
-        $query = app($this->model)->query()->orderBy('group', 'ASC')->orderBy('sort_order', 'ASC')->orderBy("title->\${$locale}", 'ASC');
+        $query = app($this->model)->query()->orderBy('group', 'ASC')->orderBy('sort_order', 'ASC')->orderBy("name->\${$locale}", 'ASC');
 
         return $this->applyScopes($query);
     }
@@ -44,7 +44,7 @@ class AttributesDataTable extends AbstractDataTable
     public function ajax()
     {
         return datatables($this->query())
-            ->orderColumn('title', 'title->"$.'.app()->getLocale().'" $1')
+            ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
             ->make(true);
     }
 
@@ -60,7 +60,7 @@ class AttributesDataTable extends AbstractDataTable
             : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: hashids.encode(full.id)})+"\">"+data+"</a>"';
 
         return [
-            'title' => ['title' => trans('cortex/attributes::common.title'), 'render' => $link, 'responsivePriority' => 0],
+            'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => $link, 'responsivePriority' => 0],
             'type' => ['title' => trans('cortex/attributes::common.type'), 'render' => 'Lang.trans(\'cortex/attributes::common.\'+data)'],
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.is_collection')],

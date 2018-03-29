@@ -2,7 +2,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            {{ Form::label($attribute->slug, $attribute->title, ['class' => 'control-label']) }}
+            {{ Form::label($attribute->slug, $attribute->name, ['class' => 'control-label']) }}
 
             @php
                 $values = old($attribute->slug) ?? ($entity->{$attribute->slug}->count() ? $entity->{$attribute->slug} : ['']);
@@ -13,7 +13,7 @@
                 <div class="entry form-group{{ $errors->has($attribute->slug.'.'.$loop->index) ? ' has-error' : '' }}">
 
                     <div class="input-group">
-                        {{ Form::text($attribute->slug.'[]', ! $entity->exists ? $attribute->default : $value, ['class' => 'form-control', 'placeholder' => $attribute->title, 'required' => $attribute->is_required ? 'required' : false]) }}
+                        {{ Form::text($attribute->slug.'[]', ! $entity->exists ? $attribute->default : $value, ['class' => 'form-control', 'placeholder' => $attribute->name, 'required' => $attribute->is_required ? 'required' : false]) }}
                         <span class="input-group-btn">
                             @if($loop->last)
                                 <button class="btn btn-success btn-add" type="button">
@@ -44,8 +44,8 @@
         <div class="col-md-12">
 
             <div class="form-group{{ $errors->has($attribute->slug) ? ' has-error' : '' }}">
-                {{ Form::label($attribute->slug, $attribute->title, ['class' => 'control-label']) }}
-                {{ Form::text($attribute->slug, ! $entity->exists ? $attribute->default : $entity->{$attribute->slug}, ['class' => 'form-control', 'placeholder' => $attribute->title, 'required' => $attribute->is_required ? 'required' : false]) }}
+                {{ Form::label($attribute->slug, $attribute->name, ['class' => 'control-label']) }}
+                {{ Form::text($attribute->slug, ! $entity->exists ? $attribute->default : $entity->{$attribute->slug}, ['class' => 'form-control', 'placeholder' => $attribute->name, 'required' => $attribute->is_required ? 'required' : false]) }}
 
                 @if ($errors->has($attribute->slug))
                     <span class="help-block">{{ $errors->first($attribute->slug) }}</span>

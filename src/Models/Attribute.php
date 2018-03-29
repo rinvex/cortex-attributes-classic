@@ -16,7 +16,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  *
  * @property int                                                                               $id
  * @property string                                                                            $slug
- * @property string                                                                            $title
+ * @property string                                                                            $name
  * @property array                                                                             $description
  * @property int                                                                               $sort_order
  * @property string                                                                            $group
@@ -40,7 +40,7 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereIsRequired($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereSortOrder($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute whereUpdatedAt($value)
  * @mixin \Eloquent

@@ -28,11 +28,11 @@ Breadcrumbs::register('adminarea.attributes.create', function (BreadcrumbsGenera
 
 Breadcrumbs::register('adminarea.attributes.edit', function (BreadcrumbsGenerator $breadcrumbs, Attribute $attribute) {
     $breadcrumbs->parent('adminarea.attributes.index');
-    $breadcrumbs->push($attribute->title, route('adminarea.attributes.edit', ['attribute' => $attribute]));
+    $breadcrumbs->push($attribute->name, route('adminarea.attributes.edit', ['attribute' => $attribute]));
 });
 
 Breadcrumbs::register('adminarea.attributes.logs', function (BreadcrumbsGenerator $breadcrumbs, Attribute $attribute) {
     $breadcrumbs->parent('adminarea.attributes.index');
-    $breadcrumbs->push($attribute->title, route('adminarea.attributes.edit', ['attribute' => $attribute]));
+    $breadcrumbs->push($attribute->name, route('adminarea.attributes.edit', ['attribute' => $attribute]));
     $breadcrumbs->push(trans('cortex/attributes::common.logs'), route('adminarea.attributes.logs', ['attribute' => $attribute]));
 });
