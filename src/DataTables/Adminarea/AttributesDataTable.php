@@ -6,6 +6,7 @@ namespace Cortex\Attributes\DataTables\Adminarea;
 
 use Cortex\Attributes\Models\Attribute;
 use Cortex\Foundation\DataTables\AbstractDataTable;
+use Cortex\Attributes\Transformers\Adminarea\AttributeTransformer;
 
 class AttributesDataTable extends AbstractDataTable
 {
@@ -13,6 +14,11 @@ class AttributesDataTable extends AbstractDataTable
      * {@inheritdoc}
      */
     protected $model = Attribute::class;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $transformer = AttributeTransformer::class;
 
     /**
      * {@inheritdoc}
@@ -37,18 +43,6 @@ class AttributesDataTable extends AbstractDataTable
     }
 
     /**
-     * Display ajax response.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function ajax()
-    {
-        return datatables($this->query())
-            ->orderColumn('name', 'name->"$.'.app()->getLocale().'" $1')
-            ->make(true);
-    }
-
-    /**
      * Get columns.
      *
      * @return array
@@ -56,8 +50,8 @@ class AttributesDataTable extends AbstractDataTable
     protected function getColumns(): array
     {
         $link = config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: hashids.encode(full.id), locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
-            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: hashids.encode(full.id)})+"\">"+data+"</a>"';
+            ? '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.id, locale: \''.$this->request->segment(1).'\'})+"\">"+data+"</a>"'
+            : '"<a href=\""+routes.route(\'adminarea.attributes.edit\', {attribute: full.id})+"\">"+data+"</a>"';
 
         return [
             'name' => ['title' => trans('cortex/attributes::common.name'), 'render' => $link, 'responsivePriority' => 0],
