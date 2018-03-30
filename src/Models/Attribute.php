@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Models;
 
-use Vinkla\Hashids\Facades\Hashids;
 use Rinvex\Tenants\Traits\Tenantable;
+use Rinvex\Support\Traits\HashidsTrait;
 use Cortex\Foundation\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -49,6 +49,7 @@ class Attribute extends BaseAttribute
 {
     use Auditable;
     use Tenantable;
+    use HashidsTrait;
     use LogsActivity;
 
     /**
@@ -75,30 +76,6 @@ class Attribute extends BaseAttribute
         'updated_at',
         'deleted_at',
     ];
-
-    /**
-     * Get the value of the model's route key.
-     *
-     * @return mixed
-     */
-    public function getRouteKey()
-    {
-        return Hashids::encode($this->getAttribute($this->getRouteKeyName()));
-    }
-
-    /**
-     * Retrieve the model for a bound value.
-     *
-     * @param mixed $value
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
-    public function resolveRouteBinding($value)
-    {
-        $value = Hashids::decode($value)[0];
-
-        return $this->where($this->getRouteKeyName(), $value)->first();
-    }
 
     /**
      * Get the route key for the model.
