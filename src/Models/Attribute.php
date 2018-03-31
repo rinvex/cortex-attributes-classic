@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Models;
 
 use Rinvex\Tenants\Traits\Tenantable;
-use Rinvex\Support\Traits\HashidsTrait;
 use Cortex\Foundation\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
+use Rinvex\Support\Traits\HashidsTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 
