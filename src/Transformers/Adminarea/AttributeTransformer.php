@@ -17,7 +17,7 @@ class AttributeTransformer extends TransformerAbstract
      */
     public function transform(Attribute $attribute): array
     {
-        return $this->escapeRow([
+        return $this->escape([
             'id' => (string) $attribute->getRouteKey(),
             'name' => (string) $attribute->name,
             'type' => (string) $attribute->type,
