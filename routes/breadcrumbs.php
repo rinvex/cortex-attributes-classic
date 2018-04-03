@@ -6,7 +6,7 @@ use Cortex\Attributes\Models\Attribute;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
 
 Breadcrumbs::register('adminarea.attributes.index', function (BreadcrumbsGenerator $breadcrumbs) {
-    $breadcrumbs->push('<i class="fa fa-dashboard"></i> '.trans('cortex/foundation::common.adminarea'), route('adminarea.home'));
+    $breadcrumbs->push('<i class="fa fa-dashboard"></i> '.config('app.name'), route('adminarea.home'));
     $breadcrumbs->push(trans('cortex/attributes::common.attributes'), route('adminarea.attributes.index'));
 });
 
