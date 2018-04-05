@@ -59,8 +59,8 @@ class AttributesDataTable extends AbstractDataTable
             'group' => ['title' => trans('cortex/attributes::common.group'), 'visible' => false],
             'is_collection' => ['title' => trans('cortex/attributes::common.is_collection')],
             'is_required' => ['title' => trans('cortex/attributes::common.is_required')],
-            'created_at' => ['title' => trans('cortex/attributes::common.created_at'), 'render' => "moment(data).format('MMMM Do YYYY, hh:mm:ss A')"],
-            'updated_at' => ['title' => trans('cortex/attributes::common.updated_at'), 'render' => "moment(data).format('MMMM Do YYYY, hh:mm:ss A')"],
+            'created_at' => ['title' => trans('cortex/attributes::common.created_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'updated_at' => ['title' => trans('cortex/attributes::common.updated_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];
     }
 }
