@@ -36,3 +36,4 @@ Breadcrumbs::register('adminarea.attributes.logs', function (BreadcrumbsGenerato
     $breadcrumbs->push($attribute->name, route('adminarea.attributes.edit', ['attribute' => $attribute]));
     $breadcrumbs->push(trans('cortex/attributes::common.logs'), route('adminarea.attributes.logs', ['attribute' => $attribute]));
 });
+
