@@ -91,7 +91,7 @@ class AttributesController extends AuthorizedController
     public function importLogs(ImportLogsDataTable $importLogsDatatable)
     {
         return $importLogsDatatable->with([
-            'resource' => 'attribute',
+            'resource' => trans('cortex/attributes::common.attribute'),
             'tabs' => 'adminarea.attributes.tabs',
             'id' => 'adminarea-attributes-import-logs-table',
         ])->render('cortex/foundation::adminarea.pages.datatable-logs');
@@ -187,7 +187,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => 'attribute', 'identifier' => $attribute->name])],
+            'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->name])],
         ]);
     }
 
@@ -204,7 +204,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => 'attribute', 'identifier' => $attribute->name])],
+            'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->name])],
         ]);
     }
 }
