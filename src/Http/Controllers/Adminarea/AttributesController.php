@@ -32,7 +32,7 @@ class AttributesController extends AuthorizedController
     {
         return $attributesDataTable->with([
             'id' => 'adminarea-attributes-index-table',
-        ])->render('cortex/foundation::adminarea.pages.datatable');
+        ])->render('cortex/foundation::adminarea.pages.datatable-index');
     }
 
     /**
@@ -49,7 +49,7 @@ class AttributesController extends AuthorizedController
             'resource' => $attribute,
             'tabs' => 'adminarea.attributes.tabs',
             'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs-table",
-        ])->render('cortex/foundation::adminarea.pages.datatable-logs');
+        ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
     /**
@@ -94,7 +94,7 @@ class AttributesController extends AuthorizedController
             'resource' => trans('cortex/attributes::common.attribute'),
             'tabs' => 'adminarea.attributes.tabs',
             'id' => 'adminarea-attributes-import-logs-table',
-        ])->render('cortex/foundation::adminarea.pages.datatable-logs');
+        ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
     /**
