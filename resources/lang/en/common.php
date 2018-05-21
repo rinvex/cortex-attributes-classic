@@ -31,7 +31,7 @@ return [
     'integer' => 'Integer Input',
     'check' => 'Checkbox',
     'text' => 'Text Input',
-    'file' => 'File',
+    'records' => 'Records',
     'import' => 'Import',
 
     'attributes' => 'Attributes',

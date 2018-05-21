@@ -12,7 +12,8 @@ Route::domain(domain())->group(function () {
              Route::name('attributes.')->prefix('attributes')->group(function () {
                  Route::get('/')->name('index')->uses('AttributesController@index');
                  Route::get('import')->name('import')->uses('AttributesController@import');
-                 Route::post('import')->name('hoard')->uses('AttributesController@hoard');
+                 Route::post('import')->name('stash')->uses('AttributesController@stash');
+                 Route::post('hoard')->name('hoard')->uses('AttributesController@hoard');
                  Route::get('import/logs')->name('import.logs')->uses('AttributesController@importLogs');
                  Route::get('create')->name('create')->uses('AttributesController@create');
                  Route::post('create')->name('store')->uses('AttributesController@store');
