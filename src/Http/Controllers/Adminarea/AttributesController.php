@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
-use Cortex\Attributes\Models\Attribute;
 use Exception;
+use Cortex\Attributes\Models\Attribute;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Importers\DefaultImporter;
