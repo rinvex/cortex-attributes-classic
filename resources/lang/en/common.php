@@ -34,6 +34,7 @@ return [
     'records' => 'Records',
     'import' => 'Import',
 
+    'attribute' => 'Attribute',
     'attributes' => 'Attributes',
     'create_attribute' => 'Create New Attribute',
 
