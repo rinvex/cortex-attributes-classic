@@ -80,16 +80,6 @@ class Attribute extends BaseAttribute
     /**
      * Get the route key for the model.
      *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    /**
-     * Get the route key for the model.
-     *
      * @param \Illuminate\Database\Eloquent\Model $entity
      * @param string                              $accessArea
      *
@@ -125,5 +115,15 @@ class Attribute extends BaseAttribute
         }
 
         return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
