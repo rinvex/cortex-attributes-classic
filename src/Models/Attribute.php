@@ -100,21 +100,57 @@ class Attribute extends BaseAttribute
 
                         // Check for SELECTED itmes (marked by asterisk)
                         ! str_contains($value, '*') || $selected = $key;
-                        ! str_contains($value, '*') || $value = str_replace_first('*', '', $value);
+                        ! str_contains($value, '*') || $value = str_replace_last('*', '', $value);
                     } else {
                         $key = $value = $item;
 
                         // Check for SELECTED itmes (marked by asterisk)
-                        ! str_contains($value, '*') || $key = $value = $selected = str_replace_first('*', '', $value);
+                        ! str_contains($value, '*') || $key = $value = $selected = str_replace_last('*', '', $value);
                     }
 
                     return [$key => $value];
                 })->collapse();
 
+                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
+                break;
+
+            case 'check':
+
+                $default = collect(array_map('trans', array_map('trim', explode("\n", $this->default))))->map(function ($item) use ($entity) {
+                    $details = [
+                        'label' => '',
+                        'status' => false,
+                    ];
+
+                    if (mb_strpos($item, '=')) {
+                        $details['label'] = mb_strstr($item, '=', true);
+                        $item = str_replace_first('=', '', mb_strstr($item, '='));
+
+                        // Check for SELECTED itmes (marked by asterisk)
+                        ! str_contains($item, '*') || $details['status'] = true;
+                        ! str_contains($item, '*') || $item = str_replace_last('*', '', $item);
+
+                        ! $entity->exists || $details['status'] = $entity->{$this->slug}->search($item) !== false;
+                    } else {
+                        $details['label'] = $item;
+
+                        // Check for SELECTED itmes (marked by asterisk)
+                        ! str_contains($item, '*') || $details['status'] = true;
+                        ! str_contains($item, '*') || $details['label'] = $item = str_replace_last('*', '', $item);
+
+                        ! $entity->exists || $details['status'] = $entity->{$this->slug}->search($item) !== false;
+                    }
+
+                    return [$item => $details];
+                })->collapse();
+
+                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
+                break;
+
+            default:
+                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
                 break;
         }
-
-        return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
     }
 
     /**
