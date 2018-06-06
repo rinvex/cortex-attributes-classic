@@ -7,7 +7,7 @@
 @endsection
 
 @push('inline-scripts')
-    {!! JsValidator::formRequest(Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest::class)->selector("#adminarea-attributes-create-form, #adminarea-attributes-{$attribute->getRouteKey()}-update-form") !!}
+    {!! JsValidator::formRequest(Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest::class)->selector("#adminarea-attributes-create-form, #adminarea-attributes-{$attribute->getRouteKey()}-update-form")->ignore('.skip-validation') !!}
 @endpush
 
 {{-- Main Content --}}
@@ -148,7 +148,7 @@
                                     {{-- Group --}}
                                     <div class="form-group{{ $errors->has('group') ? ' has-error' : '' }}">
                                         {{ Form::label('group', trans('cortex/attributes::common.group'), ['class' => 'control-label']) }}
-                                        {{ Form::hidden('group', '') }}
+                                        {{ Form::hidden('group', '', ['class' => 'skip-validation']) }}
                                         {{ Form::select('group', $groups, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_group'), 'data-tags' => 'true', 'data-allow-clear' => 'true', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('group'))
@@ -163,7 +163,7 @@
                                     {{-- Entities --}}
                                     <div class="form-group{{ $errors->has('entities') ? ' has-error' : '' }}">
                                         {{ Form::label('entities[]', trans('cortex/attributes::common.entities'), ['class' => 'control-label']) }}
-                                        {{ Form::hidden('entities', '') }}
+                                        {{ Form::hidden('entities', '', ['class' => 'skip-validation']) }}
                                         {{ Form::select('entities[]', $entities, null, ['class' => 'form-control select2', 'placeholder' => trans('cortex/attributes::common.select_entities'), 'multiple' => 'multiple', 'data-width' => '100%']) }}
 
                                         @if ($errors->has('entities'))
