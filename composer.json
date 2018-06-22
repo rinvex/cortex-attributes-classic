@@ -78,6 +78,11 @@
             "Cortex\\Attributes\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Cortex\\Attributes\\Tests\\": "tests"
+        }
+    },
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
