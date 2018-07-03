@@ -23,24 +23,19 @@ class AttributesDataTable extends AbstractDataTable
     /**
      * {@inheritdoc}
      */
+    protected $order = [
+        [1, 'asc'],
+        [0, 'asc'],
+    ];
+
+    /**
+     * {@inheritdoc}
+     */
     protected $builderParameters = [
         'rowGroup' => '{
             dataSrc: \'group\'
         }',
     ];
-
-    /**
-     * Get the query object to be processed by dataTables.
-     *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
-     */
-    public function query()
-    {
-        $locale = app()->getLocale();
-        $query = app($this->model)->query()->orderBy('group', 'ASC')->orderBy('sort_order', 'ASC')->orderBy("name->\${$locale}", 'ASC');
-
-        return $this->applyScopes($query);
-    }
 
     /**
      * Get columns.
