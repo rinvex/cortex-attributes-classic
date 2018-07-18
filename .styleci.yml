@@ -12,7 +12,6 @@ enabled:
   - phpdoc_link_to_see
   - property_separation
   - no_php4_constructor
-  - uppercase_constants
   - php_unit_namespaced
   - random_api_migration
   - declare_strict_types
