@@ -112,7 +112,6 @@ class Attribute extends BaseAttribute
                 })->collapse();
 
                 return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
-                break;
 
             case 'check':
 
@@ -145,11 +144,9 @@ class Attribute extends BaseAttribute
                 })->collapse();
 
                 return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
-                break;
 
             default:
                 return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
-                break;
         }
     }
 
