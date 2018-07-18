@@ -37,7 +37,6 @@ enabled:
   - fully_qualified_strict_types
   - phpdoc_return_self_reference
   - no_null_property_initialization
-  - no_unneeded_control_parentheses
   - multiline_comment_opening_closing
   - not_operator_with_successor_space
   - phpdoc_add_missing_param_annotation
