@@ -1,7 +1,6 @@
 preset: recommended
 
 enabled:
-  - void_return
   - dir_constant
   - ereg_to_preg
   - no_useless_else
