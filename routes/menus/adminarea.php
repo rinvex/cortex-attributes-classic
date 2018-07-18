@@ -6,13 +6,13 @@ use Rinvex\Menus\Models\MenuItem;
 use Rinvex\Menus\Models\MenuGenerator;
 use Cortex\Attributes\Models\Attribute;
 
-Menu::register('adminarea.sidebar', function (MenuGenerator $menu, Attribute $attribute) {
-    $menu->findByTitleOrAdd(trans('cortex/foundation::common.cms'), 40, 'fa fa-file-text-o', [], function (MenuItem $dropdown) use ($attribute) {
+Menu::register('adminarea.sidebar', function (MenuGenerator $menu, Attribute $attribute): void {
+    $menu->findByTitleOrAdd(trans('cortex/foundation::common.cms'), 40, 'fa fa-file-text-o', [], function (MenuItem $dropdown) use ($attribute): void {
         $dropdown->route(['adminarea.attributes.index'], trans('cortex/attributes::common.attributes'), 10, 'fa fa-leaf')->ifCan('list', $attribute)->activateOnRoute('adminarea.attributes');
     });
 });
 
-Menu::register('adminarea.attributes.tabs', function (MenuGenerator $menu, Attribute $attribute) {
+Menu::register('adminarea.attributes.tabs', function (MenuGenerator $menu, Attribute $attribute): void {
     $menu->route(['adminarea.attributes.import'], trans('cortex/attributes::common.records'))->ifCan('import', $attribute)->if(Route::is('adminarea.attributes.import*'));
     $menu->route(['adminarea.attributes.import.logs'], trans('cortex/attributes::common.logs'))->ifCan('import', $attribute)->if(Route::is('adminarea.attributes.import*'));
     $menu->route(['adminarea.attributes.create'], trans('cortex/attributes::common.details'))->ifCan('create', $attribute)->if(Route::is('adminarea.attributes.create'));

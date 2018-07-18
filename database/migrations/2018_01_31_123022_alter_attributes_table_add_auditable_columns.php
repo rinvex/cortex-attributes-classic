@@ -13,9 +13,9 @@ class AlterAttributesTableAddAuditableColumns extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table(config('rinvex.attributes.tables.attributes'), function (Blueprint $table) {
+        Schema::table(config('rinvex.attributes.tables.attributes'), function (Blueprint $table): void {
             $table->auditable();
         });
     }
@@ -25,9 +25,9 @@ class AlterAttributesTableAddAuditableColumns extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table(config('rinvex.attributes.tables.attributes'), function (Blueprint $table) {
+        Schema::table(config('rinvex.attributes.tables.attributes'), function (Blueprint $table): void {
             $table->dropAuditable();
         });
     }

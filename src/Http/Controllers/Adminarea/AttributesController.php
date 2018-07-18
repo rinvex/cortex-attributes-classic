@@ -80,7 +80,7 @@ class AttributesController extends AuthorizedController
      *
      * @return void
      */
-    public function stash(ImportFormRequest $request, DefaultImporter $importer)
+    public function stash(ImportFormRequest $request, DefaultImporter $importer): void
     {
         // Handle the import
         $importer->config['resource'] = $this->resource;
@@ -102,7 +102,7 @@ class AttributesController extends AuthorizedController
             try {
                 $fillable = collect($record['data'])->intersectByKeys(array_flip(app('rinvex.attributes.attribute')->getFillable()))->toArray();
 
-                tap(app('rinvex.attributes.attribute')->firstOrNew($fillable), function ($instance) use ($record) {
+                tap(app('rinvex.attributes.attribute')->firstOrNew($fillable), function ($instance) use ($record): void {
                     $instance->save() && $record->delete();
                 });
             } catch (Exception $exception) {
