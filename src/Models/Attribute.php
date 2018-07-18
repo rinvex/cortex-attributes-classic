@@ -111,7 +111,7 @@ class Attribute extends BaseAttribute
                     return [$key => $value];
                 })->collapse();
 
-                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
+                return view("cortex/attributes::{$accessArea}.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default, 'selected' => $selected])->render();
 
             case 'check':
 
@@ -143,10 +143,10 @@ class Attribute extends BaseAttribute
                     return [$item => $details];
                 })->collapse();
 
-                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
+                return view("cortex/attributes::{$accessArea}.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
 
             default:
-                return view("cortex/attributes::$accessArea.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
+                return view("cortex/attributes::{$accessArea}.types.".$this->type, ['attribute' => $this, 'entity' => $entity, 'default' => $default])->render();
         }
     }
 
