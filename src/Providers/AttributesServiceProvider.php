@@ -71,7 +71,7 @@ class AttributesServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
         ! $this->app->runningInConsole() || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
-        $this->app->runningInConsole() || $this->app->afterResolving('blade.compiler', function () {
+        $this->app->runningInConsole() || $this->app->afterResolving('blade.compiler', function (): void {
             require __DIR__.'/../../routes/menus/adminarea.php';
         });
 
@@ -127,7 +127,7 @@ class AttributesServiceProvider extends ServiceProvider
      */
     protected function registerBladeExtensions(): void
     {
-        $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
+        $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler): void {
             // @attributes($entity)
             $bladeCompiler->directive('attributes', function ($expression) {
                 return "<?php echo {$expression}->getEntityAttributes()->map->render({$expression}, request()->route('accessarea'))->implode('') ?: view('cortex/attributes::".request()->route('accessarea').".partials.no-results'); ?>";

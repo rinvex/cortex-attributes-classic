@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-Route::domain(domain())->group(function () {
+Route::domain(domain())->group(function (): void {
     Route::name('adminarea.')
          ->namespace('Cortex\Attributes\Http\Controllers\Adminarea')
          ->middleware(['web', 'nohttpcache', 'can:access-adminarea'])
-         ->prefix(config('cortex.foundation.route.locale_prefix') ? '{locale}/'.config('cortex.foundation.route.prefix.adminarea') : config('cortex.foundation.route.prefix.adminarea'))->group(function () {
+         ->prefix(config('cortex.foundation.route.locale_prefix') ? '{locale}/'.config('cortex.foundation.route.prefix.adminarea') : config('cortex.foundation.route.prefix.adminarea'))->group(function (): void {
 
         // Attributes Routes
-             Route::name('attributes.')->prefix('attributes')->group(function () {
+             Route::name('attributes.')->prefix('attributes')->group(function (): void {
                  Route::get('/')->name('index')->uses('AttributesController@index');
                  Route::get('import')->name('import')->uses('AttributesController@import');
                  Route::post('import')->name('stash')->uses('AttributesController@stash');
