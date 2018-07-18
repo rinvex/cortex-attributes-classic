@@ -233,6 +233,8 @@ class AttributesController extends AuthorizedController
      *
      * @param \Cortex\Attributes\Models\Attribute $attribute
      *
+     * @throws \Exception
+     *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function destroy(Attribute $attribute)
