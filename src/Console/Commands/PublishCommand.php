@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Console\Commands;
 
-use Illuminate\Console\Command;
+use Rinvex\Attributes\Console\Commands\PublishCommand as BasePublishCommand;
 
-class PublishCommand extends Command
+class PublishCommand extends BasePublishCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'cortex:publish:attributes';
+    protected $signature = 'cortex:publish:attributes {--force : Overwrite any existing files.}';
 
     /**
      * The console command description.
@@ -27,11 +27,12 @@ class PublishCommand extends Command
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $this->warn('Publish cortex/attributes:');
-        $this->call('vendor:publish', ['--tag' => 'rinvex-attributes-config']);
-        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-views']);
-        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-lang']);
+        parent::handle();
+
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-lang', '--force' => $this->option('force')]);
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-views', '--force' => $this->option('force')]);
+        $this->call('vendor:publish', ['--tag' => 'cortex-attributes-migrations', '--force' => $this->option('force')]);
     }
 }

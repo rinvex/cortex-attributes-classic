@@ -4,26 +4,28 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Transformers\Adminarea;
 
+use Rinvex\Support\Traits\Escaper;
+use Cortex\Attributes\Models\Attribute;
 use League\Fractal\TransformerAbstract;
-use Rinvex\Attributes\Contracts\AttributeContract;
 
 class AttributeTransformer extends TransformerAbstract
 {
+    use Escaper;
+
     /**
      * @return array
      */
-    public function transform(AttributeContract $attribute)
+    public function transform(Attribute $attribute): array
     {
-        return [
-            'id' => (int) $attribute->id,
+        return $this->escape([
+            'id' => (string) $attribute->getRouteKey(),
             'name' => (string) $attribute->name,
             'type' => (string) $attribute->type,
-            'slug' => (string) $attribute->slug,
             'group' => (string) $attribute->group,
             'is_collection' => (bool) $attribute->is_collection,
-            'default' => (string) $attribute->default,
+            'is_required' => (bool) $attribute->is_required,
             'created_at' => (string) $attribute->created_at,
             'updated_at' => (string) $attribute->updated_at,
-        ];
+        ]);
     }
 }
