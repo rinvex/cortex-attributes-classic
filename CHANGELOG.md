@@ -17,5 +17,6 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2017-09-09
 - Tag first release
 
-[v1.0.0]: https://github.com/rinvex/cortex-contacts/compare/v0.0.2...v1.0.0
-[v0.0.2]: https://github.com/rinvex/cortex-contacts/compare/v0.0.1...v0.0.2
+[v1.0.1]: https://github.com/rinvex/cortex-attributes/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://github.com/rinvex/cortex-attributes/compare/v0.0.2...v1.0.0
+[v0.0.2]: https://github.com/rinvex/cortex-attributes/compare/v0.0.1...v0.0.2
