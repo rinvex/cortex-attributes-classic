@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v1.0.1] - 2018-12-22
+- Update composer dependencies
+
 ## [v1.0.0] - 2018-10-01
 - Support Laravel v5.7, bump versions and enforce consistency
 
