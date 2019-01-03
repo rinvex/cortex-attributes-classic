@@ -135,30 +135,6 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Create new attribute.
-     *
-     * @param \Cortex\Attributes\Models\Attribute $attribute
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create(Attribute $attribute)
-    {
-        return $this->form($attribute);
-    }
-
-    /**
-     * Edit given attribute.
-     *
-     * @param \Cortex\Attributes\Models\Attribute $attribute
-     *
-     * @return \Illuminate\View\View
-     */
-    public function edit(Attribute $attribute)
-    {
-        return $this->form($attribute);
-    }
-
-    /**
      * Show attribute create/edit form.
      *
      * @param \Cortex\Attributes\Models\Attribute $attribute
