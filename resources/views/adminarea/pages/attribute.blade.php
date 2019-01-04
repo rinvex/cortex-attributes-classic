@@ -13,9 +13,7 @@
 {{-- Main Content --}}
 @section('content')
 
-    @if($attribute->exists)
-        @include('cortex/foundation::common.partials.modal', ['id' => 'delete-confirmation'])
-    @endif
+    @includeWhen($attribute->exists, 'cortex/foundation::common.partials.modal', ['id' => 'delete-confirmation'])
 
     <div class="content-wrapper">
         <section class="content-header">
