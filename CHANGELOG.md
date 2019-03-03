@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.0] - 2019-03-03
+- Require PHP 7.2 & Laravel 5.8
+- Rename environment variable QUEUE_DRIVER to QUEUE_CONNECTION
+- Simplify and flatten create & edit form controller actions
+- Move withValidator to Escaper trait
+- Enable tinymce on all description and text area fields
+- Utilize includeWhen blade directive
+- Refactor abilities seeding
+
 ## [v1.0.1] - 2018-12-22
 - Update composer dependencies
 
@@ -17,5 +26,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2017-09-09
 - Tag first release
 
-[v1.0.0]: https://github.com/rinvex/cortex-contacts/compare/v0.0.2...v1.0.0
-[v0.0.2]: https://github.com/rinvex/cortex-contacts/compare/v0.0.1...v0.0.2
+[v2.0.0]: https://github.com/rinvex/cortex-attributes/compare/v1.0.1...v2.0.0
+[v1.0.1]: https://github.com/rinvex/cortex-attributes/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://github.com/rinvex/cortex-attributes/compare/v0.0.2...v1.0.0
+[v0.0.2]: https://github.com/rinvex/cortex-attributes/compare/v0.0.1...v0.0.2

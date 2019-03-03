@@ -15,10 +15,10 @@ Route::domain(domain())->group(function () {
                  Route::post('import')->name('stash')->uses('AttributesController@stash');
                  Route::post('hoard')->name('hoard')->uses('AttributesController@hoard');
                  Route::get('import/logs')->name('import.logs')->uses('AttributesController@importLogs');
-                 Route::get('create')->name('create')->uses('AttributesController@create');
+                 Route::get('create')->name('create')->uses('AttributesController@form');
                  Route::post('create')->name('store')->uses('AttributesController@store');
                  Route::get('{attribute}')->name('show')->uses('AttributesController@show');
-                 Route::get('{attribute}/edit')->name('edit')->uses('AttributesController@edit');
+                 Route::get('{attribute}/edit')->name('edit')->uses('AttributesController@form');
                  Route::put('{attribute}/edit')->name('update')->uses('AttributesController@update');
                  Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs');
                  Route::delete('{attribute}')->name('destroy')->uses('AttributesController@destroy');
