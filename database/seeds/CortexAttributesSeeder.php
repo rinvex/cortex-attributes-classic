@@ -13,11 +13,17 @@ class CortexAttributesSeeder extends Seeder
      */
     public function run()
     {
-        Bouncer::allow('admin')->to('list', config('rinvex.attributes.models.attribute'));
-        Bouncer::allow('admin')->to('import', config('rinvex.attributes.models.attribute'));
-        Bouncer::allow('admin')->to('create', config('rinvex.attributes.models.attribute'));
-        Bouncer::allow('admin')->to('update', config('rinvex.attributes.models.attribute'));
-        Bouncer::allow('admin')->to('delete', config('rinvex.attributes.models.attribute'));
-        Bouncer::allow('admin')->to('audit', config('rinvex.attributes.models.attribute'));
+        $abilities = [
+            ['name' => 'list', 'title' => 'List attributes', 'entity_type' => 'attribute'],
+            ['name' => 'import', 'title' => 'Import attributes', 'entity_type' => 'attribute'],
+            ['name' => 'create', 'title' => 'Create attributes', 'entity_type' => 'attribute'],
+            ['name' => 'update', 'title' => 'Update attributes', 'entity_type' => 'attribute'],
+            ['name' => 'delete', 'title' => 'Delete attributes', 'entity_type' => 'attribute'],
+            ['name' => 'audit', 'title' => 'Audit attributes', 'entity_type' => 'attribute'],
+        ];
+
+        collect($abilities)->each(function (array $ability) {
+            app('cortex.auth.ability')->create($ability);
+        });
     }
 }
