@@ -53,22 +53,22 @@
         "cortex/foundation": "^2.0.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.2.0",
         "laravelcollective/html": "~5.8.0",
-        "league/fractal": "^0.17.0",
-        "proengsoft/laravel-jsvalidation": "^2.3.0",
+        "league/fractal": "^0.18.0",
+        "proengsoft/laravel-jsvalidation": "^2.4.0",
         "rinvex/laravel-attributes": "^2.0.0",
         "rinvex/laravel-composer": "^2.0.0",
         "rinvex/laravel-menus": "^2.0.0",
         "rinvex/laravel-support": "^2.0.0",
         "silber/bouncer": "v1.0.0-rc.5",
-        "spatie/laravel-activitylog": "^3.2.0",
+        "spatie/laravel-activitylog": "^3.6.0",
         "yajra/laravel-datatables-buttons": "^4.6.0",
-        "yajra/laravel-datatables-fractal": "^1.3.0",
+        "yajra/laravel-datatables-fractal": "^1.4.0",
         "yajra/laravel-datatables-html": "^4.4.0",
-        "yajra/laravel-datatables-oracle": "^9.0.0"
+        "yajra/laravel-datatables-oracle": "^9.3.0"
     },
     "require-dev": {
         "codedungeon/phpunit-result-printer": "^0.26.0",
-        "phpunit/phpunit": "^8.0.0"
+        "phpunit/phpunit": "^8.1.0"
     },
     "autoload": {
         "classmap": [
