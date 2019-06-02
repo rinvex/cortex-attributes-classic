@@ -4,7 +4,6 @@
 
 [![Packagist](https://img.shields.io/packagist/v/cortex/attributes.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/cortex/attributes)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/cortex-attributes.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/cortex-attributes/)
-[![Code Climate](https://img.shields.io/codeclimate/github/rinvex/cortex-attributes.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/rinvex/cortex-attributes)
 [![Travis](https://img.shields.io/travis/rinvex/cortex-attributes.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/cortex-attributes)
 [![StyleCI](https://styleci.io/repos/90121903/shield)](https://styleci.io/repos/90121903)
 [![License](https://img.shields.io/packagist/l/cortex/attributes.svg?label=License&style=flat-square)](https://github.com/rinvex/cortex-attributes/blob/develop/LICENSE)

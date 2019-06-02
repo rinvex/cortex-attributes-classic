@@ -49,7 +49,7 @@ class AttributesServiceProvider extends ServiceProvider
         || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
 
         // Register console commands
-        ! $this->app->runningInConsole() || $this->registersCommands();
+        ! $this->app->runningInConsole() || $this->registerCommands();
     }
 
     /**
