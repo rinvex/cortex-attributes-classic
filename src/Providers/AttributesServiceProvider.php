@@ -7,6 +7,7 @@ namespace Cortex\Attributes\Providers;
 use Illuminate\Routing\Router;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Support\ServiceProvider;
+use Rinvex\Support\Traits\ConsoleTools;
 use Illuminate\View\Compilers\BladeCompiler;
 use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -17,6 +18,8 @@ use Cortex\Attributes\Console\Commands\RollbackCommand;
 
 class AttributesServiceProvider extends ServiceProvider
 {
+    use ConsoleTools;
+
     /**
      * The commands to be registered.
      *
@@ -70,7 +73,6 @@ class AttributesServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web/adminarea.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
-        ! $this->app->runningInConsole() || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         $this->app->runningInConsole() || $this->app->afterResolving('blade.compiler', function () {
             require __DIR__.'/../../routes/menus/adminarea.php';
         });
@@ -90,34 +92,9 @@ class AttributesServiceProvider extends ServiceProvider
         $this->registerBladeExtensions();
 
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishResources();
-    }
-
-    /**
-     * Publish resources.
-     *
-     * @return void
-     */
-    protected function publishResources(): void
-    {
-        $this->publishes([realpath(__DIR__.'/../../database/migrations') => database_path('migrations')], 'cortex-attributes-migrations');
-        $this->publishes([realpath(__DIR__.'/../../resources/lang') => resource_path('lang/vendor/cortex/attributes')], 'cortex-attributes-lang');
-        $this->publishes([realpath(__DIR__.'/../../resources/views') => resource_path('views/vendor/cortex/attributes')], 'cortex-attributes-views');
-    }
-
-    /**
-     * Register console commands.
-     *
-     * @return void
-     */
-    protected function registerCommands(): void
-    {
-        // Register artisan commands
-        foreach ($this->commands as $key => $value) {
-            $this->app->singleton($value, $key);
-        }
-
-        $this->commands(array_values($this->commands));
+        ! $this->app->runningInConsole() || $this->publishesLang('cortex/attributes');
+        ! $this->app->runningInConsole() || $this->publishesViews('cortex/attributes');
+        ! $this->app->runningInConsole() || $this->publishesMigrations('cortex/attributes');
     }
 
     /**
