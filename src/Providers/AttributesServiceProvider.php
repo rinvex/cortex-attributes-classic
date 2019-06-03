@@ -92,9 +92,9 @@ class AttributesServiceProvider extends ServiceProvider
         $this->registerBladeExtensions();
 
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishesLang('cortex/attributes');
-        ! $this->app->runningInConsole() || $this->publishesViews('cortex/attributes');
-        ! $this->app->runningInConsole() || $this->publishesMigrations('cortex/attributes');
+        ! $this->app->runningInConsole() || $this->publishesLang('cortex/attributes', true);
+        ! $this->app->runningInConsole() || $this->publishesViews('cortex/attributes', true);
+        ! $this->app->runningInConsole() || $this->publishesMigrations('cortex/attributes', true);
     }
 
     /**
