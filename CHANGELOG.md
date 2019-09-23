@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.0.1] - 2019-09-24
+- Add missing laravel/helpers composer package
+
 ## [v3.0.0] - 2019-09-23
 - Upgrade to Laravel v6 and update dependencies
 
@@ -49,6 +52,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2017-09-09
 - Tag first release
 
+[v3.0.1]: https://github.com/rinvex/cortex-attributes/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/rinvex/cortex-attributes/compare/v2.2.1...v3.0.0
 [v2.2.1]: https://github.com/rinvex/cortex-attributes/compare/v2.2.0...v2.2.1
 [v2.2.0]: https://github.com/rinvex/cortex-attributes/compare/v2.1.2...v2.2.0
