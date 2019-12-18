@@ -61,7 +61,7 @@ class AttributesServiceProvider extends ServiceProvider
     public function boot(Router $router, Dispatcher $dispatcher): void
     {
         // Bind route models and constrains
-        $router->pattern('attribute', '[a-zA-Z0-9-]+');
+        $router->pattern('attribute', '[a-zA-Z0-9-_]+');
         $router->model('attribute', config('rinvex.attributes.models.attribute'));
 
         // Map relations
