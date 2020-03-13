@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.0.5] - 2020-03-13
+- Tweak TravisCI config
+- Add migrations autoload option to the package
+- Tweak service provider `publishesResources` & `autoloadMigrations`
+- Add webpack module requirements
+- Update StyleCI config
+- Drop using global helpers
+- Check if ability exists before seeding
+
 ## [v3.0.4] - 2019-12-18
 - Add DT_RowId field to datatables
 - Fix route regex pattern to include underscores
