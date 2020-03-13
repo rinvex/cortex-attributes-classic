@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Models;
 
+use Illuminate\Support\Str;
 use Rinvex\Tenants\Traits\Tenantable;
 use Cortex\Foundation\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
@@ -96,16 +97,16 @@ class Attribute extends BaseAttribute
                 $default = collect(array_map('trans', array_map('trim', explode("\n", $this->default))))->map(function ($item) use (&$selected) {
                     if (mb_strpos($item, '=')) {
                         $key = mb_strstr($item, '=', true);
-                        $value = str_replace_first('=', '', mb_strstr($item, '='));
+                        $value = Str::replaceFirst('=', '', mb_strstr($item, '='));
 
                         // Check for SELECTED itmes (marked by asterisk)
-                        ! str_contains($value, '*') || $selected = $key;
-                        ! str_contains($value, '*') || $value = str_replace_last('*', '', $value);
+                        ! Str::contains($value, '*') || $selected = $key;
+                        ! Str::contains($value, '*') || $value = Str::replaceLast('*', '', $value);
                     } else {
                         $key = $value = $item;
 
                         // Check for SELECTED itmes (marked by asterisk)
-                        ! str_contains($value, '*') || $key = $value = $selected = str_replace_last('*', '', $value);
+                        ! Str::contains($value, '*') || $key = $value = $selected = Str::replaceLast('*', '', $value);
                     }
 
                     return [$key => $value];
@@ -123,19 +124,19 @@ class Attribute extends BaseAttribute
 
                     if (mb_strpos($item, '=')) {
                         $details['label'] = mb_strstr($item, '=', true);
-                        $item = str_replace_first('=', '', mb_strstr($item, '='));
+                        $item = Str::replaceFirst('=', '', mb_strstr($item, '='));
 
                         // Check for SELECTED itmes (marked by asterisk)
-                        ! str_contains($item, '*') || $details['status'] = true;
-                        ! str_contains($item, '*') || $item = str_replace_last('*', '', $item);
+                        ! Str::contains($item, '*') || $details['status'] = true;
+                        ! Str::contains($item, '*') || $item = Str::replaceLast('*', '', $item);
 
                         ! $entity->exists || $details['status'] = $entity->{$this->slug}->search($item) !== false;
                     } else {
                         $details['label'] = $item;
 
                         // Check for SELECTED itmes (marked by asterisk)
-                        ! str_contains($item, '*') || $details['status'] = true;
-                        ! str_contains($item, '*') || $details['label'] = $item = str_replace_last('*', '', $item);
+                        ! Str::contains($item, '*') || $details['status'] = true;
+                        ! Str::contains($item, '*') || $details['label'] = $item = Str::replaceLast('*', '', $item);
 
                         ! $entity->exists || $details['status'] = $entity->{$this->slug}->search($item) !== false;
                     }

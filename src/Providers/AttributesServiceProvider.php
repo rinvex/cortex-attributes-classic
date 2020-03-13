@@ -45,6 +45,9 @@ class AttributesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Merge config
+        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'cortex.attributes');
+
         // Bind eloquent models to IoC container
         $this->app['config']['rinvex.attributes.models.attribute'] === Attribute::class
         || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
@@ -94,9 +97,10 @@ class AttributesServiceProvider extends ServiceProvider
         $this->registerBladeExtensions();
 
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishesLang('cortex/attributes', true);
-        ! $this->app->runningInConsole() || $this->publishesViews('cortex/attributes', true);
-        ! $this->app->runningInConsole() || $this->publishesMigrations('cortex/attributes', true);
+        $this->publishesLang('cortex/attributes', true);
+        $this->publishesViews('cortex/attributes', true);
+        $this->publishesMigrations('cortex/attributes', true);
+        ! $this->autoloadMigrations('cortex.attributes') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 
     /**
