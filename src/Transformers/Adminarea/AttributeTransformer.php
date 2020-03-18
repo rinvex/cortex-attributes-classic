@@ -13,6 +13,12 @@ class AttributeTransformer extends TransformerAbstract
     use Escaper;
 
     /**
+     * Transform attribute model.
+     *
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @throws \Exception
+     *
      * @return array
      */
     public function transform(Attribute $attribute): array
