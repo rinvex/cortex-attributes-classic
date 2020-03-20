@@ -13,7 +13,7 @@ class RollbackCommand extends BaseRollbackCommand
      *
      * @var string
      */
-    protected $signature = 'cortex:rollback:attributes {--force : Force the operation to run when in production.}';
+    protected $signature = 'cortex:rollback:attributes {--f|force : Force the operation to run when in production.}';
 
     /**
      * The console command description.
@@ -29,7 +29,11 @@ class RollbackCommand extends BaseRollbackCommand
      */
     public function handle(): void
     {
-        if (file_exists($path = 'database/migrations/cortex/attributes')) {
+        $path = config('cortex.attributes.autoload_migrations') ?
+            'app/cortex/attributes/database/migrations' :
+            'database/migrations/cortex/attributes';
+
+        if (file_exists($path)) {
             $this->call('migrate:reset', [
                 '--path' => $path,
                 '--force' => $this->option('force'),
