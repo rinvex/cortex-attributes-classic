@@ -76,6 +76,7 @@ class AttributesServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web/adminarea.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
+        ! $this->autoloadMigrations('cortex/attributes') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 
         $this->app->runningInConsole() || $dispatcher->listen('accessarea.ready', function ($accessarea) {
             ! file_exists($menus = __DIR__."/../../routes/menus/{$accessarea}.php") || require $menus;
@@ -100,7 +101,6 @@ class AttributesServiceProvider extends ServiceProvider
         $this->publishesLang('cortex/attributes', true);
         $this->publishesViews('cortex/attributes', true);
         $this->publishesMigrations('cortex/attributes', true);
-        ! $this->autoloadMigrations('cortex.attributes') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 
     /**
