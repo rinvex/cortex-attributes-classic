@@ -13,7 +13,7 @@ class PublishCommand extends BasePublishCommand
      *
      * @var string
      */
-    protected $signature = 'cortex:publish:attributes {--f|force : Overwrite any existing files.} {--r|resource=all}';
+    protected $signature = 'cortex:publish:attributes {--f|force : Overwrite any existing files.} {--r|resource=* : Specify which resources to publish.}';
 
     /**
      * The console command description.
@@ -31,22 +31,9 @@ class PublishCommand extends BasePublishCommand
     {
         parent::handle();
 
-        switch ($this->option('resource')) {
-            case 'lang':
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::lang', '--force' => $this->option('force')]);
-                break;
-            case 'views':
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::views', '--force' => $this->option('force')]);
-                break;
-            case 'migrations':
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::migrations', '--force' => $this->option('force')]);
-                break;
-            default:
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::lang', '--force' => $this->option('force')]);
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::views', '--force' => $this->option('force')]);
-                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::migrations', '--force' => $this->option('force')]);
-                break;
-        }
+        collect($this->option('resource') ?: ['config', 'lang', 'views', 'migrations'])->each(function ($resource) {
+            $this->call('vendor:publish', ['--tag' => "cortex/attributes::{$resource}", '--force' => $this->option('force')]);
+        });
 
         $this->line('');
     }
