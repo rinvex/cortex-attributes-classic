@@ -38,12 +38,16 @@ class PublishCommand extends BasePublishCommand
             case 'views':
                 $this->call('vendor:publish', ['--tag' => 'cortex/addresses::views', '--force' => $this->option('force')]);
                 break;
+            case 'config':
+                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::config', '--force' => $this->option('force')]);
+                break;
             case 'migrations':
                 $this->call('vendor:publish', ['--tag' => 'cortex/addresses::migrations', '--force' => $this->option('force')]);
                 break;
             default:
                 $this->call('vendor:publish', ['--tag' => 'cortex/addresses::lang', '--force' => $this->option('force')]);
                 $this->call('vendor:publish', ['--tag' => 'cortex/addresses::views', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'cortex/addresses::config', '--force' => $this->option('force')]);
                 $this->call('vendor:publish', ['--tag' => 'cortex/addresses::migrations', '--force' => $this->option('force')]);
                 break;
         }
