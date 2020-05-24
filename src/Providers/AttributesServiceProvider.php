@@ -73,7 +73,6 @@ class AttributesServiceProvider extends ServiceProvider
         ]);
 
         // Load resources
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web/adminarea.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
         ! $this->autoloadMigrations('cortex/attributes') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
