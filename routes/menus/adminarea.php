@@ -7,7 +7,7 @@ use Rinvex\Menus\Models\MenuGenerator;
 use Cortex\Attributes\Models\Attribute;
 
 Menu::register('adminarea.sidebar', function (MenuGenerator $menu, Attribute $attribute) {
-    $menu->findByTitleOrAdd(trans('cortex/foundation::common.cms'), 40, 'fa fa-file-text-o', [], function (MenuItem $dropdown) use ($attribute) {
+    $menu->findByTitleOrAdd(trans('cortex/foundation::common.cms'), 40, 'fa fa-file-text-o', 'header', [], function (MenuItem $dropdown) use ($attribute) {
         $dropdown->route(['adminarea.attributes.index'], trans('cortex/attributes::common.attributes'), 10, 'fa fa-leaf')->ifCan('list', $attribute)->activateOnRoute('adminarea.attributes');
     });
 });

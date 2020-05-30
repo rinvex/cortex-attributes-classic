@@ -25,7 +25,6 @@ class AttributeTransformer extends TransformerAbstract
     {
         return $this->escape([
             'id' => (string) $attribute->getRouteKey(),
-            'DT_RowId' => 'row_'.$attribute->getRouteKey(),
             'name' => (string) $attribute->name,
             'type' => (string) $attribute->type,
             'group' => (string) $attribute->group,

@@ -33,7 +33,7 @@ class AttributesController extends AuthorizedController
     public function index(AttributesDataTable $attributesDataTable)
     {
         return $attributesDataTable->with([
-            'id' => 'adminarea-attributes-index-table',
+            'id' => 'adminarea-attributes-index',
         ])->render('cortex/foundation::adminarea.pages.datatable-index');
     }
 
@@ -50,7 +50,7 @@ class AttributesController extends AuthorizedController
         return $logsDataTable->with([
             'resource' => $attribute,
             'tabs' => 'adminarea.attributes.tabs',
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs-table",
+            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
@@ -68,7 +68,7 @@ class AttributesController extends AuthorizedController
             'resource' => $attribute,
             'tabs' => 'adminarea.attributes.tabs',
             'url' => route('adminarea.attributes.stash'),
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-import-table",
+            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-import",
         ])->render('cortex/foundation::adminarea.pages.datatable-dropzone');
     }
 
@@ -130,7 +130,7 @@ class AttributesController extends AuthorizedController
         return $importLogsDatatable->with([
             'resource' => trans('cortex/attributes::common.attribute'),
             'tabs' => 'adminarea.attributes.tabs',
-            'id' => 'adminarea-attributes-import-logs-table',
+            'id' => 'adminarea-attributes-import-logs',
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
@@ -200,7 +200,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->name])],
+            'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }
 
@@ -219,7 +219,7 @@ class AttributesController extends AuthorizedController
 
         return intend([
             'url' => route('adminarea.attributes.index'),
-            'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->name])],
+            'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }
 }

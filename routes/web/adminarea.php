@@ -10,7 +10,7 @@ Route::domain(domain())->group(function () {
 
         // Attributes Routes
              Route::name('attributes.')->prefix('attributes')->group(function () {
-                 Route::get('/')->name('index')->uses('AttributesController@index');
+                 Route::match(['get', 'post'], '/')->name('index')->uses('AttributesController@index');
                  Route::get('import')->name('import')->uses('AttributesController@import');
                  Route::post('import')->name('stash')->uses('AttributesController@stash');
                  Route::post('hoard')->name('hoard')->uses('AttributesController@hoard');
