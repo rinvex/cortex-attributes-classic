@@ -45,9 +45,6 @@ class AttributesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Merge config
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'cortex.attributes');
-
         // Bind eloquent models to IoC container
         $this->app['config']['rinvex.attributes.models.attribute'] === Attribute::class
         || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
@@ -72,16 +69,6 @@ class AttributesServiceProvider extends ServiceProvider
             'attribute' => config('rinvex.attributes.models.attribute'),
         ]);
 
-        // Load resources
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'cortex/attributes');
-        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'cortex/attributes');
-        ! $this->autoloadMigrations('cortex/attributes') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
-
-        $this->app->runningInConsole() || $dispatcher->listen('accessarea.ready', function ($accessarea) {
-            ! file_exists($menus = __DIR__."/../../routes/menus/{$accessarea}.php") || require $menus;
-            ! file_exists($breadcrumbs = __DIR__."/../../routes/breadcrumbs/{$accessarea}.php") || require $breadcrumbs;
-        });
-
         // Add default attributes types
         Attribute::typeMap([
             'integer' => \Rinvex\Attributes\Models\Type\Integer::class,
@@ -95,11 +82,6 @@ class AttributesServiceProvider extends ServiceProvider
 
         // Register blade extensions
         $this->registerBladeExtensions();
-
-        // Publish Resources
-        $this->publishesLang('cortex/attributes', true);
-        $this->publishesViews('cortex/attributes', true);
-        $this->publishesMigrations('cortex/attributes', true);
     }
 
     /**
