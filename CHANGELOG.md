@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.2.0] - 2020-06-15
+- Autoload config, views, language, menus, breadcrumbs, and migrations
+  - This is now done automatically through cortex/foundation, so no need to manually wire it here anymore
+- Drop PHP 7.2 & 7.3 support from travis
+
+## [v4.1.1] - 2020-05-30
+- Update composer dependencies
+
 ## [v4.1.0] - 2020-05-30
 - With the significance of recent updates, new minor release required
 
@@ -15,7 +23,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 - Add support for datatable listing get and post requests
 - Remove useless "DT_RowId" fielld from transformers
 - Register channel broadcasting routes
-- Rename datatables container names
+- Rename Datatables container names
 - Load module routes automatically
 - Strip tags breadcrumbs of potential user inputs
 - Strip tags of language phrase parameters with potential user inputs
@@ -125,6 +133,8 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2017-09-09
 - Tag first release
 
+[v4.2.0]: https://github.com/rinvex/cortex-attributes/compare/v4.1.1...v4.2.0
+[v4.1.1]: https://github.com/rinvex/cortex-attributes/compare/v4.1.0...v4.1.1
 [v4.1.0]: https://github.com/rinvex/cortex-attributes/compare/v4.0.8...v4.1.0
 [v4.0.8]: https://github.com/rinvex/cortex-attributes/compare/v4.0.7...v4.0.8
 [v4.0.7]: https://github.com/rinvex/cortex-attributes/compare/v4.0.6...v4.0.7
