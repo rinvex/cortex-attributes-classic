@@ -94,7 +94,7 @@ class AttributesServiceProvider extends ServiceProvider
         $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
             // @attributes($entity)
             $bladeCompiler->directive('attributes', function ($expression) {
-                return "<?php echo {$expression}->getEntityAttributes()->map->render({$expression}, request()->route('accessarea'))->implode('') ?: view('cortex/attributes::".request()->route('accessarea').".partials.no-results'); ?>";
+                return "<?php echo {$expression}->getEntityAttributes()->map->render({$expression}, app('request.accessarea'))->implode('') ?: view('cortex/attributes::".app('request.accessarea').".partials.no-results'); ?>";
             });
         });
     }
