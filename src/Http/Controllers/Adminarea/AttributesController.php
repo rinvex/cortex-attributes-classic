@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
 use Exception;
+use Illuminate\Http\Request;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
@@ -135,13 +136,40 @@ class AttributesController extends AuthorizedController
     }
 
     /**
-     * Show attribute create/edit form.
+     * Create new category.
      *
+     * @param \Illuminate\Http\Request            $request
      * @param \Cortex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\View\View
      */
-    protected function form(Attribute $attribute)
+    public function create(Request $request, Attribute $attribute)
+    {
+        return $this->form($request, $attribute);
+    }
+
+    /**
+     * Edit given category.
+     *
+     * @param \Illuminate\Http\Request            $request
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit(Request $request, Attribute $attribute)
+    {
+        return $this->form($request, $attribute);
+    }
+
+    /**
+     * Show attribute create/edit form.
+     *
+     * @param \Illuminate\Http\Request            $request
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    protected function form(Request $request, Attribute $attribute)
     {
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
