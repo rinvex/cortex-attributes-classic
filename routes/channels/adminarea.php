@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
-Broadcast::channel('adminarea-attributes-index', function ($user) {
+use Illuminate\Contracts\Auth\Access\Authorizable;
+
+Broadcast::channel('adminarea-attributes-index', function (Authorizable $user) {
     return $user->can('list', app('rinvex.attributes.attribute'));
 }, ['guards' => ['admin']]);
