@@ -35,6 +35,7 @@ class AttributesController extends AuthorizedController
     {
         return $attributesDataTable->with([
             'id' => 'adminarea-attributes-index',
+            'pusher' => ['entity' => 'attribute', 'channel' => 'rinvex.attributes.index'],
         ])->render('cortex/foundation::adminarea.pages.datatable-index');
     }
 
