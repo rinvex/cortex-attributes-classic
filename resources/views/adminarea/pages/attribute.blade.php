@@ -7,7 +7,7 @@
 @endsection
 
 @push('inline-scripts')
-    {!! JsValidator::formRequest(Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest::class)->selector("#adminarea-attributes-create-form, #adminarea-attributes-{$attribute->getRouteKey()}-update-form")->ignore('.skip-validation') !!}
+    {!! JsValidator::formRequest(Cortex\Attributes\Http\Requests\Adminarea\AttributeFormRequest::class)->selector("#adminarea-cortex-attributes-attributes-create-form, #adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-update-form")->ignore('.skip-validation') !!}
 @endpush
 
 {{-- Main Content --}}
@@ -27,7 +27,7 @@
                 @if($attribute->exists && app('request.user')->can('delete', $attribute))
                     <div class="pull-right">
                         <a href="#" data-toggle="modal" data-target="#delete-confirmation"
-                           data-modal-action="{{ route('adminarea.attributes.destroy', ['attribute' => $attribute]) }}"
+                           data-modal-action="{{ route('adminarea.cortex.attributes.attributes.destroy', ['attribute' => $attribute]) }}"
                            data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
                            data-modal-button="<a href='#' class='btn btn-danger' data-form='delete' data-token='{{ csrf_token() }}'><i class='fa fa-trash-o'></i> {{ trans('cortex/foundation::common.delete') }}</a>"
                            data-modal-body="{{ trans('cortex/foundation::messages.delete_confirmation_body', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()]) }}"
@@ -35,16 +35,16 @@
                         </a>
                     </div>
                 @endif
-                {!! Menu::render('adminarea.attributes.tabs', 'nav-tab') !!}
+                {!! Menu::render('adminarea.cortex.attributes.attributes.tabs', 'nav-tab') !!}
 
                 <div class="tab-content">
 
                     <div class="tab-pane active" id="details-tab">
 
                         @if ($attribute->exists)
-                            {{ Form::model($attribute, ['url' => route('adminarea.attributes.update', ['attribute' => $attribute]), 'method' => 'put', 'id' => "adminarea-attributes-{$attribute->getRouteKey()}-update-form"]) }}
+                            {{ Form::model($attribute, ['url' => route('adminarea.cortex.attributes.attributes.update', ['attribute' => $attribute]), 'method' => 'put', 'id' => "adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-update-form"]) }}
                         @else
-                            {{ Form::model($attribute, ['url' => route('adminarea.attributes.store'), 'id' => 'adminarea-attributes-create-form']) }}
+                            {{ Form::model($attribute, ['url' => route('adminarea.cortex.attributes.attributes.store'), 'id' => 'adminarea-cortex-attributes-attributes-create-form']) }}
                         @endif
 
                             <div class="row">

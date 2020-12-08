@@ -34,7 +34,7 @@ class AttributesController extends AuthorizedController
     public function index(AttributesDataTable $attributesDataTable)
     {
         return $attributesDataTable->with([
-            'id' => 'adminarea-attributes-index',
+            'id' => 'adminarea-cortex-attributes-attributes-index',
             'pusher' => ['entity' => 'attribute', 'channel' => 'rinvex.attributes.index'],
         ])->render('cortex/foundation::adminarea.pages.datatable-index');
     }
@@ -51,8 +51,8 @@ class AttributesController extends AuthorizedController
     {
         return $logsDataTable->with([
             'resource' => $attribute,
-            'tabs' => 'adminarea.attributes.tabs',
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs",
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'id' => "adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-logs",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
@@ -68,9 +68,9 @@ class AttributesController extends AuthorizedController
     {
         return $importRecordsDataTable->with([
             'resource' => $attribute,
-            'tabs' => 'adminarea.attributes.tabs',
-            'url' => route('adminarea.attributes.stash'),
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-import",
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'url' => route('adminarea.cortex.attributes.attributes.stash'),
+            'id' => "adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-import",
         ])->render('cortex/foundation::adminarea.pages.datatable-dropzone');
     }
 
@@ -131,8 +131,8 @@ class AttributesController extends AuthorizedController
     {
         return $importLogsDatatable->with([
             'resource' => trans('cortex/attributes::common.attribute'),
-            'tabs' => 'adminarea.attributes.tabs',
-            'id' => 'adminarea-attributes-import-logs',
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'id' => 'adminarea-cortex-attributes-attributes-import-logs',
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
@@ -228,7 +228,7 @@ class AttributesController extends AuthorizedController
         $attribute->fill($data)->save();
 
         return intend([
-            'url' => route('adminarea.attributes.index'),
+            'url' => route('adminarea.cortex.attributes.attributes.index'),
             'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }
@@ -247,7 +247,7 @@ class AttributesController extends AuthorizedController
         $attribute->delete();
 
         return intend([
-            'url' => route('adminarea.attributes.index'),
+            'url' => route('adminarea.cortex.attributes.attributes.index'),
             'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }
