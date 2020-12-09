@@ -10,6 +10,10 @@ use Cortex\Foundation\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Rinvex\Support\Traits\HashidsTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Cortex\Attributes\Events\AttributeCreated;
+use Cortex\Attributes\Events\AttributeDeleted;
+use Cortex\Attributes\Events\AttributeUpdated;
+use Cortex\Attributes\Events\AttributeRestored;
 use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 
 /**
@@ -52,6 +56,18 @@ class Attribute extends BaseAttribute
     use Tenantable;
     use HashidsTrait;
     use LogsActivity;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => AttributeCreated::class,
+        'updated' => AttributeUpdated::class,
+        'deleted' => AttributeDeleted::class,
+        'restored' => AttributeRestored::class,
+    ];
 
     /**
      * Indicates whether to log only dirty attributes or all.
