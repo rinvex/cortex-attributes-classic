@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Attributes\Http\Controllers\Adminarea;
 
 use Exception;
+use Illuminate\Http\Request;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
@@ -33,7 +34,8 @@ class AttributesController extends AuthorizedController
     public function index(AttributesDataTable $attributesDataTable)
     {
         return $attributesDataTable->with([
-            'id' => 'adminarea-attributes-index',
+            'id' => 'adminarea-cortex-attributes-attributes-index',
+            'pusher' => ['entity' => 'attribute', 'channel' => 'cortex.attributes.attributes.index'],
         ])->render('cortex/foundation::adminarea.pages.datatable-index');
     }
 
@@ -49,8 +51,8 @@ class AttributesController extends AuthorizedController
     {
         return $logsDataTable->with([
             'resource' => $attribute,
-            'tabs' => 'adminarea.attributes.tabs',
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-logs",
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'id' => "adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-logs",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
 
@@ -66,9 +68,9 @@ class AttributesController extends AuthorizedController
     {
         return $importRecordsDataTable->with([
             'resource' => $attribute,
-            'tabs' => 'adminarea.attributes.tabs',
-            'url' => route('adminarea.attributes.stash'),
-            'id' => "adminarea-attributes-{$attribute->getRouteKey()}-import",
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'url' => route('adminarea.cortex.attributes.attributes.stash'),
+            'id' => "adminarea-cortex-attributes-attributes-{$attribute->getRouteKey()}-import",
         ])->render('cortex/foundation::adminarea.pages.datatable-dropzone');
     }
 
@@ -129,19 +131,46 @@ class AttributesController extends AuthorizedController
     {
         return $importLogsDatatable->with([
             'resource' => trans('cortex/attributes::common.attribute'),
-            'tabs' => 'adminarea.attributes.tabs',
-            'id' => 'adminarea-attributes-import-logs',
+            'tabs' => 'adminarea.cortex.attributes.attributes.tabs',
+            'id' => 'adminarea-cortex-attributes-attributes-import-logs',
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
+    }
+
+    /**
+     * Create new category.
+     *
+     * @param \Illuminate\Http\Request            $request
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create(Request $request, Attribute $attribute)
+    {
+        return $this->form($request, $attribute);
+    }
+
+    /**
+     * Edit given category.
+     *
+     * @param \Illuminate\Http\Request            $request
+     * @param \Cortex\Attributes\Models\Attribute $attribute
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit(Request $request, Attribute $attribute)
+    {
+        return $this->form($request, $attribute);
     }
 
     /**
      * Show attribute create/edit form.
      *
+     * @param \Illuminate\Http\Request            $request
      * @param \Cortex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\View\View
      */
-    protected function form(Attribute $attribute)
+    protected function form(Request $request, Attribute $attribute)
     {
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
@@ -199,7 +228,7 @@ class AttributesController extends AuthorizedController
         $attribute->fill($data)->save();
 
         return intend([
-            'url' => route('adminarea.attributes.index'),
+            'url' => route('adminarea.cortex.attributes.attributes.index'),
             'with' => ['success' => trans('cortex/foundation::messages.resource_saved', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }
@@ -218,7 +247,7 @@ class AttributesController extends AuthorizedController
         $attribute->delete();
 
         return intend([
-            'url' => route('adminarea.attributes.index'),
+            'url' => route('adminarea.cortex.attributes.attributes.index'),
             'with' => ['warning' => trans('cortex/foundation::messages.resource_deleted', ['resource' => trans('cortex/attributes::common.attribute'), 'identifier' => $attribute->getRouteKey()])],
         ]);
     }

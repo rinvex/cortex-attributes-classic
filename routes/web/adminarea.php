@@ -9,16 +9,16 @@ Route::domain(domain())->group(function () {
          ->prefix(config('cortex.foundation.route.locale_prefix') ? '{locale}/'.config('cortex.foundation.route.prefix.adminarea') : config('cortex.foundation.route.prefix.adminarea'))->group(function () {
 
         // Attributes Routes
-             Route::name('attributes.')->prefix('attributes')->group(function () {
+             Route::name('cortex.attributes.attributes.')->prefix('attributes')->group(function () {
                  Route::match(['get', 'post'], '/')->name('index')->uses('AttributesController@index');
                  Route::get('import')->name('import')->uses('AttributesController@import');
                  Route::post('import')->name('stash')->uses('AttributesController@stash');
                  Route::post('hoard')->name('hoard')->uses('AttributesController@hoard');
                  Route::get('import/logs')->name('import.logs')->uses('AttributesController@importLogs');
-                 Route::get('create')->name('create')->uses('AttributesController@form');
+                 Route::get('create')->name('create')->uses('AttributesController@create');
                  Route::post('create')->name('store')->uses('AttributesController@store');
                  Route::get('{attribute}')->name('show')->uses('AttributesController@show');
-                 Route::get('{attribute}/edit')->name('edit')->uses('AttributesController@form');
+                 Route::get('{attribute}/edit')->name('edit')->uses('AttributesController@edit');
                  Route::put('{attribute}/edit')->name('update')->uses('AttributesController@update');
                  Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs');
                  Route::delete('{attribute}')->name('destroy')->uses('AttributesController@destroy');
