@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Cortex\Attributes\Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class CortexAttributesSeeder extends Seeder
