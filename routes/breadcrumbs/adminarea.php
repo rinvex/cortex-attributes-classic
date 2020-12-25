@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Cortex\Attributes\Models\Attribute;
-use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator;
+use Diglactic\Breadcrumbs\Breadcrumbs;
+use Cortex\Attributes\Models\Attribute;
 
 Breadcrumbs::register('adminarea.cortex.attributes.attributes.index', function (Generator $breadcrumbs) {
     $breadcrumbs->push('<i class="fa fa-dashboard"></i> '.config('app.name'), route('adminarea.home'));
