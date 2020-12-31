@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Providers;
 
-use Cortex\Attributes\Console\Commands\ActivateCommand;
-use Cortex\Attributes\Console\Commands\AutoloadCommand;
-use Cortex\Attributes\Console\Commands\DeactivateCommand;
-use Cortex\Attributes\Console\Commands\UnloadCommand;
 use Illuminate\Routing\Router;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Support\ServiceProvider;
@@ -16,10 +12,14 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\View\Compilers\BladeCompiler;
 use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Cortex\Attributes\Console\Commands\UnloadCommand;
 use Cortex\Attributes\Console\Commands\InstallCommand;
 use Cortex\Attributes\Console\Commands\MigrateCommand;
 use Cortex\Attributes\Console\Commands\PublishCommand;
 use Cortex\Attributes\Console\Commands\RollbackCommand;
+use Cortex\Attributes\Console\Commands\ActivateCommand;
+use Cortex\Attributes\Console\Commands\AutoloadCommand;
+use Cortex\Attributes\Console\Commands\DeactivateCommand;
 
 class AttributesServiceProvider extends ServiceProvider
 {
