@@ -16,9 +16,9 @@ use Cortex\Attributes\Console\Commands\UnloadCommand;
 use Cortex\Attributes\Console\Commands\InstallCommand;
 use Cortex\Attributes\Console\Commands\MigrateCommand;
 use Cortex\Attributes\Console\Commands\PublishCommand;
-use Cortex\Attributes\Console\Commands\RollbackCommand;
 use Cortex\Attributes\Console\Commands\ActivateCommand;
 use Cortex\Attributes\Console\Commands\AutoloadCommand;
+use Cortex\Attributes\Console\Commands\RollbackCommand;
 use Cortex\Attributes\Console\Commands\DeactivateCommand;
 
 class AttributesServiceProvider extends ServiceProvider
