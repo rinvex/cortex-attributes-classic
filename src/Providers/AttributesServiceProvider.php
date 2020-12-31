@@ -12,10 +12,14 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\View\Compilers\BladeCompiler;
 use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Cortex\Attributes\Console\Commands\UnloadCommand;
 use Cortex\Attributes\Console\Commands\InstallCommand;
 use Cortex\Attributes\Console\Commands\MigrateCommand;
 use Cortex\Attributes\Console\Commands\PublishCommand;
 use Cortex\Attributes\Console\Commands\RollbackCommand;
+use Cortex\Attributes\Console\Commands\ActivateCommand;
+use Cortex\Attributes\Console\Commands\AutoloadCommand;
+use Cortex\Attributes\Console\Commands\DeactivateCommand;
 
 class AttributesServiceProvider extends ServiceProvider
 {
@@ -27,6 +31,11 @@ class AttributesServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
+        ActivateCommand::class => 'command.cortex.attributes.activate',
+        DeactivateCommand::class => 'command.cortex.attributes.deactivate',
+        AutoloadCommand::class => 'command.cortex.attributes.autoload',
+        UnloadCommand::class => 'command.cortex.attributes.unload',
+
         SeedCommand::class => 'command.cortex.attributes.seed',
         InstallCommand::class => 'command.cortex.attributes.install',
         MigrateCommand::class => 'command.cortex.attributes.migrate',
