@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Cortex\Attributes\Providers;
 
+use Cortex\Attributes\Console\Commands\ActivateCommand;
+use Cortex\Attributes\Console\Commands\AutoloadCommand;
+use Cortex\Attributes\Console\Commands\DeactivateCommand;
+use Cortex\Attributes\Console\Commands\UnloadCommand;
 use Illuminate\Routing\Router;
 use Cortex\Attributes\Models\Attribute;
 use Illuminate\Support\ServiceProvider;
@@ -27,6 +31,11 @@ class AttributesServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
+        ActivateCommand::class => 'command.cortex.attributes.activate',
+        DeactivateCommand::class => 'command.cortex.attributes.deactivate',
+        AutoloadCommand::class => 'command.cortex.attributes.autoload',
+        UnloadCommand::class => 'command.cortex.attributes.unload',
+
         SeedCommand::class => 'command.cortex.attributes.seed',
         InstallCommand::class => 'command.cortex.attributes.install',
         MigrateCommand::class => 'command.cortex.attributes.migrate',

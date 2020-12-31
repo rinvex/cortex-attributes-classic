@@ -35,6 +35,7 @@ class InstallCommand extends Command
         $this->call('cortex:migrate:attributes', ['--force' => $this->option('force')]);
         $this->call('cortex:seed:attributes');
 
-        $this->call('cortex:activate', ['--module' => 'cortex/attributes']);
+        $this->call('cortex:autoload:attributes', ['--force' => $this->option('force')]);
+        $this->call('cortex:activate:attributes', ['--force' => $this->option('force')]);
     }
 }
