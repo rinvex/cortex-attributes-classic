@@ -19,20 +19,20 @@ use Rinvex\Attributes\Models\Attribute as BaseAttribute;
 /**
  * Cortex\Attributes\Models\Attribute.
  *
- * @property int                                                                               $id
- * @property string                                                                            $slug
- * @property string                                                                            $name
- * @property array                                                                             $description
- * @property int                                                                               $sort_order
- * @property string                                                                            $group
- * @property string                                                                            $type
- * @property bool                                                                              $is_required
- * @property bool                                                                              $is_collection
- * @property string                                                                            $default
- * @property \Carbon\Carbon|null                                                               $created_at
- * @property \Carbon\Carbon|null                                                               $updated_at
+ * @property int                 $id
+ * @property string              $slug
+ * @property string              $name
+ * @property array               $description
+ * @property int                 $sort_order
+ * @property string              $group
+ * @property string              $type
+ * @property bool                $is_required
+ * @property bool                $is_collection
+ * @property string              $default
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cortex\Foundation\Models\Log[]     $activity
- * @property array                                                                             $entities
+ * @property array $entities
  * @property-read \Rinvex\Attributes\Support\ValueCollection|\Rinvex\Attributes\Models\Value[] $values
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\Cortex\Attributes\Models\Attribute ordered($direction = 'asc')
