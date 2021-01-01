@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v5.0.3] - 2021-01-01
+- Move cortex:autoload & cortex:activate commands to cortex/foundation module responsibility
+  - This is because :autoload & :activate commands are registered only if the module already autoloaded, so there is no way we can execute commands of unloaded modules
+  - cortex/foundation module is always autoloaded, so it's the logical and reasonable place to register these :autoload & :activate module commands and control other modules from outside
+
 ## [v5.0.2] - 2020-12-31
 - Rename seeders directory
 - Enable StyleCI risky mode
@@ -159,6 +164,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2017-09-09
 - Tag first release
 
+[v5.0.3]: https://github.com/rinvex/cortex-attributes/compare/v5.0.2...v5.0.3
 [v5.0.2]: https://github.com/rinvex/cortex-attributes/compare/v5.0.1...v5.0.2
 [v5.0.1]: https://github.com/rinvex/cortex-attributes/compare/v5.0.0...v5.0.1
 [v5.0.0]: https://github.com/rinvex/cortex-attributes/compare/v4.2.1...v5.0.0
