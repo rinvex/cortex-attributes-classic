@@ -115,13 +115,13 @@ class Attribute extends BaseAttribute
                         $key = mb_strstr($item, '=', true);
                         $value = Str::replaceFirst('=', '', mb_strstr($item, '='));
 
-                        // Check for SELECTED itmes (marked by asterisk)
+                        // Check for SELECTED items (marked by asterisk)
                         ! Str::contains($value, '*') || $selected = $key;
                         ! Str::contains($value, '*') || $value = Str::replaceLast('*', '', $value);
                     } else {
                         $key = $value = $item;
 
-                        // Check for SELECTED itmes (marked by asterisk)
+                        // Check for SELECTED items (marked by asterisk)
                         ! Str::contains($value, '*') || $key = $value = $selected = Str::replaceLast('*', '', $value);
                     }
 
@@ -142,7 +142,7 @@ class Attribute extends BaseAttribute
                         $details['label'] = mb_strstr($item, '=', true);
                         $item = Str::replaceFirst('=', '', mb_strstr($item, '='));
 
-                        // Check for SELECTED itmes (marked by asterisk)
+                        // Check for SELECTED items (marked by asterisk)
                         ! Str::contains($item, '*') || $details['status'] = true;
                         ! Str::contains($item, '*') || $item = Str::replaceLast('*', '', $item);
 
@@ -150,7 +150,7 @@ class Attribute extends BaseAttribute
                     } else {
                         $details['label'] = $item;
 
-                        // Check for SELECTED itmes (marked by asterisk)
+                        // Check for SELECTED items (marked by asterisk)
                         ! Str::contains($item, '*') || $details['status'] = true;
                         ! Str::contains($item, '*') || $details['label'] = $item = Str::replaceLast('*', '', $item);
 
