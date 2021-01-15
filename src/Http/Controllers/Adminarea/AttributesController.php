@@ -172,6 +172,10 @@ class AttributesController extends AuthorizedController
      */
     protected function form(Request $request, Attribute $attribute)
     {
+        if(! $attribute->exists && $request->has('replicate') && $replicated = $attribute->resolveRouteBinding($request->get('replicate'))){
+            $attribute = $replicated->replicate();
+        }
+
         $groups = app('rinvex.attributes.attribute')->distinct()->get(['group'])->pluck('group', 'group')->toArray();
         $entities = array_combine(app('rinvex.attributes.entities')->toArray(), app('rinvex.attributes.entities')->toArray());
         $types = array_combine($typeKeys = array_keys(Attribute::typeMap()), array_map(function ($item) {
