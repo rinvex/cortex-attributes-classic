@@ -172,7 +172,7 @@ class AttributesController extends AuthorizedController
      */
     protected function form(Request $request, Attribute $attribute)
     {
-        if(! $attribute->exists && $request->has('replicate') && $replicated = $attribute->resolveRouteBinding($request->get('replicate'))){
+        if (! $attribute->exists && $request->has('replicate') && $replicated = $attribute->resolveRouteBinding($request->get('replicate'))) {
             $attribute = $replicated->replicate();
         }
 
