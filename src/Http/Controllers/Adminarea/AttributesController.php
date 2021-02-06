@@ -22,7 +22,7 @@ class AttributesController extends AuthorizedController
     /**
      * {@inheritdoc}
      */
-    protected $resource = Attribute::class;
+    protected $resource = 'rinvex.attributes.models.attribute';
 
     /**
      * List all attributes.
