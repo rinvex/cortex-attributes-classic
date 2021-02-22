@@ -7,7 +7,7 @@ namespace Cortex\Attributes\Http\Controllers\Adminarea;
 use Exception;
 use Illuminate\Http\Request;
 use Cortex\Attributes\Models\Attribute;
-use Illuminate\Foundation\Http\FormRequest;
+use Cortex\Foundation\Http\FormRequest;
 use Cortex\Foundation\DataTables\LogsDataTable;
 use Cortex\Foundation\Importers\DefaultImporter;
 use Cortex\Foundation\DataTables\ImportLogsDataTable;
@@ -218,7 +218,7 @@ class AttributesController extends AuthorizedController
     /**
      * Process stored/updated attribute.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @param \Cortex\Foundation\Http\FormRequest $request
      * @param \Cortex\Attributes\Models\Attribute     $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
