@@ -219,7 +219,7 @@ class AttributesController extends AuthorizedController
      * Process stored/updated attribute.
      *
      * @param \Cortex\Foundation\Http\FormRequest $request
-     * @param \Cortex\Attributes\Models\Attribute     $attribute
+     * @param \Cortex\Attributes\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
