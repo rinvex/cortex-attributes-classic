@@ -10,29 +10,11 @@ use Illuminate\Support\ServiceProvider;
 use Rinvex\Support\Traits\ConsoleTools;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\View\Compilers\BladeCompiler;
-use Cortex\Attributes\Console\Commands\SeedCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Cortex\Attributes\Console\Commands\InstallCommand;
-use Cortex\Attributes\Console\Commands\MigrateCommand;
-use Cortex\Attributes\Console\Commands\PublishCommand;
-use Cortex\Attributes\Console\Commands\RollbackCommand;
 
 class AttributesServiceProvider extends ServiceProvider
 {
     use ConsoleTools;
-
-    /**
-     * The commands to be registered.
-     *
-     * @var array
-     */
-    protected $commands = [
-        SeedCommand::class => 'command.cortex.attributes.seed',
-        InstallCommand::class => 'command.cortex.attributes.install',
-        MigrateCommand::class => 'command.cortex.attributes.migrate',
-        PublishCommand::class => 'command.cortex.attributes.publish',
-        RollbackCommand::class => 'command.cortex.attributes.rollback',
-    ];
 
     /**
      * Register any application services.
@@ -48,9 +30,6 @@ class AttributesServiceProvider extends ServiceProvider
         // Bind eloquent models to IoC container
         $this->app['config']['rinvex.attributes.models.attribute'] === Attribute::class
         || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
-
-        // Register console commands
-        $this->registerCommands($this->commands);
     }
 
     /**
