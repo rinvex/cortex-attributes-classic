@@ -5,7 +5,7 @@
             {{ Form::label($attribute->slug, $attribute->name, ['class' => 'control-label']) }}
 
             @php
-                $values = old($attribute->slug) ?? ($entity->{$attribute->slug}->count() ? $entity->{$attribute->slug} : ['']);
+                $values = old($attribute->slug) ?? $entity->{$attribute->slug}->pluck('content') ?? [''];
             @endphp
 
             @foreach($values as $value)

@@ -27,6 +27,9 @@ class AttributesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Register blade extensions
+        $this->registerBladeExtensions();
+
         // Bind eloquent models to IoC container
         $this->app['config']['rinvex.attributes.models.attribute'] === Attribute::class
         || $this->app->alias('rinvex.attributes.attribute', Attribute::class);
@@ -58,9 +61,6 @@ class AttributesServiceProvider extends ServiceProvider
             'check' => \Rinvex\Attributes\Models\Type\Varchar::class,
             'text' => \Rinvex\Attributes\Models\Type\Varchar::class,
         ]);
-
-        // Register blade extensions
-        $this->registerBladeExtensions();
     }
 
     /**
@@ -73,7 +73,7 @@ class AttributesServiceProvider extends ServiceProvider
         $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
             // @attributes($entity)
             $bladeCompiler->directive('attributes', function ($expression) {
-                return "<?php echo {$expression}->getEntityAttributes()->map->render({$expression}, request()->accessarea())->implode('') ?: view('cortex/attributes::".request()->accessarea().".partials.no-results'); ?>";
+                return "<?php echo {$expression}->entityAttributes()->map->render({$expression}, request()->accessarea())->implode('') ?: view('cortex/attributes::".request()->accessarea().".partials.no-results'); ?>";
             });
         });
     }
