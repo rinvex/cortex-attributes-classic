@@ -20,7 +20,7 @@ Route::domain(domain())->group(function () {
                  Route::get('{attribute}')->name('show')->uses('AttributesController@show');
                  Route::get('{attribute}/edit')->name('edit')->uses('AttributesController@edit');
                  Route::put('{attribute}/edit')->name('update')->uses('AttributesController@update');
-                 Route::get('{attribute}/logs')->name('logs')->uses('AttributesController@logs');
+                 Route::match(['get', 'post'], '{attribute}/logs')->name('logs')->uses('AttributesController@logs');
                  Route::delete('{attribute}')->name('destroy')->uses('AttributesController@destroy');
              });
          });
