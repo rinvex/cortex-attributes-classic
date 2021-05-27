@@ -1,5 +1,8 @@
 # Cortex Attributes
 
+This package is NOT actively maintained! Want to jump in as a maintainer? Ping me [@omranic](https://twitter.com/omranic)
+
+
 **Cortex Attributes** is a frontend layer for the robust, intelligent, and integrated Entity-Attribute-Value model (EAV) implementation for Laravel Eloquent, with powerful underlying for managing entity attributes implicitly as relations with ease. It utilizes the power of Laravel Eloquent, with smooth and seamless integration.
 
 [![Packagist](https://img.shields.io/packagist/v/cortex/attributes.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/cortex/attributes)
